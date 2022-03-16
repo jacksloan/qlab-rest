@@ -16,13 +16,7 @@ import (
 //go:embed public
 var staticFiles embed.FS
 
-type spaHandler struct {
-	staticFS   embed.FS
-	staticPath string
-	indexPath  string
-}
-
-func (h spaHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+func handleStaticFiles(w http.ResponseWriter, r *http.Request) {
 	// get the absolute path to prevent directory traversal
 	path, err := filepath.Abs(r.URL.Path)
 	if err != nil {
@@ -31,12 +25,12 @@ func (h spaHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// prepend the path with the path to the static directory
-	path = filepath.Join(h.staticPath, path)
+	path = filepath.Join("public", path)
 
-	_, err = h.staticFS.Open(path)
+	_, err = staticFiles.Open(path)
 	if os.IsNotExist(err) {
 		// file does not exist, serve index.html
-		index, err := h.staticFS.ReadFile(filepath.Join(h.staticPath, h.indexPath))
+		index, err := staticFiles.ReadFile(filepath.Join("public", "index.html"))
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
@@ -53,21 +47,48 @@ func (h spaHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// get the subdirectory of the static dir
-	statics, err := fs.Sub(h.staticFS, h.staticPath)
+	statics, err := fs.Sub(staticFiles, "public")
 	// otherwise, use http.FileServer to serve the static dir
 	http.FileServer(http.FS(statics)).ServeHTTP(w, r)
+}
+
+type OscCommand struct {
+	Address   string
+	Arguments string
+}
+
+func handleOscCommand(w http.ResponseWriter, r *http.Request) {
+	var command OscCommand
+
+	defer r.Body.Close()
+
+	decoder := json.NewDecoder(r.Body)
+
+	err := decoder.Decode(&command)
+
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+
+	w.WriteHeader(http.StatusOK)
+
+	json.NewEncoder(w).Encode(command)
+}
+
+func handleHealthCheck(w http.ResponseWriter, r *http.Request) {
+	json.NewEncoder(w).Encode(map[string]bool{"ok": true})
 }
 
 func main() {
 	router := mux.NewRouter()
 
-	router.HandleFunc("/api/health", func(w http.ResponseWriter, r *http.Request) {
-		// an example API handler
-		json.NewEncoder(w).Encode(map[string]bool{"ok": true})
-	})
+	router.Path("/api/health").Methods(http.MethodGet).HandlerFunc(handleHealthCheck)
 
-	spa := spaHandler{staticFS: staticFiles, staticPath: "public", indexPath: "index.html"}
-	router.PathPrefix("/").Handler(spa)
+	router.Path("/api/osc").Methods(http.MethodPost).HandlerFunc(handleOscCommand)
+
+	router.PathPrefix("/").HandlerFunc(handleStaticFiles)
+
 	port := "8000"
 	srv := &http.Server{
 		Handler:      router,

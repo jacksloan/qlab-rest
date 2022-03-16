@@ -1,38 +1,26 @@
 <script lang="ts">
-  export let name: string;
-  let apiHealth: string = "loading...";
+  import * as annyang from "annyang";
+  import type { Annyang } from "annyang";
 
-  fetch("http://localhost:8000/api/health").then(async (res) => {
-    const response = await res.text();
-    apiHealth = response;
-  });
+  function listen() {
+    const speech: Annyang = annyang as any;
+    speech.addCommands({
+      hello: () => {
+        fetch("/api/osc", {
+          method: "POST",
+          body: JSON.stringify({
+            address: "/cue/1/go",
+            arguments: null,
+          }),
+        });
+      },
+    });
+    speech.addCallback("result", (event) => {
+      console.log(event);
+    });
+    speech.start();
+  }
 </script>
 
-<main>
-  <h1>Hello {name}!</h1>
-  <p>
-    Response = {apiHealth}
-  </p>
-</main>
-
-<style>
-  main {
-    text-align: center;
-    padding: 1em;
-    max-width: 240px;
-    margin: 0 auto;
-  }
-
-  h1 {
-    color: #ff3e00;
-    text-transform: uppercase;
-    font-size: 4em;
-    font-weight: 100;
-  }
-
-  @media (min-width: 640px) {
-    main {
-      max-width: none;
-    }
-  }
-</style>
+<button on:click={listen}>Start Listening</button>
+<p>Hello World</p>
