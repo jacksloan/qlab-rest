@@ -2,14 +2,25 @@
   import * as annyang from "annyang";
   import type { Annyang } from "annyang";
 
+  let cueNumber = 1;
+
   function listen() {
     const speech: Annyang = annyang as any;
     speech.addCommands({
-      hello: () => {
+      start: () => {
         fetch("/api/osc", {
           method: "POST",
           body: JSON.stringify({
-            address: "/cue/1/go",
+            address: `/cue/${cueNumber}/go`,
+            arguments: null,
+          }),
+        });
+      },
+      stop: () => {
+        fetch("/api/osc", {
+          method: "POST",
+          body: JSON.stringify({
+            address: `/cue/${cueNumber}/stop`,
             arguments: null,
           }),
         });
@@ -23,4 +34,6 @@
 </script>
 
 <button on:click={listen}>Start Listening</button>
-<p>Hello World</p>
+
+<label for="cueNumber">Cue #</label>
+<input id="cueNumber" type="text" bind:value={cueNumber} />

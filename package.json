@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "rollup -c && go build",
+    "build-run": "rollup -c && go build && ./sir-goodwin",
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear",
     "check": "svelte-check --tsconfig ./tsconfig.json"

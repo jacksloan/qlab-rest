@@ -11,10 +11,13 @@ import (
 	"time"
 
 	"github.com/gorilla/mux"
+	"github.com/hypebeast/go-osc/osc"
 )
 
 //go:embed public
 var staticFiles embed.FS
+
+var oscClient *osc.Client = osc.NewClient("localhost", 53000)
 
 func handleStaticFiles(w http.ResponseWriter, r *http.Request) {
 	// get the absolute path to prevent directory traversal
@@ -70,6 +73,12 @@ func handleOscCommand(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
+
+	msg := osc.NewMessage(command.Address)
+	if command.Arguments != "" {
+		msg.Append(command.Arguments)
+	}
+	oscClient.Send(msg)
 
 	w.WriteHeader(http.StatusOK)
 
