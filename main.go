@@ -2,37 +2,80 @@ package main
 
 import (
 	"embed"
-	"fmt"
+	"encoding/json"
 	"io/fs"
 	"log"
 	"net/http"
+	"os"
+	"path/filepath"
+	"time"
+
+	"github.com/gorilla/mux"
 )
 
 //go:embed public
-var embeddedFiles embed.FS
+var staticFiles embed.FS
 
-func hello(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "hello")
+type spaHandler struct {
+	staticFS   embed.FS
+	staticPath string
+	indexPath  string
+}
+
+func (h spaHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	// get the absolute path to prevent directory traversal
+	path, err := filepath.Abs(r.URL.Path)
+	if err != nil {
+		// if we failed to get the absolute path respond with a 400 bad request and stop
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+	// prepend the path with the path to the static directory
+	path = filepath.Join(h.staticPath, path)
+
+	_, err = h.staticFS.Open(path)
+	if os.IsNotExist(err) {
+		// file does not exist, serve index.html
+		index, err := h.staticFS.ReadFile(filepath.Join(h.staticPath, h.indexPath))
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		w.Header().Set("Content-Type", "text/html; charset=utf-8")
+		w.WriteHeader(http.StatusAccepted)
+		w.Write(index)
+		return
+	} else if err != nil {
+		// if we got an error (that wasn't that the file doesn't exist) stating the
+		// file, return a 500 internal server error and stop
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	// get the subdirectory of the static dir
+	statics, err := fs.Sub(h.staticFS, h.staticPath)
+	// otherwise, use http.FileServer to serve the static dir
+	http.FileServer(http.FS(statics)).ServeHTTP(w, r)
 }
 
 func main() {
-	fmt.Println("hello world")
+	router := mux.NewRouter()
 
-	fsys, err := fs.Sub(embeddedFiles, "public")
-	if err != nil {
-		panic(err)
+	router.HandleFunc("/api/health", func(w http.ResponseWriter, r *http.Request) {
+		// an example API handler
+		json.NewEncoder(w).Encode(map[string]bool{"ok": true})
+	})
+
+	spa := spaHandler{staticFS: staticFiles, staticPath: "public", indexPath: "index.html"}
+	router.PathPrefix("/").Handler(spa)
+	port := "8000"
+	srv := &http.Server{
+		Handler:      router,
+		Addr:         "127.0.0.1:" + port,
+		WriteTimeout: 15 * time.Second,
+		ReadTimeout:  15 * time.Second,
 	}
 
-	go func() {
-		serverMuxA := http.NewServeMux()
-		serverMuxA.HandleFunc("/hello", hello)
-		apiPort := ":8060"
-		log.Println("listening on port", apiPort)
-		http.ListenAndServe(apiPort, serverMuxA)
-	}()
-
-	appPort := ":8050"
-	http.Handle("/", http.FileServer(http.FS(fsys)))
-	log.Println("app started on port", appPort)
-	log.Fatal(http.ListenAndServe(":8050", nil))
+	log.Println("sir goodwin is listing on port", port)
+	log.Fatal(srv.ListenAndServe())
 }

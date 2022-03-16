@@ -1,18 +1,17 @@
 <script lang="ts">
   export let name: string;
-  let response: string = "loading...";
+  let apiHealth: string = "loading...";
 
-  fetch("http://localhost:8050").then(async (res) => {
-    const text = await res.text();
-    response = text;
-    console.log({ text });
+  fetch("http://localhost:8000/api/health").then(async (res) => {
+    const response = await res.text();
+    apiHealth = response;
   });
 </script>
 
 <main>
   <h1>Hello {name}!</h1>
   <p>
-    Response = {response}
+    Response = {apiHealth}
   </p>
 </main>
 
