@@ -6,6 +6,6 @@ Sir Goodwin uses the (experimental) [Web Speech API](https://developer.mozilla.o
 - one performer shows with audio/visual cues
 
 # TODO 
-- [] Initial speech-to-text proof of concept
-- [] Translate JSON to OSC messages
-- [] Connect Go app to QLab 
+- [ ] Initial speech-to-text proof of concept
+- [ ] Translate JSON to OSC messages
+- [ ] Connect Go app to QLab 
