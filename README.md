@@ -11,3 +11,4 @@ Sir Goodwin uses the (experimental) [Web Speech API](https://developer.mozilla.o
 - [X] Use speech-to-text to trigger a QLab workspace cue
 - [X] Translate JSON to OSC messages
 - [ ] Implement the QLab OSC API
+- [ ] Create a GUI for configuring/triggering QLab cues
