@@ -8,6 +8,6 @@ Sir Goodwin uses the (experimental) [Web Speech API](https://developer.mozilla.o
 # TODO 
 - [X] Trigger an API endpoint using speech-to-text
 - [X] Initial speech-to-text proof of concept
-- [ ] Use speech-to-text to trigger a QLab workspace cue
-- [ ] Translate JSON to OSC messages
-- [ ] Connect Go app to QLab 
+- [X] Use speech-to-text to trigger a QLab workspace cue
+- [X] Translate JSON to OSC messages
+- [ ] Implement the QLab OSC API
