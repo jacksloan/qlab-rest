@@ -3,7 +3,7 @@
   import type { Annyang } from "annyang";
 
   let cueNumber = 1;
-  let path = "/api/osc/cue/1/go";
+  let path = "/workspaces";
 
   function listen() {
     const speech: Annyang = annyang as any;
@@ -18,6 +18,9 @@
     const body = JSON.stringify({ arguments: args });
     return fetch(path, { method, body });
   }
+  async function get(path: string, args?: any): Promise<any> {
+    return fetch(path, { method: "GET" });
+  }
 </script>
 
 <button on:click={listen}>Start Listening</button>
@@ -26,6 +29,6 @@
 <input id="cueNumber" type="text" bind:value={cueNumber} />
 
 <hr />
-<label for="post">Cue #</label>
-<input id="post" type="text" bind:value={path} />
-<button on:click={() => post(path)}>Post</button>
+<label for="get">Cue #</label>
+<input id="get" type="text" bind:value={path} />
+<button on:click={() => get(path)}>Fetch</button>
