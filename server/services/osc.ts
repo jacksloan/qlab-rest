@@ -44,7 +44,11 @@ export class Osc {
     this.udpPort.close();
   }
 
-  async sendOscCommand(address: string, expectResponse: boolean, args?: any) {
+  async sendOscCommand(
+    address: string,
+    expectResponse: boolean,
+    args?: any
+  ): Promise<null | { status: string; address: string; data: any }> {
     const matchingMessage = this.replies$.pipe(
       filter((it) => it.address.includes(address)),
       map((msg) => JSON.parse(msg?.args?.[0]?.value || null))
