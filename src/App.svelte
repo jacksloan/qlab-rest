@@ -3,33 +3,20 @@
   import type { Annyang } from "annyang";
 
   let cueNumber = 1;
+  let path = "/api/osc/cue/1/go";
 
   function listen() {
     const speech: Annyang = annyang as any;
-    speech.addCommands({
-      start: () => {
-        fetch("/api/osc", {
-          method: "POST",
-          body: JSON.stringify({
-            address: `/cue/${cueNumber}/go`,
-            arguments: null,
-          }),
-        });
-      },
-      stop: () => {
-        fetch("/api/osc", {
-          method: "POST",
-          body: JSON.stringify({
-            address: `/cue/${cueNumber}/stop`,
-            arguments: null,
-          }),
-        });
-      },
-    });
-    speech.addCallback("result", (event) => {
-      console.log(event);
-    });
-    speech.start();
+    const start = () => post(`/api/osc/cue/${cueNumber}/go`);
+    const stop = () => post(`/api/osc/cue/${cueNumber}/stop`);
+    speech.addCommands({ start, stop });
+    speech.addCallback("result", (event) => console.log(event)), speech.start();
+  }
+
+  async function post(path: string, args?: any): Promise<any> {
+    const method = "POST";
+    const body = JSON.stringify({ arguments: args });
+    return fetch(path, { method, body });
   }
 </script>
 
@@ -37,3 +24,8 @@
 
 <label for="cueNumber">Cue #</label>
 <input id="cueNumber" type="text" bind:value={cueNumber} />
+
+<hr />
+<label for="post">Cue #</label>
+<input id="post" type="text" bind:value={path} />
+<button on:click={() => post(path)}>Post</button>
