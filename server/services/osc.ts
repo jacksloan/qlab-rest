@@ -1,4 +1,11 @@
-import { BehaviorSubject, filter, firstValueFrom, map, Observable } from "rxjs";
+import {
+  BehaviorSubject,
+  filter,
+  firstValueFrom,
+  map,
+  Observable,
+  timeout,
+} from "rxjs";
 import osc from "osc";
 
 export interface QLabResponse {
@@ -38,19 +45,12 @@ export class Osc {
   }
 
   async sendOscCommand(address: string, expectResponse: boolean, args?: any) {
-    this.udpPort.send({ address, args }, "127.0.0.1", 53000);
     const matchingMessage = this.replies$.pipe(
       filter((it) => it.address.includes(address)),
-      map((msg) => {
-        console.log(msg?.args?.[0])
-        const maybeJson = msg?.args?.[0]?.value;
-        if (!maybeJson) {
-          return null;
-        }
-        return JSON.parse(maybeJson);
-      })
+      map((msg) => JSON.parse(msg?.args?.[0]?.value || null))
     );
 
+    this.udpPort.send({ address, args }, "127.0.0.1", 53000);
     if (expectResponse) {
       return firstValueFrom(matchingMessage);
     }

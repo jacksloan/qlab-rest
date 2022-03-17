@@ -3,7 +3,7 @@
   import type { Annyang } from "annyang";
 
   let cueNumber = 1;
-  let path = "/workspaces";
+  let path = "/api/workspaces";
 
   function listen() {
     const speech: Annyang = annyang as any;
