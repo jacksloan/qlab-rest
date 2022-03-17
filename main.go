@@ -32,6 +32,8 @@ func main() {
 		ReadTimeout:  15 * time.Second,
 	}
 
+	go ReceiveFromQLab()
+
 	log.Println("sir goodwin is listing on port", port)
 	log.Fatal(srv.ListenAndServe())
 }
