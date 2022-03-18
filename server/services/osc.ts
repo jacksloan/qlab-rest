@@ -1,12 +1,11 @@
+import osc from "osc";
 import {
   BehaviorSubject,
   filter,
   firstValueFrom,
   map,
-  Observable,
-  timeout,
+  Observable
 } from "rxjs";
-import osc from "osc";
 
 export interface QLabResponse {
   address: string;
