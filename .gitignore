@@ -3,3 +3,4 @@
 /dist/server
 sir-goodwin
 .DS_Store
+openapi:*

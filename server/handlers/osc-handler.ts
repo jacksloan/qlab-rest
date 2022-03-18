@@ -4,7 +4,10 @@ import { Osc } from "../services/osc";
 export function handleOscCommand(osc: Osc) {
   return async function (req: Request, res: Response) {
     const { command } = req.params;
-    const response = await osc.sendOscCommand(`/${command}`, true);
+    const response = await osc.sendOscCommand(
+      `/${command}`,
+      req.method === "POST"
+    );
     res.send(response);
   };
 }
