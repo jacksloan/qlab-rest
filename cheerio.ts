@@ -7,11 +7,21 @@ axios.get("https://qlab.app/docs/v4/scripting/osc-dictionary-v4/").then(
       const html = response.data;
       const $ = cheerio.load(html);
       const oscDictionary = [];
-      $("h4").each(function () {
-        const it = $(this);
-        const path = it.text();
-        const description = it.nextUntil("h4").text();
-        oscDictionary.push({ path, description });
+      $("hr").each(function (i) {
+        const section = $(this).nextUntil("hr");
+        const isDictionaryEntry = (section[0] as any).name === "h4";
+        if (isDictionaryEntry) {
+          const getText = (selector: string) =>
+            section
+              .filter(selector)
+              .map(function () {
+                return $(this).text();
+              })
+              .toArray();
+          const paths = getText("h4");
+          const description = getText("p").join(" ");
+          oscDictionary.push({ paths, description });
+        }
       });
       fs.writeFileSync("osc-dictionary.json", JSON.stringify(oscDictionary));
     }
