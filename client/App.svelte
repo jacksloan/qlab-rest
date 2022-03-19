@@ -2,40 +2,40 @@
   import * as annyang from "annyang";
   import type { Annyang } from "annyang";
   import { Configuration, DefaultApi } from "./generated";
+  import { onMount } from "svelte";
 
   const basePath = "http://localhost:5000/api";
   const apiConfig = new Configuration({ basePath });
   const qlab = new DefaultApi(apiConfig);
 
-  let workspaces;
-
   function listen() {
     const speech: Annyang = annyang as any;
     const start = () => qlab.cueCueNumberGoPut({ cueNumber: "1" });
-    const stop = () => qlab.cueCueNumberStopPut({ cueNumber: "1" });
-    speech.addCommands({ start, stop });
+    speech.addCommands({ start });
     speech.addCallback("result", (event) => console.log(event)), speech.start();
   }
 
-  async function fetchWorkspaces() {
-    const res = await qlab.workspacesPost();
-    workspaces = JSON.stringify(res);
+  async function fetchCueList(id): Promise<any> {
+    const cues = await qlab.workspaceIdCueListsPost({ id });
+    console.log({ cues });
+    return cues;
   }
 
-  let cueNumber = "1";
+  async function fetchWorkspaceId(): Promise<string> {
+    const response = await qlab.workspacesPost();
+    return (response as any).data[0]?.uniqueID || "unknown";
+  }
+
+  onMount(async () => {
+    workspaceId = await fetchWorkspaceId();
+    cueList = await fetchCueList(workspaceId);
+  });
+
+  let cueList;
+  let workspaceId;
 </script>
 
-<button on:click={listen}>Start Listening</button>
-
+<h1>Welcome to sir goodwin</h1>
+<p>Workspace ID = {workspaceId}</p>
 <hr />
-<label for="cue">Cue #</label>
-<input id="cue" type="text" bind:value={cueNumber} />
-<button on:click={() => qlab.cueCueNumberGoPut({ cueNumber })}>Start</button>
-<button on:click={() => qlab.cueCueNumberStopPut({ cueNumber })}>Stop</button>
-
-<br />
-<hr />
-<button on:click={fetchWorkspaces}>Fetch workspaces</button>
-<p>
-  {workspaces}
-</p>
+{JSON.stringify(cueList)}
