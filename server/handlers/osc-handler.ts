@@ -11,7 +11,7 @@ export function handleOscCommand(osc: Osc) {
       expectResponse,
       Object.values(body || {})
     );
-    console.log({ body, baseUrl, commandAddress });
+    // console.log({ body, baseUrl, commandAddress });
     res.send(response);
   };
 }

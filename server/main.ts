@@ -6,10 +6,13 @@ import fs from "fs";
 import { handleOscCommand } from "./handlers/osc-handler";
 import { handleServerSpa as handleServeSpa } from "./handlers/spa-handler";
 import { Osc } from "./services/osc";
+import logger from "morgan";
 
 const app = express();
 const port = process.env.PORT || 5000;
 const osc = new Osc();
+
+app.use(logger("tiny"));
 
 // api
 app.use("/api", express.json({ strict: false }));
