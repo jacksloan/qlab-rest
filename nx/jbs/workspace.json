@@ -30,19 +30,19 @@
         }
       }
     },
-    "qlab-proxy": {
-      "root": "apps/qlab-proxy",
-      "sourceRoot": "apps/qlab-proxy/src",
+    "server": {
+      "root": "apps/server",
+      "sourceRoot": "apps/server/src",
       "projectType": "application",
       "targets": {
         "build": {
           "executor": "@nrwl/node:build",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/apps/qlab-proxy",
-            "main": "apps/qlab-proxy/src/main.ts",
-            "tsConfig": "apps/qlab-proxy/tsconfig.app.json",
-            "assets": ["apps/qlab-proxy/src/assets"]
+            "outputPath": "dist/apps/server",
+            "main": "apps/server/src/main.ts",
+            "tsConfig": "apps/server/tsconfig.app.json",
+            "assets": ["apps/server/src/assets"]
           },
           "configurations": {
             "production": {
@@ -51,8 +51,8 @@
               "inspect": false,
               "fileReplacements": [
                 {
-                  "replace": "apps/qlab-proxy/src/environments/environment.ts",
-                  "with": "apps/qlab-proxy/src/environments/environment.prod.ts"
+                  "replace": "apps/server/src/environments/environment.ts",
+                  "with": "apps/server/src/environments/environment.prod.ts"
                 }
               ]
             }
@@ -61,25 +61,29 @@
         "serve": {
           "executor": "@nrwl/node:execute",
           "options": {
-            "buildTarget": "qlab-proxy:build"
+            "buildTarget": "server:build"
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": ["apps/qlab-proxy/**/*.ts"]
+            "lintFilePatterns": ["apps/server/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/qlab-proxy"],
+          "outputs": ["coverage/apps/server"],
           "options": {
-            "jestConfig": "apps/qlab-proxy/jest.config.js",
+            "jestConfig": "apps/server/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
     }
-  }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/express"
+  },
+  "defaultProject": "server"
 }

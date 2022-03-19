@@ -27,10 +27,10 @@
     ]
   },
   "projects": {
-    "qlab-proxy": {
+    "app": {
       "tags": []
     },
-    "app": {
+    "server": {
       "tags": []
     }
   },
