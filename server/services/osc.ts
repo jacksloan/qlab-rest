@@ -26,20 +26,20 @@ export class Osc {
   private udpPort;
   private _replies$ = new BehaviorSubject({ address: "" });
 
-  constructor(config: { onReady: () => void }) {
+  constructor() {
     this.replies$ = this._replies$.asObservable();
     this.udpPort = new osc.UDPPort({
       localAddress: "0.0.0.0",
       localPort: 53001,
       metadata: true,
     });
-    this.udpPort.on("ready", config.onReady);
     this.udpPort.on("message", (oscMsg) => this._replies$.next(oscMsg));
     this.replies$.subscribe((oscReply) => console.log({ oscReply }));
   }
 
-  open() {
+  open(config: { onReady: () => void }) {
     this.udpPort.open();
+    this.udpPort.on("ready", config.onReady);
   }
 
   close() {

@@ -9,23 +9,26 @@ import { Osc } from "./services/osc";
 
 const app = express();
 const port = process.env.PORT || 5000;
-const osc = new Osc({
-  onReady: () => {
-    app.listen(port);
-    console.log(`app listening on ${port}`);
-  },
-});
+const osc = new Osc();
 
-app.use(express.json({ strict: false }));
+// api
+app.use("/api", express.json({ strict: false }));
 app.use("/api(/*)?", handleOscCommand(osc));
 
+// swagger
 const swaggerPath = path.join(__dirname, "..", "spec.json");
 const swaggerDocument = fs.readFileSync(swaggerPath);
 app.use("/api-docs", express.static(path.join(__dirname, "..", "api-docs")));
 app.use("/api-docs", swaggerUi.serve);
 app.get("/api-docs", swaggerUi.setup(JSON.parse(swaggerDocument.toString())));
 
+// single page app assets
 app.use(express.static(path.join(__dirname, "..", "client")));
 app.use("/", handleServeSpa);
 
-osc.open();
+osc.open({
+  onReady: () => {
+    app.listen(5000);
+    console.log(`app listening on ${port}`);
+  },
+});
