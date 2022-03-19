@@ -1,22 +1,23 @@
 import axios from "axios";
 import cheerio from "cheerio";
 import fs from "fs";
-import yaml from "yaml";
 import type { OpenAPIV3 as OpenAPI } from "openapi-types";
-import { Path } from "path-parser";
 import path from "path";
+import { Path } from "path-parser";
 
 // ## main
 //
 // scrape osc dictionary methods from the qlab website and do
 // our best to translate them into a reasonable OpenAPI Spec File
+//
+// json file is output to the dist directory
 (async () => {
   const commands: OscCommand[] = await scrapeOscCommands();
   const doc: OpenAPI.Document = convert(commands);
-  const filename = "spec.yaml";
-  write(doc, filename);
+  const fileName = "spec.json";
+  const filePath = write(doc, fileName);
   console.log("openapi spec file created: ");
-  console.log(path.join(__dirname, filename));
+  console.log(filePath);
 })();
 
 interface OscCommand {
@@ -134,6 +135,7 @@ function convert(qlab: OscCommand[]): OpenAPI.Document {
 
   return {
     openapi: "3.0.2",
+    servers: [{ url: '/api' }],
     info: {
       title: "QLab OSC Rest Proxy",
       version: "1.0",
@@ -142,13 +144,10 @@ function convert(qlab: OscCommand[]): OpenAPI.Document {
   };
 }
 
-function write(
-  document: OpenAPI.Document,
-  filename = "openapi: '3.0.2'.yml"
-): void {
-  const doc = new yaml.Document();
-  doc.contents = document;
-  fs.writeFileSync(filename, doc.toString());
+function write(document: OpenAPI.Document, fileName: string): string {
+  const filePath = path.join(__dirname, "dist", fileName);
+  fs.writeFileSync(filePath, JSON.stringify(document));
+  return filePath;
 }
 
 function fixStringForPath(string: string) {
