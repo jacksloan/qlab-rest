@@ -126,6 +126,13 @@ function convert(qlab: OscCommand[]): OpenAPI.Document {
           responses: {
             200: {
               description: "ok",
+              content: {
+                "application/json": {
+                  schema: {
+                    type: "object",
+                  },
+                },
+              },
             },
           },
         },
@@ -135,7 +142,7 @@ function convert(qlab: OscCommand[]): OpenAPI.Document {
 
   return {
     openapi: "3.0.2",
-    servers: [{ url: '/api' }],
+    servers: [{ url: "/api" }],
     info: {
       title: "QLab OSC Rest Proxy",
       version: "1.0",

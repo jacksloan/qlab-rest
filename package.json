@@ -11,7 +11,7 @@
     "serve-binary": "./sir-goodwin",
     "scrape": "ts-node ./scraper.ts",
     "package": "pkg .",
-    "codegen": "openapi-generator-cli generate -g typescript-fetch -i ./client/spec.json -o ./client/generated",
+    "codegen": "openapi-generator-cli generate -g typescript-fetch -i ./dist/spec.json -o ./client/generated",
     "dev": "rollup -c -w",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
