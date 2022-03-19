@@ -38,7 +38,7 @@ async function scrapeOscCommands(): Promise<OscCommand[]> {
 
       const $ = cheerio.load(html);
 
-      return $("hr")
+      const commands = $("hr")
         .map(function (i) {
           const section = $(this).nextUntil("hr");
           const isDictionaryEntry = (section[0] as any).name === "h4";
@@ -71,6 +71,9 @@ async function scrapeOscCommands(): Promise<OscCommand[]> {
         })
         .filter(Boolean)
         .toArray() as any as OscCommand[];
+
+      console.log(`${commands.length} commands scraped from qlab osc dictionary`);
+      return commands;
     }
   } catch (error) {
     console.log(error);
