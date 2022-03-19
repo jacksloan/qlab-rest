@@ -7,7 +7,7 @@
     "build:server": "tsc --project tsconfig.server.json",
     "build": "run-s build:client build:server",
     "build-all": "run-s scrape codegen build",
-    "start": "run-s build package serve:binary",
+    "start": "run-s build package serve-binary",
     "serve-binary": "./sir-goodwin",
     "scrape": "ts-node ./scraper.ts",
     "package": "pkg .",
