@@ -6,15 +6,19 @@ import type { OpenAPIV3 as OpenAPI } from "openapi-types";
 import { Path } from "path-parser";
 import path from "path";
 
-// main
+// ## main
+//
+// scrape osc dictionary methods from the qlab website and do
+// our best to translate them into a reasonable OpenAPI Spec File
 (async () => {
   const commands: OscCommand[] = await scrapeOscCommands();
   const doc: OpenAPI.Document = convert(commands);
-  const filename = "openapi: '3.0.2'.yml";
+  const filename = "spec.yaml";
   write(doc, filename);
-  console.log('openapi spec file created: ')
+  console.log("openapi spec file created: ");
   console.log(path.join(__dirname, filename));
 })();
+
 interface OscCommand {
   path: string;
   pathVariables: string[];

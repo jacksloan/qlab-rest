@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build:client": "npm run codegen && rollup -c",
+    "build:client": "rollup -c",
     "build:server": "tsc --project tsconfig.server.json",
     "build": "npm run build:client && npm run build:server",
     "start": "npm run build && npm run package && ./sir-goodwin",
-    "package": "rm ./sir-goodwin && pkg .",
-    "codegen": "npm run codegen && openapi-generator-cli generate -g typescript-fetch -i \"./openapi: '3.0.2'.yml\" -o ./generated",
+    "scrape": "ts-node ./scraper.ts",
+    "package": "pkg .",
+    "codegen": "openapi-generator-cli generate -g typescript-fetch -i spec.yaml -o ./client/generated",
     "dev": "rollup -c -w",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },

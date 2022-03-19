@@ -1,34 +1,28 @@
 <script lang="ts">
   import * as annyang from "annyang";
   import type { Annyang } from "annyang";
+  import { Configuration, DefaultApi } from "./generated";
 
-  let cueNumber = 1;
-  let path = "/api/workspaces";
+  const basePath = "http://localhost:5000/api";
+  const apiConfig = new Configuration({ basePath });
+  const qlab = new DefaultApi(apiConfig);
 
   function listen() {
     const speech: Annyang = annyang as any;
-    const start = () => post(`/api/osc/cue/${cueNumber}/go`);
-    const stop = () => post(`/api/osc/cue/${cueNumber}/stop`);
+    const start = () => qlab.cueCueNumberGoPut({ cueNumber: "1" });
+    const stop = () => qlab.cueCueNumberStopPut({ cueNumber: "1" });
     speech.addCommands({ start, stop });
     speech.addCallback("result", (event) => console.log(event)), speech.start();
   }
 
-  async function post(path: string, args?: any): Promise<any> {
-    const method = "POST";
-    const body = JSON.stringify({ arguments: args });
-    return fetch(path, { method, body });
-  }
-  async function get(path: string, args?: any): Promise<any> {
-    return fetch(path, { method: "GET" });
-  }
+  let cueNumber = "1";
 </script>
 
 <button on:click={listen}>Start Listening</button>
 
-<label for="cueNumber">Cue #</label>
-<input id="cueNumber" type="text" bind:value={cueNumber} />
-
 <hr />
-<label for="get">Cue #</label>
-<input id="get" type="text" bind:value={path} />
-<button on:click={() => get(path)}>Fetch</button>
+<label for="cue">Cue #</label>
+<input id="cue" type="text" bind:value={cueNumber} />
+<button on:click={() => qlab.cueCueNumberGoPut({ cueNumber })}>Start</button>
+<button on:click={() => qlab.cueCueNumberStopPut({ cueNumber })}>Stop</button>
+

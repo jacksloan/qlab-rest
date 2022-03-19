@@ -3,5 +3,5 @@
 /dist/server
 sir-goodwin
 .DS_Store
-openapi:*
+spec.yaml
 generated

@@ -14,7 +14,7 @@ const osc = new Osc({
   },
 });
 app.use(express.json({ strict: false }));
-app.use("/api/:command", handleOscCommand(osc));
+app.use("/api(/*)?", handleOscCommand(osc));
 app.use(express.static(path.join(__dirname, "..", "client")));
 app.use("/", handleServeSpa);
 
