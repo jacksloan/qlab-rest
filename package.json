@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build:client": "rollup -c",
+    "build:client": "npm run codegen && rollup -c",
     "build:server": "tsc --project tsconfig.server.json",
     "build": "npm run build:client && npm run build:server",
     "start": "npm run build && npm run package && ./sir-goodwin",
     "package": "rm ./sir-goodwin && pkg .",
+    "codegen": "npm run codegen && openapi-generator-cli generate -g typescript-fetch -i \"./openapi: '3.0.2'.yml\" -o ./generated",
     "dev": "rollup -c -w",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
@@ -21,6 +22,7 @@
     ]
   },
   "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^2.4.26",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
     "@rollup/plugin-typescript": "^8.0.0",
