@@ -6,7 +6,11 @@ export function handleOscCommand(osc: Osc) {
     const { body, baseUrl } = req;
     const commandAddress = baseUrl.split("/api")[1];
     const expectResponse = req.method === "POST";
-    const response = await osc.sendOscCommand(commandAddress, expectResponse);
+    const response = await osc.sendOscCommand(
+      commandAddress,
+      expectResponse,
+      Object.values(body || {})
+    );
     console.log({ body, baseUrl, commandAddress });
     res.send(response);
   };
