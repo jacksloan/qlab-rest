@@ -1,0 +1,85 @@
+{
+  "version": 2,
+  "projects": {
+    "app": {
+      "root": "apps/app",
+      "projectType": "application",
+      "sourceRoot": "apps/app/src",
+      "targets": {
+        "build": {
+          "executor": "@nxext/sveltekit:sveltekit",
+          "options": {
+            "command": "build"
+          }
+        },
+        "serve": {
+          "executor": "@nxext/sveltekit:sveltekit",
+          "options": {
+            "command": "dev"
+          }
+        },
+        "add": {
+          "executor": "@nxext/sveltekit:add"
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/app/**/*.{ts,svelte,spec.ts}"]
+          }
+        }
+      }
+    },
+    "qlab-proxy": {
+      "root": "apps/qlab-proxy",
+      "sourceRoot": "apps/qlab-proxy/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/qlab-proxy",
+            "main": "apps/qlab-proxy/src/main.ts",
+            "tsConfig": "apps/qlab-proxy/tsconfig.app.json",
+            "assets": ["apps/qlab-proxy/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/qlab-proxy/src/environments/environment.ts",
+                  "with": "apps/qlab-proxy/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "qlab-proxy:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/qlab-proxy/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/qlab-proxy"],
+          "options": {
+            "jestConfig": "apps/qlab-proxy/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  }
+}

@@ -5,3 +5,6 @@ sir-goodwin
 .DS_Store
 spec.yaml
 generated
+nx/jbs/apps/app/node_modules
+nx/jbs/apps/app/.svelte-kit
+nx/jbs/apps/app/build
