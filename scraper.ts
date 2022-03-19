@@ -49,21 +49,15 @@ async function scrapeOscCommands(): Promise<OscCommand[]> {
                   return $(this).text();
                 })
                 .toArray();
-            const pathElements = (getElements("h4")[0] as any as string)
-              .replace(/{/g, ":") // {var} => :var
-              .replace(/}/g, "")
-              .replace(/\+/g, "plus") // temp path-parser substitution
-              .replace(/\-/g, "minus") // temp path-parser substitution
-              .trim()
-              .split(" ");
-            let [path, ...rest] = pathElements;
-            const pathVariables = new Path(path).params;
-
-            // revert temp substitutions
-            path = path.replace(/plus/g, "+").replace(/minus/g, "-");
+            const h4 = getElements("h4")[0] as any as string;
+            const pathElements = h4.trim().split(" ");
+            const [path, ...rest] = pathElements;
+            const pathVariables = new Path(fixStringForPath(path)).params;
 
             const commandArguments =
-              rest.length < 1 ? [] : new Path(`/${rest.join("/")}`).params;
+              rest.length < 1
+                ? []
+                : new Path(`/${fixStringForPath(rest.join("/"))}`).params;
 
             const description = getElements(":not(h4)").join(" ");
             return <OscCommand>{
@@ -155,4 +149,12 @@ function write(
   const doc = new yaml.Document();
   doc.contents = document;
   fs.writeFileSync(filename, doc.toString());
+}
+
+function fixStringForPath(string: string) {
+  return string
+    .replace(/{/g, ":")
+    .replace(/}/g, "")
+    .replace(/\+/g, "plus")
+    .replace(/\-/g, "minus");
 }

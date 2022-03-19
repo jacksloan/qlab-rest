@@ -4,12 +4,10 @@ import { Osc } from "../services/osc";
 export function handleOscCommand(osc: Osc) {
   return async function (req: Request, res: Response) {
     const { body, baseUrl } = req;
-    console.log({ body, baseUrl });
     const commandAddress = baseUrl.split("/api")[1];
-    const response = await osc.sendOscCommand(
-      `/${commandAddress}`,
-      req.method === "POST"
-    );
+    const expectResponse = req.method === "POST";
+    const response = await osc.sendOscCommand(commandAddress, expectResponse);
+    console.log({ body, baseUrl, commandAddress });
     res.send(response);
   };
 }
