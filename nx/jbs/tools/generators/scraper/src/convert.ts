@@ -64,6 +64,9 @@ export function convert(qlab: OscCommand[]): OpenAPI.Document {
     };
   }, {});
 
+  // delete duplicate path
+  delete paths['/cue/{cue_number}sliceMarkers'];
+
   return {
     openapi: '3.0.2',
     servers: [{ url: '/api' }],
