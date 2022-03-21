@@ -4,7 +4,7 @@ import {
   joinPathFragments,
   logger,
   readProjectConfiguration,
-  Tree
+  Tree,
 } from '@nrwl/devkit';
 import { libraryGenerator } from '@nrwl/workspace/generators';
 import { OpenAPI } from 'openapi-types';
@@ -22,6 +22,7 @@ export default async function (
   const commands: OscCommand[] = await scrapeCommands();
   logger.log(`${commands.length} commands scraped from qlab osc dictionary`);
   const doc: OpenAPI.Document = convert(commands);
+  delete doc.paths['/cue/{cue_number}sliceMarkers'];
   const fileName = schema.filename || 'openapi.json';
   const sourceRoot = readProjectConfiguration(tree, schema.name).root;
   tree.write(joinPathFragments(sourceRoot, fileName), JSON.stringify(doc));
