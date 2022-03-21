@@ -19,7 +19,12 @@ export function codegen(
 
 function writeFetch(path: string, pathObject: OpenAPI.PathItemObject): string {
   // TODO finish implementing
-  const name = path.replace(/\//g, '').replace(/\{/g, '').replace(/\}/g, '');
+  const name = path
+    .replace(/\//g, '')
+    .replace(/\{/g, '')
+    .replace(/\}/g, '')
+    .replace(/\+/g, 'plus')
+    .replace(/\-/g, 'minus');
   return `
 export async function ${name}(): Promise<any> {
     const res = await fetch('${path}', {
