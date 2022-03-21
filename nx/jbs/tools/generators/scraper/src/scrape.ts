@@ -48,9 +48,6 @@ export async function scrapeCommands(
         .filter(Boolean)
         .toArray() as any as OscCommand[];
 
-      console.log(
-        `${commands.length} commands scraped from qlab osc dictionary`
-      );
       return commands;
     }
   } catch (error) {
