@@ -27,6 +27,7 @@
     "@nrwl/tao": "12.10.1",
     "@nrwl/workspace": "^12.10.1",
     "@nxext/sveltekit": "^13.0.0-next.2",
+    "@openapitools/openapi-generator-cli": "^2.4.26",
     "@sveltejs/adapter-node": "next",
     "@sveltejs/adapter-static": "^1.0.0-next.29",
     "@sveltejs/kit": "next",
