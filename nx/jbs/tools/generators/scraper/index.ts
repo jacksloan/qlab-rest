@@ -26,7 +26,7 @@ export default async function (
   // const sourceRoot = readProjectConfiguration(tree, schema.name).root;
   // tree.write(joinPathFragments(sourceRoot, fileName), JSON.stringify(doc));
   tree.write(
-    joinPathFragments('dist', 'apps', 'app', 'openapi.json'),
+    joinPathFragments('dist', 'apps', 'openapi.json'),
     JSON.stringify(doc)
   );
   // codegen(tree, schema, doc);
