@@ -23,7 +23,7 @@ function writeFetch(path: string, pathObject: OpenAPI.PathItemObject): string {
   return `
 export async function ${name}(): Promise<any> {
     const res = await fetch('${path}', {
-        method: ${pathObject.post ? 'post' : 'put'},
+        method: '${pathObject.post ? 'post' : 'put'}',
     });
     await res.json();
 }
