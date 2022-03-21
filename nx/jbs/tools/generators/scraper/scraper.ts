@@ -11,23 +11,23 @@ import { Path } from "path-parser";
 // our best to translate them into a reasonable OpenAPI Spec File
 //
 // json file is output to the dist directory
-(async () => {
-  const commands: OscCommand[] = await scrapeOscCommands();
-  const doc: OpenAPI.Document = convert(commands);
-  const fileName = "spec.json";
-  const filePath = write(doc, fileName);
-  console.log("openapi spec file created: ");
-  console.log(filePath);
-})();
+// (async () => {
+//   const commands: OscCommand[] = await scrapeOscCommands();
+//   const doc: OpenAPI.Document = convert(commands);
+//   const fileName = "spec.json";
+//   const filePath = write(doc, fileName);
+//   console.log("openapi spec file created: ");
+//   console.log(filePath);
+// })();
 
-interface OscCommand {
+export interface OscCommand {
   path: string;
   pathVariables: string[];
   commandArguments: string[];
   description: string;
 }
 
-async function scrapeOscCommands(): Promise<OscCommand[]> {
+export async function scrapeOscCommands(): Promise<OscCommand[]> {
   try {
     const response = await axios.get(
       "https://qlab.app/docs/v4/scripting/osc-dictionary-v4/"
@@ -80,7 +80,7 @@ async function scrapeOscCommands(): Promise<OscCommand[]> {
   }
 }
 
-function convert(qlab: OscCommand[]): OpenAPI.Document {
+export function convert(qlab: OscCommand[]): OpenAPI.Document {
   const paths = qlab.reduce((acc, curr) => {
     const { path, description, commandArguments, pathVariables } = curr;
     const method = description.toLocaleLowerCase().includes("return")
