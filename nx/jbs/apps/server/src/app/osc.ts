@@ -1,5 +1,5 @@
-import * as _ from "lodash";
-import osc from "osc";
+import * as _ from 'lodash';
+import * as osc from 'osc';
 import {
   BehaviorSubject,
   catchError,
@@ -9,7 +9,7 @@ import {
   Observable,
   of,
   timeout,
-} from "rxjs";
+} from 'rxjs';
 
 export interface QLabResponse {
   address: string;
@@ -25,12 +25,12 @@ export class Osc {
   public replies$: Observable<QLabResponse>;
   private udpPort;
 
-  private _replies$ = new BehaviorSubject({ address: "" });
+  private _replies$ = new BehaviorSubject({ address: '' });
 
-  constructor(private host = "127.0.0.1", private port = 53000) {
+  constructor(private host = '127.0.0.1', private port = 53000) {
     this.replies$ = this._replies$.asObservable();
     this.udpPort = new osc.UDPPort({
-      localAddress: "0.0.0.0",
+      localAddress: '0.0.0.0',
       localPort: 53001,
       metadata: true,
     });
@@ -51,7 +51,7 @@ export class Osc {
     address,
     args?: {
       // int, string, float, or blob
-      type: "i" | "s" | "f" | "b";
+      type: 'i' | 's' | 'f' | 'b';
       value: string | number;
     }[]
   ) {
@@ -59,11 +59,11 @@ export class Osc {
   }
 
   onReady(handler: () => void) {
-    this.udpPort.on("ready", handler);
+    this.udpPort.on('ready', handler);
   }
 
   onMessage(handler: (oscMsc) => void) {
-    this.udpPort.on("message", handler);
+    this.udpPort.on('message', handler);
   }
 
   async waitForReply(address: string) {
@@ -86,7 +86,7 @@ export class Osc {
       (args || []).length < 1
         ? undefined
         : args.map((value) => {
-            const type = _.isNumber(value) ? ("i" as const) : ("s" as const);
+            const type = _.isNumber(value) ? ('i' as const) : ('s' as const);
             return { type, value };
           });
 

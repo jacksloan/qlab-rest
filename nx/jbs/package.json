@@ -6,8 +6,9 @@
     "start": "nx serve",
     "build": "nx run-many --target build --all",
     "package": "pkg .",
-    "run": "jbs",
-    "bpr": "run-s build package run",
+    "copy-spec": "cp openapi.json dist/apps/openapi.json",
+    "run": "./jbs",
+    "bpr": "run-s build copy-spec package run",
     "test": "nx test"
   },
   "private": true,
@@ -64,10 +65,11 @@
   "bin": "dist/apps/server/main.js",
   "pkg": {
     "targets": [
-      "node16-win-x64"
+      "node16-macos-arm64"
     ],
     "assets": [
-      "dist/apps/app/**/*"
+      "dist/apps/app/**/*",
+      "dist/apps/openapi.json"
     ]
   }
 }

@@ -1,9 +1,9 @@
 import * as express from 'express';
 import * as path from 'path';
 import { Osc } from './app/osc';
-import logger from 'morgan';
+import * as logger from 'morgan';
 import { handleOscCommand } from './app/osc-handler';
-import swaggerUi from 'swagger-ui-express';
+import * as swaggerUi from 'swagger-ui-express';
 import * as fs from 'fs';
 
 const app = express();
@@ -29,6 +29,6 @@ app.use('/', (req, res) =>
 );
 
 const server = app.listen(port, () =>
-  console.log(`Listening at http://localhost:${port}/api`)
+  console.log(`Listening at http://localhost:${port}`)
 );
 server.on('error', console.error);

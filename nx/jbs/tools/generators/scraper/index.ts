@@ -1,14 +1,7 @@
 import {
-  formatFiles,
-  installPackagesTask,
-  joinPathFragments,
-  logger,
-  readProjectConfiguration,
-  Tree,
+  formatFiles, logger, Tree
 } from '@nrwl/devkit';
-import { libraryGenerator } from '@nrwl/workspace/generators';
 import { OpenAPI } from 'openapi-types';
-import { codegen } from './src/codegen';
 import { convert } from './src/convert';
 import { OscCommand } from './src/model';
 import { scrapeCommands } from './src/scrape';
@@ -25,10 +18,7 @@ export default async function (
   // const fileName = schema.filename || 'openapi.json';
   // const sourceRoot = readProjectConfiguration(tree, schema.name).root;
   // tree.write(joinPathFragments(sourceRoot, fileName), JSON.stringify(doc));
-  tree.write(
-    joinPathFragments('dist', 'apps', 'openapi.json'),
-    JSON.stringify(doc)
-  );
+  tree.write('openapi.json', JSON.stringify(doc));
   // codegen(tree, schema, doc);
   await formatFiles(tree);
   // return () => installPackagesTask(tree);
