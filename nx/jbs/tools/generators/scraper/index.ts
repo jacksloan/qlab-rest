@@ -22,8 +22,8 @@ export default async function (
   const commands: OscCommand[] = await scrapeCommands();
   logger.log(`${commands.length} commands scraped from qlab osc dictionary`);
   const doc: OpenAPI.Document = convert(commands);
-  const fileName = schema.filename || 'openapi.json';
-  const sourceRoot = readProjectConfiguration(tree, schema.name).root;
+  // const fileName = schema.filename || 'openapi.json';
+  // const sourceRoot = readProjectConfiguration(tree, schema.name).root;
   // tree.write(joinPathFragments(sourceRoot, fileName), JSON.stringify(doc));
   tree.write(
     joinPathFragments('dist', 'apps', 'app', 'openapi.json'),
