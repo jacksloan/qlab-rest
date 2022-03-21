@@ -21,8 +21,8 @@ function writeFetch(path: string, pathObject: OpenAPI.PathItemObject): string {
   // TODO finish implementing
   const name = path.replace('/', '').replace('{', '').replace('}', '');
   return `
-export async function ${name}}(): Promise<any> {
-    const res = await fetch(${path}, {
+export async function ${name}(): Promise<any> {
+    const res = await fetch('${path}', {
         method: ${pathObject.post ? 'post' : 'put'},
     });
     await res.json();
