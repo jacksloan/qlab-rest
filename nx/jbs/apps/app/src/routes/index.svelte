@@ -1,2 +1,19 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+  import { onMount } from 'svelte';
+
+  async function getWorkspaces() {
+    const res = await fetch('http://localhost:5000/api/workspaces', {
+      method: 'post',
+    });
+    workspaces = await res.text();
+  }
+
+  let workspaces = 'loading...';
+
+  onMount(() => {
+    getWorkspaces();
+  });
+</script>
+
+<h1>Sir goodwin</h1>
+<p>{workspaces}</p>

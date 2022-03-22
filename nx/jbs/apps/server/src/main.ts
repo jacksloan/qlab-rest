@@ -5,11 +5,13 @@ import * as logger from 'morgan';
 import { handleOscCommand } from './app/osc-handler';
 import * as swaggerUi from 'swagger-ui-express';
 import * as fs from 'fs';
+import * as cors from 'cors';
 
 const app = express();
 const port = process.env.PORT || 5000;
 const osc = new Osc();
 app.use(logger('tiny'));
+app.use(cors());
 
 // api
 app.use('/api', express.json({ strict: false }));
@@ -28,7 +30,10 @@ app.use('/', (req, res) =>
   res.sendFile(path.resolve(__dirname, '..', 'app', 'build', 'index.html'))
 );
 
-const server = app.listen(port, () =>
-  console.log(`Listening at http://localhost:${port}`)
-);
-server.on('error', console.error);
+osc.open({
+  onReady: () => {
+    app
+      .listen(port, () => console.log(`Listening at http://localhost:${port}`))
+      .on('error', console.error);
+  },
+});
