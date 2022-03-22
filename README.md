@@ -5,7 +5,7 @@ Sir Goodwin uses the (experimental) [Web Speech API](https://developer.mozilla.o
 # Possible use cases
 
 - interactive story telling
-- one performer shows with audio/visual cues
+- solo theatre performances with audio/visual cues
 
 # TODO
 
