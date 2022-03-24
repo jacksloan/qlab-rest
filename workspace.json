@@ -35,16 +35,17 @@
       "sourceRoot": "apps/server/src",
       "projectType": "application",
       "targets": {
-        "build": {
+        "build-app": {
           "executor": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
               "npm run copy-spec",
+              "npm run copy-swagger-css",
               "npx nx build-app server"
             ] 
           }
         },
-        "build-app": {
+        "build": {
           "executor": "@nrwl/node:build",
           "outputs": ["{options.outputPath}"],
           "options": {
