@@ -1,5 +1,5 @@
 {
-  "name": "jbs",
+  "name": "sir-goodwin",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -8,7 +8,7 @@
     "package": "pkg .",
     "copy-spec": "cp openapi.json dist/apps/openapi.json",
     "copy-swagger-css": "mkdir -p dist/apps/api-docs/ && cp node_modules/swagger-ui-dist/swagger-ui.css dist/apps/api-docs/",
-    "run": "./jbs",
+    "run": "./sir-goodwin",
     "bpr": "run-s build package run",
     "test": "nx test"
   },
