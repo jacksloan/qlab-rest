@@ -9,7 +9,7 @@
     "copy-spec": "cp openapi.json dist/apps/openapi.json",
     "copy-swagger-css": "cp node_modules/swagger-ui-dist/swagger-ui.css dist/apps/openapi.json",
     "run": "./jbs",
-    "bpr": "run-s build copy-spec package run",
+    "bpr": "run-s build package run",
     "test": "nx test"
   },
   "private": true,
