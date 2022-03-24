@@ -35,6 +35,7 @@ export class Osc {
       metadata: true,
     });
     this.onMessage((oscMsg) => this._replies$.next(oscMsg));
+    this.onError(console.error);
     // this.replies$.subscribe((oscReply) => console.log(oscReply.args));
   }
 
@@ -64,6 +65,10 @@ export class Osc {
 
   onMessage(handler: (oscMsc) => void) {
     this.udpPort.on('message', handler);
+  }
+
+  onError(handler: (error) => void) {
+    this.udpPort.on('error', handler);
   }
 
   async waitForReply(address: string) {
