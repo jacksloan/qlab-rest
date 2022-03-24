@@ -28,7 +28,8 @@
             "lintFilePatterns": ["apps/app/**/*.{ts,svelte,spec.ts}"]
           }
         }
-      }
+      },
+      "tags": []
     },
     "server": {
       "root": "apps/server",
@@ -42,11 +43,11 @@
               "npm run copy-spec",
               "npm run copy-swagger-css",
               "npx nx build-app server"
-            ] 
+            ]
           }
         },
         "build": {
-          "executor": "@nrwl/node:build",
+          "executor": "@nrwl/node:webpack",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/server",
@@ -69,7 +70,7 @@
           }
         },
         "serve": {
-          "executor": "@nrwl/node:execute",
+          "executor": "@nrwl/node:node",
           "options": {
             "buildTarget": "server:build"
           }
@@ -89,11 +90,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/express"
-  },
-  "defaultProject": "server"
+  }
 }

@@ -2,6 +2,7 @@ sir-goodwin
 jbs
 .DS_Store
 apps/app/.svelte-kit
+apps/app/node_modules
 apps/app/build
 
 # See http://help.github.com/ignore-files/ for more about ignoring files.
