@@ -6,16 +6,19 @@
     "start": "nx serve",
     "build": "nx run-many --target build --all --skip-nx-cache",
     "package": "pkg .",
+    "codegen": "openapi-generator-cli generate --generator-key custom",
     "copy-spec": "cp openapi.json dist/apps/openapi.json",
     "copy-swagger-css": "mkdir -p dist/apps/api-docs/ && cp node_modules/swagger-ui-dist/swagger-ui.css dist/apps/api-docs/",
     "run": "./sir-goodwin",
     "bpr": "run-s build package run",
-    "test": "nx test"
+    "test": "nx test",
+    "preinstall": "npm run codegen"
   },
   "private": true,
   "dependencies": {
     "cors": "^2.8.5",
     "express": "4.17.2",
+    "@jbs/codegen": "file:./codegen",
     "morgan": "^1.10.0",
     "osc": "^2.4.2",
     "rxjs": "^7.5.5",

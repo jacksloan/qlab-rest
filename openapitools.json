@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/@openapitools/openapi-generator-cli/config.schema.json",
+  "spaces": 2,
+  "generator-cli": {
+    "version": "5.4.0",
+    "generators": {
+      "custom": {
+        "generatorName": "typescript-fetch",
+        "output": "codegen",
+        "glob": "openapi.json",
+        "additionalProperties": {
+          "npmName": "@jbs/codegen",
+          "npmVersion": "1.0.0"
+        }
+      }
+    }
+  }
+}

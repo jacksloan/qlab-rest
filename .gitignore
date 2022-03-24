@@ -5,6 +5,9 @@ apps/app/.svelte-kit
 apps/app/node_modules
 apps/app/build
 
+#codegen
+codegen
+
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output

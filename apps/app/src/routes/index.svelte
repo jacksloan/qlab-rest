@@ -1,11 +1,14 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { DefaultApi, Configuration } from '@jbs/codegen/dist';
+
+  const qlab = new DefaultApi(
+    new Configuration({ basePath: 'http://localhost:5000/api' })
+  );
 
   async function getWorkspaces() {
-    const res = await fetch('http://localhost:5000/api/workspaces', {
-      method: 'post',
-    });
-    workspaces = await res.text();
+    const res = await qlab.workspacesPost();
+    workspaces = JSON.stringify(res);
   }
 
   let workspaces = 'loading...';
