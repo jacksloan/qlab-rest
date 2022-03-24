@@ -6,6 +6,7 @@ import { handleOscCommand } from './app/osc-handler';
 import * as swaggerUi from 'swagger-ui-express';
 import * as fs from 'fs';
 import * as cors from 'cors';
+import * as open from 'open'
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -33,7 +34,10 @@ app.use('/', (req, res) =>
 osc.open({
   onReady: () => {
     app
-      .listen(port, () => console.log(`Listening at http://localhost:${port}`))
+      .listen(port, () => {
+        console.log(`Listening at http://localhost:${port}`);
+        open('http://localhost:5000');
+      })
       .on('error', console.error);
   },
 });
