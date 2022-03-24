@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx serve",
+    "start": "nx run-many --target serve --projects app,server --parallel",
+    "start:app": "nx serve app",
+    "start:server": "nx serve server",
     "build": "nx run-many --target build --all --skip-nx-cache",
     "package": "pkg .",
     "codegen": "openapi-generator-cli generate --generator-key custom",

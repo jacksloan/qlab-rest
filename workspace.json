@@ -72,7 +72,7 @@
         "serve": {
           "executor": "@nrwl/node:node",
           "options": {
-            "buildTarget": "server:build"
+            "buildTarget": "server:build-app"
           }
         },
         "lint": {
