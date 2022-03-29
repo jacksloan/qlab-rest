@@ -7,6 +7,15 @@
       "sourceRoot": "apps/app/src",
       "targets": {
         "build": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "npx nx build-app app",
+              "cp -R dist/apps/app/build/ apps/go-server/build/"
+            ]
+          }
+        },
+        "build-app": {
           "executor": "@nxext/sveltekit:sveltekit",
           "options": {
             "command": "build"
@@ -35,6 +44,7 @@
       "root": "apps/go-server",
       "projectType": "application",
       "sourceRoot": "apps/go-server",
+      "implicitDependencies": ["app"],
       "targets": {
         "build": {
           "executor": "@nx-go/nx-go:build",

@@ -1,12 +1,22 @@
 package main
 
-import "fmt"
+import (
+	"embed"
+	"fmt"
+	"log"
+	"path"
+)
 
-func Hello(name string) string {
-	result := "Hello " + name
-	return result
-}
+//go:embed all:build/*
+var staticFs embed.FS
 
 func main() {
-	fmt.Println(Hello("go-server"))
+	files, err := staticFs.ReadDir(path.Join("build", "_app", "assets", "pages"))
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	for _, file := range files {
+		fmt.Println(file.Name(), file.IsDir())
+	}
 }

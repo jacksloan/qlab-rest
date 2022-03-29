@@ -4,7 +4,7 @@ jbs
 apps/app/.svelte-kit
 apps/app/node_modules
 apps/app/build
-
+apps/go-server/build
 #codegen
 codegen
 
