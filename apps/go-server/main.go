@@ -2,7 +2,6 @@ package main
 
 import (
 	"embed"
-	"encoding/json"
 	"io/fs"
 	"log"
 	"net/http"
@@ -11,14 +10,16 @@ import (
 	"time"
 
 	"github.com/gorilla/mux"
+	"github.com/hypebeast/go-osc/osc"
 )
 
 //go:embed all:build/*
 var staticFiles embed.FS
+var oscClient *osc.Client = osc.NewClient("localhost", 53000)
 
 func main() {
 	router := mux.NewRouter()
-	router.Path(`/api/{rest:[a-zA-Z0-9=\-\/]+}`).HandlerFunc(handleApi)
+	router.Path(`/api/{rest:[a-zA-Z0-9=\-\/]+}`).Methods(http.MethodPost, http.MethodGet).HandlerFunc(handleOscCommand)
 	router.PathPrefix("/").HandlerFunc(handleStaticFiles)
 	port := "5000"
 	srv := &http.Server{
@@ -31,12 +32,33 @@ func main() {
 	log.Fatal(srv.ListenAndServe())
 }
 
-func handleApi(w http.ResponseWriter, r *http.Request) {
+type OscCommand struct {
+	Arguments string
+}
+
+func handleOscCommand(w http.ResponseWriter, r *http.Request) {
+	// var command OscCommand
+
+	defer r.Body.Close()
+
+	params := mux.Vars(r)
+	address := "/" + params["rest"]
+	// decoder := json.NewDecoder(r.Body)
+
+	// if err := decoder.Decode(&command); err != nil {
+	// 	http.Error(w, err.Error(), http.StatusBadRequest)
+	// 	return
+	// }
+
+	msg := osc.NewMessage(address)
+	// if command.Arguments != "" {
+	// 	msg.Append(command.Arguments)
+	// }
+
+	oscClient.Send(msg)
+
 	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(http.StatusAccepted)
-	jsonMap := make(map[string]string)
-	jsonMap["path"] = r.URL.Path
-	json.NewEncoder(w).Encode(jsonMap)
+	w.WriteHeader(http.StatusOK)
 }
 
 func handleStaticFiles(w http.ResponseWriter, r *http.Request) {
