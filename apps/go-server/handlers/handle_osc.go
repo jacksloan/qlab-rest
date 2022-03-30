@@ -1,26 +1,26 @@
 package handlers
 
 import (
-	"fmt"
 	"net/http"
-	"time"
+
+	"goodwin/apps/go-server/qlab"
 
 	"github.com/gorilla/mux"
-	"github.com/hypebeast/go-osc/osc"
 )
 
 type OscCommand struct {
 	Arguments string
 }
 
-func HandleOscCommand(oscClient *osc.Client, replies map[string][]chan string) func(w http.ResponseWriter, r *http.Request) {
+func HandleOsc(q *qlab.Qlab) func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
 		// var command OscCommand
 
 		defer r.Body.Close()
 
 		params := mux.Vars(r)
-		address := "/" + params["rest"]
+		oscAddress := "/" + params["rest"]
+		// shouldAwaitReply := r.URL.Query().Get("has-reply") == "true"
 		// decoder := json.NewDecoder(r.Body)
 
 		// if err := decoder.Decode(&command); err != nil {
@@ -28,24 +28,14 @@ func HandleOscCommand(oscClient *osc.Client, replies map[string][]chan string) f
 		// 	return
 		// }
 
-		msg := osc.NewMessage(address)
 		// if command.Arguments != "" {
 		// 	msg.Append(command.Arguments)
 		// }
-		ch := make(chan string)
-		replies[address] = append(replies[address], ch)
-
-		select {
-		case res := <-ch:
-			fmt.Println("chan response", res)
-		case <-time.After(1 * time.Second):
-			fmt.Println("chan timeout")
-		}
-
-		oscClient.Send(msg)
+		reply := q.Send(oscAddress, true, 3)
 
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusOK)
+		w.Write([]byte(reply))
 	}
 
 }
