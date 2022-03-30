@@ -24,7 +24,6 @@ func New() *Qlab {
 }
 
 func (q *Qlab) Send(oscAddress string, expectResponse bool, timeout int64) string {
-	q.oscClient.Send(osc.NewMessage(oscAddress))
 
 	if !expectResponse {
 		return "{}"
@@ -37,6 +36,8 @@ func (q *Qlab) Send(oscAddress string, expectResponse bool, timeout int64) strin
 	replyKey := uuid.NewString()
 
 	q.channels.Set(replyAddress, replyKey, ch)
+
+	q.oscClient.Send(osc.NewMessage(oscAddress))
 
 	select {
 	case res := <-ch:
