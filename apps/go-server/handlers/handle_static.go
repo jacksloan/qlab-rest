@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 )
 
-func ServeStatic(files embed.FS) func(w http.ResponseWriter, r *http.Request) {
+func HandleStatic(files embed.FS) func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
 		// get the absolute path to prevent directory traversal
 		path, err := filepath.Abs(r.URL.Path)
