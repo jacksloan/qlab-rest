@@ -1,4 +1,4 @@
-module github.com/jacksloan/sir-goodwin
+module goodwin
 
 go 1.18
 
