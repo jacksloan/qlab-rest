@@ -31,6 +31,44 @@
       },
       "tags": []
     },
+    "go-server": {
+      "root": "apps/go-server",
+      "projectType": "application",
+      "sourceRoot": "apps/go-server",
+      "implicitDependencies": ["app"],
+      "targets": {
+        "build": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cp apps/go-server/*.go dist/apps/app/",
+              "npx nx build-app go-server"
+            ]
+          }
+        },
+
+        "build-app": {
+          "executor": "@nx-go/nx-go:build",
+          "options": {
+            "outputPath": "dist/apps/go-server",
+            "main": "dist/apps/app/main.go"
+          }
+        },
+        "serve": {
+          "executor": "@nx-go/nx-go:serve",
+          "options": {
+            "main": "apps/go-server/main.go"
+          }
+        },
+        "test": {
+          "executor": "@nx-go/nx-go:test"
+        },
+        "lint": {
+          "executor": "@nx-go/nx-go:lint"
+        }
+      },
+      "tags": []
+    },
     "server": {
       "root": "apps/server",
       "sourceRoot": "apps/server/src",

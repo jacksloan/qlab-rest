@@ -4,7 +4,6 @@ jbs
 apps/app/.svelte-kit
 apps/app/node_modules
 apps/app/build
-
 #codegen
 codegen
 
