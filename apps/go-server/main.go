@@ -2,8 +2,10 @@ package main
 
 import (
 	"embed"
+	"fmt"
 	"io/fs"
 	"log"
+	"net"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -19,7 +21,7 @@ var oscClient *osc.Client = osc.NewClient("localhost", 53000)
 
 func main() {
 	router := mux.NewRouter()
-	router.Path(`/api/{rest:[a-zA-Z0-9=\-\/]+}`).Methods(http.MethodPost, http.MethodGet).HandlerFunc(handleOscCommand)
+	router.Path(`/api/{rest:[a-zA-Z0-9=\-\/]+}`).Methods(http.MethodPost, http.MethodPut).HandlerFunc(handleOscCommand)
 	router.PathPrefix("/").HandlerFunc(handleStaticFiles)
 	port := "5000"
 	srv := &http.Server{
@@ -95,4 +97,31 @@ func handleStaticFiles(w http.ResponseWriter, r *http.Request) {
 	statics, err := fs.Sub(staticFiles, "build")
 	// otherwise, use http.FileServer to serve the static dir
 	http.FileServer(http.FS(statics)).ServeHTTP(w, r)
+}
+
+func receiveFromQLab() {
+	conn, err := net.ListenUDP("udp", &net.UDPAddr{
+		Port: 53001,
+		IP:   net.ParseIP("127.0.0.1"),
+	})
+
+	defer conn.Close()
+
+	conn.SetReadBuffer(65_535)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	for {
+		// TODO: review if necessary to read the maximum datagram size
+		buf := make([]byte, 65_535)
+		rlen, address, _ := conn.ReadFromUDP(buf[:])
+		fmt.Println(address)
+		go handleUDPPacket(buf, rlen)
+	}
+}
+
+func handleUDPPacket(buf []byte, rlen int) {
+	fmt.Println((buf[0:rlen]))
 }
