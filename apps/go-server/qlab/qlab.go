@@ -24,8 +24,13 @@ func New() *Qlab {
 }
 
 func (q *Qlab) Send(oscAddress string, oscArguments []string, expectResponse bool, timeout int64) string {
+	oscMessage := osc.NewMessage(oscAddress)
+	for arg := range oscArguments {
+		oscMessage.Append(arg)
+	}
 
 	if !expectResponse {
+		q.oscClient.Send(oscMessage)
 		return "{}"
 	}
 
@@ -34,12 +39,6 @@ func (q *Qlab) Send(oscAddress string, oscArguments []string, expectResponse boo
 	replyKey := uuid.NewString()
 
 	q.channels.Set(replyAddress, replyKey, ch)
-
-	oscMessage := osc.NewMessage(oscAddress)
-	for arg := range oscArguments {
-		oscMessage.Append(arg)
-	}
-
 	q.oscClient.Send(oscMessage)
 
 	select {
