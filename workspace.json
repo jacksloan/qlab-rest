@@ -46,7 +46,6 @@
             ]
           }
         },
-
         "build-app": {
           "executor": "@nx-go/nx-go:build",
           "options": {

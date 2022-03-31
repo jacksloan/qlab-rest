@@ -6,15 +6,13 @@
     new Configuration({ basePath: 'http://localhost:5000/api' })
   );
 
-  async function getWorkspaces() {
-    const res = await qlab.workspacesPost();
-    workspaces = JSON.stringify(res);
-  }
-
   let workspaces = 'loading...';
 
-  onMount(() => {
-    getWorkspaces();
+  onMount(async () => {
+    const res = await qlab.workspacesPost({
+      expectResponse: true,
+    });
+    workspaces = JSON.stringify(res);
   });
 </script>
 

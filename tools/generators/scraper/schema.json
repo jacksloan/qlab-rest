@@ -4,6 +4,14 @@
   "$id": "scraper",
   "type": "object",
   "description": "Scraper reads the OSC dictionary of commands from QLab.app and outputs an openapi spec file in the root of this project",
-  "properties": {},
-  "required": ["name"]
+  "properties": {
+    "dir": {
+      "type": "string",
+      "description": "The output directory for openapi spec files. Defaults to 'swagger'",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    }
+  }
 }

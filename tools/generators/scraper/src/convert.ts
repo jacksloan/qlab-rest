@@ -1,12 +1,10 @@
+import { joinPathFragments } from '@nrwl/devkit';
 import { OpenAPIV3 as OpenAPI } from 'openapi-types';
 import { OscCommand } from './model';
 
 export function convert(qlab: OscCommand[]): OpenAPI.Document {
   const paths = qlab.reduce((acc, curr) => {
     const { path, description, commandArguments, pathVariables } = curr;
-    const method = description.toLocaleLowerCase().includes('return')
-      ? 'post'
-      : 'put';
 
     const maybeRequestBody =
       (commandArguments || []).length < 1
@@ -35,17 +33,27 @@ export function convert(qlab: OscCommand[]): OpenAPI.Document {
     return {
       ...acc,
       [path]: <OpenAPI.PathItemObject>{
-        [method]: <OpenAPI.OperationObject>{
+        post: <OpenAPI.OperationObject>{
           description,
-          parameters: pathVariables.map(
-            (name) =>
-              <OpenAPI.ParameterObject>{
-                in: 'path',
-                name,
-                required: true,
-                schema: { type: 'string' },
-              }
-          ),
+          parameters: [
+            {
+              in: 'query',
+              name: 'expect response',
+              description:
+                'If a response is expected from QLab for this command. Defaults to false.',
+              required: false,
+              schema: { type: 'boolean', default: false },
+            },
+            ...pathVariables.map(
+              (name) =>
+                <OpenAPI.ParameterObject>{
+                  in: 'path',
+                  name,
+                  required: true,
+                  schema: { type: 'string' },
+                }
+            ),
+          ],
           ...maybeRequestBody,
           responses: {
             200: {
@@ -53,7 +61,7 @@ export function convert(qlab: OscCommand[]): OpenAPI.Document {
               content: {
                 'application/json': {
                   schema: {
-                    type: 'object',
+                    $ref: joinPathFragments('responses', `${path.replace(/\+/g, 'plus').replace(/\-/g, 'minus')}.json`),
                   },
                 },
               },

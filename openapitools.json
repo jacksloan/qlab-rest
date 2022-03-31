@@ -7,7 +7,7 @@
       "custom": {
         "generatorName": "typescript-fetch",
         "output": "codegen",
-        "glob": "openapi.json",
+        "glob": "swagger/openapi.json",
         "additionalProperties": {
           "npmName": "@jbs/codegen",
           "npmVersion": "1.0.0"
