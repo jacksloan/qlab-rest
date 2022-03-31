@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"time"
 
+	middleware "github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 )
 
@@ -30,8 +31,9 @@ func main() {
 		HandlerFunc(handlers.HandleStatic(files))
 
 	port := "5000"
+	corsConfig := middleware.AllowedOrigins([]string{"http://localhost:3000", "127.0.0.1:5000"})
 	srv := &http.Server{
-		Handler:      router,
+		Handler:      middleware.CORS(corsConfig)(router),
 		Addr:         "127.0.0.1:" + port,
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
