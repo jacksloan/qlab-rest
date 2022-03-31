@@ -4,7 +4,7 @@
   "generator-cli": {
     "version": "5.4.0",
     "generators": {
-      "custom": {
+      "openapitools.json": {
         "generatorName": "typescript-fetch",
         "output": "codegen",
         "glob": "swagger/openapi.json",

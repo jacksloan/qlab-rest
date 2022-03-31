@@ -14,7 +14,7 @@
     "build:go-server": "nx build go-server",
 
     "package": "pkg .",
-    "codegen": "openapi-generator-cli generate --generator-key custom",
+    "codegen": "openapi-generator-cli generate --generator-key openapitools.json",
     "copy-spec": "cp openapi.json dist/apps/openapi.json",
     "copy-swagger-css": "mkdir -p dist/apps/api-docs/ && cp node_modules/swagger-ui-dist/swagger-ui.css dist/apps/api-docs/",
     "run": "./sir-goodwin",
