@@ -38,7 +38,7 @@ export function convert(qlab: OscCommand[]): OpenAPI.Document {
           parameters: [
             {
               in: 'query',
-              name: 'expect response',
+              name: 'expect-response',
               description:
                 'If a response is expected from QLab for this command. Defaults to false.',
               required: false,
