@@ -1,42 +1,71 @@
 <script lang="ts">
+  import { Configuration, CueListsCues, DefaultApi } from '@jbs/codegen/src';
   import { onMount } from 'svelte';
-  import { DefaultApi, Configuration } from '@jbs/codegen/src';
 
   const qlab = new DefaultApi(
     new Configuration({ basePath: 'http://localhost:5000/api' })
   );
 
+  let cueList: CueListsCues[] = [];
+
   let workspaceId = 'loading...';
-  let cueList: { data: any[] } = { data: [] };
 
   onMount(async () => {
-    const workspaces = await qlab.workspacesPost({
+    const w = await qlab.workspacesPost({
       expectResponse: true,
     });
-    workspaceId = workspaces.data[0].uniqueID;
+    workspaceId = w?.data?.[0]?.uniqueID;
 
-    cueList = (await qlab.workspaceIdCueListsPost({
-      id: 'D3523FFE-5779-486C-9088-611C246D8ED9',
+    const list = await qlab.workspaceIdCueListsPost({
+      id: workspaceId,
       expectResponse: true,
-    })) as any;
+    });
+    cueList = list.data[0].cues;
   });
 
-  const goCue1 = () => {
-    qlab.cueCueNumberGoPost({
-      cueNumber: '1',
+  async function go(cueNumber: string) {
+    await qlab.cueCueNumberGoPost({
+      cueNumber: `${cueNumber}`,
     });
-  };
+  }
+
+  async function stop(cueNumber: string) {
+    await qlab.cueCueNumberStopPost({
+      cueNumber: `${cueNumber}`,
+    });
+  }
 </script>
 
-<h1 class="text-lg font-semibold">Workspace: {workspaceId}</h1>
-<br />
-<ul>
-  {#each cueList.data as c}
-    <li>{JSON.stringify(c)}</li>
-  {/each}
-</ul>
-
-<button
-  class="px-4 py-1 bg-green-500 text-white shadow-md rounded-md"
-  on:click={goCue1}>GO</button
->
+<div class="p-4">
+  <h1 class="text-lg font-semibold">Workspace: {workspaceId}</h1>
+  <table>
+    <thead>
+      <tr>
+        <td class="px-2">Name</td>
+        <td class="px-2">Number</td>
+        <td class="px-2">Go</td>
+        <td class="px-2">Stop</td>
+      </tr>
+    </thead>
+    <tbody>
+      {#each cueList as cue}
+        <tr>
+          <td class="px-2">{cue.name}</td>
+          <td class="px-2">{cue.number}</td>
+          <td class="px-2"
+            ><button
+              class="bg-green-500 py-1 px-2 rounded-md text-white shadow-md"
+              on:click={() => go(cue.number)}>GO</button
+            ></td
+          >
+          <td class="px-2"
+            ><button
+              class="bg-red-500 py-1 px-2 rounded-md text-white shadow-md"
+              on:click={() => stop(cue.number)}>STOP</button
+            ></td
+          >
+        </tr>
+      {/each}
+    </tbody>
+  </table>
+</div>
