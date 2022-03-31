@@ -1,3 +1,5 @@
+github.com/Lobaro/slip v0.0.0-20170904164317-88dcb78414ea h1:lpHJkBxATbHlFRPGlD7/gU1LTyMNMkhpYKxCUT7Ynx0=
+github.com/Lobaro/slip v0.0.0-20170904164317-88dcb78414ea/go.mod h1:r5Qh0dZbKfQ+1KRK78WRCeStYKOIGr/cF/QrkjtH88s=
 github.com/felixge/httpsnoop v1.0.1 h1:lvB5Jl89CsZtGIWuTcDM1E/vkVs49/Ml7JJe07l8SPQ=
 github.com/felixge/httpsnoop v1.0.1/go.mod h1:m8KPJKqk1gH5J9DgRY2ASl2lWCfGKXixSwevea8zH2U=
 github.com/google/uuid v1.3.0 h1:t6JiXgmwXMjEs8VusXIJk2BXHsn+wx8BZdTaoZ5fu7I=
