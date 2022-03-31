@@ -1,7 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { DefaultApi, Configuration } from '@jbs/codegen/src';
-  import { each } from 'svelte/internal';
 
   const qlab = new DefaultApi(
     new Configuration({ basePath: 'http://localhost:5000/api' })
