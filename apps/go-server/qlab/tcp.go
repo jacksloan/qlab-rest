@@ -16,27 +16,16 @@ func tcp() {
 	conn, err := net.DialTCP("tcp", nil, tcpAddr)
 	handleError("Dial failed:", err)
 
+	w := slip.NewWriter(conn)
 	p := osc.NewMessage("/workspaces")
 	b, err := p.MarshalBinary()
 	handleError("Failed to marshal binary:", err)
-	w := slip.NewWriter(conn)
-
 	error := w.WritePacket(b)
 	handleError("Failed to write packet:", error)
 
-	// _, err = conn.Write()
-	if err != nil {
-		println("Write to server failed:", err.Error())
-		os.Exit(1)
-	}
-
-	// println("write to server = ", pa`cket)
 	r := slip.NewReader(conn)
-	reply, _, _ := r.ReadPacket()
-	if err != nil {
-		println("Write to server failed:", err.Error())
-		os.Exit(1)
-	}
+	reply, _, err := r.ReadPacket()
+	handleError("Failed to read packet", err)
 
 	println("reply from server=", string(reply))
 
