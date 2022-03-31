@@ -6,14 +6,14 @@
     new Configuration({ basePath: 'http://localhost:5000/api' })
   );
 
-  let workspaces = 'loading...';
+  let workspaceId = 'loading...';
   let cueList: { data: any[] } = { data: [] };
 
   onMount(async () => {
-    const res = await qlab.workspacesPost({
+    const workspaces = await qlab.workspacesPost({
       expectResponse: true,
     });
-    workspaces = JSON.stringify(res);
+    workspaceId = workspaces.data[0].uniqueID;
 
     cueList = (await qlab.workspaceIdCueListsPost({
       id: 'D3523FFE-5779-486C-9088-611C246D8ED9',
@@ -28,8 +28,7 @@
   };
 </script>
 
-<h1>Sir goodwin</h1>
-<p>Workspace = {workspaces}</p>
+<h1 class="text-lg font-semibold">Workspace: {workspaceId}</h1>
 <br />
 <ul>
   {#each cueList.data as c}
@@ -37,4 +36,7 @@
   {/each}
 </ul>
 
-<button class="px-4 py-1 bg-green-500 text-white shadow-md rounded-md" on:click={goCue1}>GO</button>
+<button
+  class="px-4 py-1 bg-green-500 text-white shadow-md rounded-md"
+  on:click={goCue1}>GO</button
+>

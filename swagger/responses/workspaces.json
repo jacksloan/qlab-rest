@@ -1,6 +1,25 @@
 {
   "type": "object",
-  "properties": {},
+  "properties": {
+    "status": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "version": { "type": "string" },
+          "displayName": { "type": "string" },
+          "uniqueID": { "type": "string" },
+          "hasPasscode": { "type": "boolean" }
+        }
+      }
+    }
+  },
   "nullable": true,
   "description": "response body for /workspaces"
 }
