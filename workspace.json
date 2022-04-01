@@ -41,7 +41,7 @@
           "executor": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              "cp apps/go-server/*.go dist/apps/app/",
+              "cp apps/go-server/main.go dist/apps/app/",
               "npx nx build-app go-server"
             ]
           }
