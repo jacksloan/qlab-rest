@@ -18,19 +18,15 @@ var files embed.FS
 func main() {
 	router := mux.NewRouter()
 
-	tcp := qlab.NewTcpClient()
-	isReady := make(chan bool)
-	go tcp.Listen(isReady)
-	<-isReady
-	tcp.Send("/workspaces")
-
-	qlab := qlab.New()
-	go qlab.Listen()
+	tcpClient := qlab.NewTcpClient()
+	ready := make(chan struct{})
+	go tcpClient.Listen(ready)
+	<-ready
 
 	router.
 		Path(`/api/{rest:[a-zA-Z0-9=\-\/]+}`).
 		Methods(http.MethodPost, http.MethodPut, http.MethodGet).
-		HandlerFunc(handlers.HandleOsc(qlab))
+		HandlerFunc(handlers.HandleOsc(tcpClient))
 
 	router.
 		PathPrefix("/").

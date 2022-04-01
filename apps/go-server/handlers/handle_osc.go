@@ -11,7 +11,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func HandleOsc(q *qlab.Qlab) func(w http.ResponseWriter, r *http.Request) {
+func HandleOsc(q *qlab.QlabTcpClient) func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
 		params := mux.Vars(r)
 		oscAddress := "/" + params["rest"]
@@ -21,13 +21,28 @@ func HandleOsc(q *qlab.Qlab) func(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
 		}
-		reply := q.Send(oscAddress, oscArguments, expectResponse, 3)
 
+		if !expectResponse {
+			err := q.Send(oscAddress, oscArguments)
+			if err != nil {
+				http.Error(w, err.Error(), http.StatusInternalServerError)
+				return
+			}
+			w.Header().Set("Content-Type", "application/json")
+			w.WriteHeader(http.StatusCreated)
+			w.Write([]byte("{}"))
+		}
+
+		reply, err := q.SendAndReceive(oscAddress, oscArguments)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusOK)
 		w.Write([]byte(reply))
-	}
 
+	}
 }
 
 func parseBodyToArgs(w http.ResponseWriter, r *http.Request) ([]string, error) {
