@@ -41,7 +41,7 @@
           "executor": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              "cp apps/go-server/main.go dist/apps/app/",
+              "npm run copy-go-server",
               "npx nx build-app go-server"
             ]
           }
