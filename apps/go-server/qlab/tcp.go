@@ -45,49 +45,22 @@ func (q *QlabTcpClient) Listen(initialized chan<- bool) {
 	}
 }
 
-func (q *QlabTcpClient) Send(oscAddress string, oscArguments []string) error {
-	if err := q.canWrite(); err != nil {
-		return err
+func (q *QlabTcpClient) Send(oscAddress string, oscArguments []string, expectResponse bool) (string, error) {
+	if !expectResponse {
+		if err := q.WritePacket(oscAddress, oscArguments); err != nil {
+			return "", err
+		}
+		return "{}", nil
 	}
 
-	msg := osc.NewMessage(oscAddress)
-	for _, arg := range oscArguments {
-		msg.Append(arg)
-	}
-	b, err := msg.MarshalBinary()
-	if err != nil {
-		return err
-	}
-
-	if err := q.writer.WritePacket(b); err != nil {
-		return err
-	}
-	return nil
-}
-
-func (q *QlabTcpClient) SendAndReceive(oscAddress string, oscArguments []string) (string, error) {
-	if err := q.canWrite(); err != nil {
+	if err := q.WritePacket(oscAddress, oscArguments); err != nil {
 		return "", err
 	}
-
-	msg := osc.NewMessage(oscAddress)
-	for _, arg := range oscArguments {
-		msg.Append(arg)
-	}
-	b, err := msg.MarshalBinary()
-	if err != nil {
-		return "", err
-	}
-
 	replyAddress := "/reply" + oscAddress
 	replyKey := uuid.NewString()
 	ch := make(chan string)
 
 	q.channels.Set(replyAddress, replyKey, ch)
-
-	if err := q.writer.WritePacket(b); err != nil {
-		return "", err
-	}
 
 	select {
 	case res := <-ch:
@@ -96,6 +69,27 @@ func (q *QlabTcpClient) SendAndReceive(oscAddress string, oscArguments []string)
 		q.channels.Remove(replyAddress, replyKey)
 		return "{}", nil
 	}
+}
+
+func (q *QlabTcpClient) WritePacket(oscAddress string, oscArguments []string) error {
+	if err := q.canWrite(); err != nil {
+		return err
+	}
+
+	msg := osc.NewMessage(oscAddress)
+	for _, arg := range oscArguments {
+		msg.Append(arg)
+	}
+	b, err := msg.MarshalBinary()
+	if err != nil {
+		return err
+	}
+
+	if err := q.writer.WritePacket(b); err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func (q *QlabTcpClient) handlePacket(b []byte) {

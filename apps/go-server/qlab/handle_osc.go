@@ -13,31 +13,22 @@ func HandleOsc(q *QlabTcpClient) func(w http.ResponseWriter, r *http.Request) {
 		params := mux.Vars(r)
 		oscAddress := "/" + params["rest"]
 		expectResponse := r.URL.Query().Get("expect-response") == "true"
+
 		oscArguments, err := parseBodyToArgs(w, r)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
 		}
 
-		if !expectResponse {
-			err := q.Send(oscAddress, oscArguments)
-			if err != nil {
-				http.Error(w, err.Error(), http.StatusInternalServerError)
-				return
-			}
-			w.Header().Set("Content-Type", "application/json")
-			w.WriteHeader(http.StatusCreated)
-			w.Write([]byte("{}"))
-		} else {
-			reply, err := q.SendAndReceive(oscAddress, oscArguments)
-			if err != nil {
-				http.Error(w, err.Error(), http.StatusInternalServerError)
-				return
-			}
-			w.Header().Set("Content-Type", "application/json")
-			w.WriteHeader(http.StatusOK)
-			w.Write([]byte(reply))
+		reply, err := q.Send(oscAddress, oscArguments, expectResponse)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
 		}
+
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte(reply))
 	}
 }
 
