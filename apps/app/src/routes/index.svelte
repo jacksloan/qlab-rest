@@ -6,22 +6,20 @@
     new Configuration({ basePath: 'http://localhost:5000/api' })
   );
 
-  let cueList: CueListsCues[] = [];
-
-  let workspaceId = 'loading...';
-
-  onMount(async () => {
-    const w = await qlab.workspacesPost({
-      expectResponse: true,
-    });
-    workspaceId = w?.data?.[0]?.uniqueID;
-
+  async function getCueList(): Promise<CueListsCues[]> {
     const list = await qlab.workspaceIdCueListsPost({
       id: workspaceId,
       expectResponse: true,
     });
-    cueList = list.data[0].cues;
-  });
+    return list.data[0].cues;
+  }
+
+  async function getWorkspaceId(): Promise<string> {
+    const w = await qlab.workspacesPost({
+      expectResponse: true,
+    });
+    return w?.data?.[0]?.uniqueID;
+  }
 
   async function go(cueNumber: string) {
     await qlab.cueCueNumberGoPost({
@@ -33,9 +31,10 @@
     await qlab.workspaceIdNewPost({
       id: workspaceId,
       inlineObject23: {
-        cueType: 'text'
-      }
+        cueType: 'text',
+      },
     });
+    cueList = await getCueList();
   }
 
   async function stop(cueNumber: string) {
@@ -43,6 +42,14 @@
       cueNumber: `${cueNumber}`,
     });
   }
+
+  onMount(async () => {
+    workspaceId = await getWorkspaceId();
+    cueList = await getCueList();
+  });
+
+  let cueList: CueListsCues[] = [];
+  let workspaceId = 'loading...';
 </script>
 
 <div class="p-4">
