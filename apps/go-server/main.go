@@ -17,6 +17,13 @@ var files embed.FS
 
 func main() {
 	router := mux.NewRouter()
+
+	tcp := qlab.NewTcpClient()
+	isReady := make(chan bool)
+	go tcp.Listen(isReady)
+	<-isReady
+	tcp.Send("/workspaces")
+
 	qlab := qlab.New()
 	go qlab.Listen()
 
