@@ -1,16 +1,14 @@
-package handlers
+package qlab
 
 import (
 	"encoding/json"
 	"io"
 	"net/http"
 
-	"goodwin/apps/go-server/qlab"
-
 	"github.com/gorilla/mux"
 )
 
-func HandleOsc(q *qlab.QlabTcpClient) func(w http.ResponseWriter, r *http.Request) {
+func HandleOsc(q *QlabTcpClient) func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
 		params := mux.Vars(r)
 		oscAddress := "/" + params["rest"]

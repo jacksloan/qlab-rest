@@ -3,7 +3,6 @@ package qlab
 import (
 	"errors"
 	"fmt"
-	"goodwin/apps/go-server/db"
 	"log"
 	"net"
 	"strings"
@@ -16,12 +15,12 @@ import (
 
 type QlabTcpClient struct {
 	writer   *slip.Writer
-	channels *db.Channels
+	channels *Channels
 }
 
 func NewTcpClient() *QlabTcpClient {
 	return &QlabTcpClient{
-		channels: db.New(),
+		channels: NewChannelsMap(),
 	}
 }
 

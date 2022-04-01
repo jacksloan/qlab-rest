@@ -2,7 +2,6 @@ package main
 
 import (
 	"embed"
-	"goodwin/apps/go-server/handlers"
 	"goodwin/apps/go-server/qlab"
 	"log"
 	"net/http"
@@ -26,12 +25,12 @@ func main() {
 	router.
 		Path(`/api/{rest:[a-zA-Z0-9=\-\/]+}`).
 		Methods(http.MethodPost, http.MethodPut, http.MethodGet).
-		HandlerFunc(handlers.HandleOsc(tcpClient))
+		HandlerFunc(qlab.HandleOsc(tcpClient))
 
 	router.
 		PathPrefix("/").
 		Methods(http.MethodGet).
-		HandlerFunc(handlers.HandleStatic(files))
+		HandlerFunc(qlab.HandleStatic(files))
 
 	port := "5000"
 	headersOk := middleware.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"})

@@ -1,4 +1,4 @@
-package db
+package qlab
 
 import (
 	"github.com/google/uuid"
@@ -9,7 +9,7 @@ type Channels struct {
 	db cmap.ConcurrentMap
 }
 
-func New() *Channels {
+func NewChannelsMap() *Channels {
 	return &Channels{
 		db: cmap.New(),
 	}
