@@ -34,9 +34,12 @@ func main() {
 		HandlerFunc(handlers.HandleStatic(files))
 
 	port := "5000"
-	corsConfig := middleware.AllowedOrigins([]string{"http://localhost:3000", "127.0.0.1:5000"})
+	headersOk := middleware.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"})
+	originsOk := middleware.AllowedOrigins([]string{"*"})
+	methodsOk := middleware.AllowedMethods([]string{"GET", "HEAD", "POST", "PUT", "OPTIONS"})
+
 	srv := &http.Server{
-		Handler:      middleware.CORS(corsConfig)(router),
+		Handler:      middleware.CORS(headersOk, originsOk, methodsOk)(router),
 		Addr:         "127.0.0.1:" + port,
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,

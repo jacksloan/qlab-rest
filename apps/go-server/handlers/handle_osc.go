@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"encoding/json"
-	"fmt"
 	"io"
 	"net/http"
 
@@ -57,8 +56,7 @@ func parseBodyToArgs(w http.ResponseWriter, r *http.Request) ([]string, error) {
 			return nil, err
 		}
 	} else {
-		for key, val := range body {
-			fmt.Printf(key, val)
+		for _, val := range body {
 			arguments = append(arguments, val)
 		}
 	}

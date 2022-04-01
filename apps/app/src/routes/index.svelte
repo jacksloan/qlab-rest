@@ -29,6 +29,15 @@
     });
   }
 
+  async function createCue() {
+    await qlab.workspaceIdNewPost({
+      id: workspaceId,
+      inlineObject23: {
+        cueType: 'text'
+      }
+    });
+  }
+
   async function stop(cueNumber: string) {
     await qlab.cueCueNumberStopPost({
       cueNumber: `${cueNumber}`,
@@ -38,6 +47,10 @@
 
 <div class="p-4">
   <h1 class="text-lg font-semibold">Workspace: {workspaceId}</h1>
+  <button
+    on:click={createCue}
+    class="bg-blue-500 p-2 shadow-md rounded-md text-white">Add Cue</button
+  >
   <table>
     <thead>
       <tr>
