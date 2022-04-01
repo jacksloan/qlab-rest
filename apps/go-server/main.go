@@ -19,7 +19,7 @@ func main() {
 	router := mux.NewRouter()
 
 	tcpClient := qlab.NewTcpClient()
-	ready := make(chan struct{})
+	ready := make(chan bool)
 	go tcpClient.Listen(ready)
 	<-ready
 

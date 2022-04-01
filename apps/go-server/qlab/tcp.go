@@ -25,7 +25,7 @@ func NewTcpClient() *QlabTcpClient {
 	}
 }
 
-func (q *QlabTcpClient) Listen(initialized chan<- struct{}) {
+func (q *QlabTcpClient) Listen(initialized chan<- bool) {
 	conn, err := net.Dial("tcp", "127.0.0.1:53000")
 	if err != nil {
 		log.Fatal("Failed to dial tcp network 127.0.0.1:53000", err)
@@ -33,8 +33,7 @@ func (q *QlabTcpClient) Listen(initialized chan<- struct{}) {
 	defer conn.Close()
 
 	q.writer = slip.NewWriter(conn)
-	initialized <- struct{}{}
-	close(initialized)
+	initialized <- true
 
 	for {
 		r := slip.NewReader(conn)
@@ -52,9 +51,11 @@ func (q *QlabTcpClient) Send(oscAddress string, oscArguments []string) error {
 		return err
 	}
 
-	p := osc.NewMessage(oscAddress)
-	// TODO allow args
-	b, err := p.MarshalBinary()
+	msg := osc.NewMessage(oscAddress)
+	for _, arg := range oscArguments {
+		msg.Append(arg)
+	}
+	b, err := msg.MarshalBinary()
 	if err != nil {
 		return err
 	}
@@ -70,9 +71,11 @@ func (q *QlabTcpClient) SendAndReceive(oscAddress string, oscArguments []string)
 		return "", err
 	}
 
-	p := osc.NewMessage(oscAddress)
-	// TODO allow args
-	b, err := p.MarshalBinary()
+	msg := osc.NewMessage(oscAddress)
+	for _, arg := range oscArguments {
+		msg.Append(arg)
+	}
+	b, err := msg.MarshalBinary()
 	if err != nil {
 		return "", err
 	}
@@ -111,7 +114,7 @@ func (q *QlabTcpClient) handlePacket(b []byte) {
 }
 
 func (q *QlabTcpClient) canWrite() error {
-	if q.writer != nil {
+	if q.writer == nil {
 		return errors.New("cannot write to connection, writer is nil")
 	}
 	return nil
