@@ -48,8 +48,8 @@ func (q *QlabTcpClient) Listen(initialized chan<- struct{}) {
 }
 
 func (q *QlabTcpClient) Send(oscAddress string, oscArguments []string) error {
-	if !q.canWrite() {
-		return errors.New("client is not ready to send, writer is nil")
+	if err := q.canWrite(); err != nil {
+		return err
 	}
 
 	p := osc.NewMessage(oscAddress)
@@ -66,8 +66,8 @@ func (q *QlabTcpClient) Send(oscAddress string, oscArguments []string) error {
 }
 
 func (q *QlabTcpClient) SendAndReceive(oscAddress string, oscArguments []string) (string, error) {
-	if !q.canWrite() {
-		return "", errors.New("client is not ready to send, writer is nil")
+	if err := q.canWrite(); err != nil {
+		return "", err
 	}
 
 	p := osc.NewMessage(oscAddress)
@@ -110,6 +110,9 @@ func (q *QlabTcpClient) handlePacket(b []byte) {
 	)
 }
 
-func (q *QlabTcpClient) canWrite() bool {
-	return q.writer != nil
+func (q *QlabTcpClient) canWrite() error {
+	if q.writer != nil {
+		return errors.New("cannot write to connection, writer is nil")
+	}
+	return nil
 }
