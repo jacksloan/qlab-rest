@@ -4,6 +4,7 @@ import (
 	"embed"
 	"goodwin/apps/go-server/qlab"
 	"log"
+	"net"
 	"net/http"
 	"time"
 
@@ -39,10 +40,22 @@ func main() {
 
 	srv := &http.Server{
 		Handler:      middleware.CORS(headersOk, originsOk, methodsOk)(router),
-		Addr:         "127.0.0.1:" + port,
+		Addr:         "0.0.0.0:" + port,
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
 	}
-	log.Println("listing on port", port)
+	log.Printf("listing at %s:%s", getOutboundIP(), port)
 	log.Fatal(srv.ListenAndServe())
+}
+
+func getOutboundIP() net.IP {
+	conn, err := net.Dial("udp", "8.8.8.8:80")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer conn.Close()
+
+	localAddr := conn.LocalAddr().(*net.UDPAddr)
+
+	return localAddr.IP
 }

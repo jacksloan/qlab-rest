@@ -2,9 +2,7 @@
   import { Configuration, CueListsCues, DefaultApi } from '@jbs/codegen/src';
   import { onMount } from 'svelte';
 
-  const qlab = new DefaultApi(
-    new Configuration({ basePath: 'http://localhost:5000/api' })
-  );
+  let qlab: DefaultApi;
 
   async function getCueList(): Promise<CueListsCues[]> {
     const list = await qlab.workspaceIdCueListsPost({
@@ -44,6 +42,11 @@
   }
 
   onMount(async () => {
+    qlab = new DefaultApi(
+      new Configuration({
+        basePath: `http://${window.location.hostname}:5000/api`,
+      })
+    );
     workspaceId = await getWorkspaceId();
     cueList = await getCueList();
   });
