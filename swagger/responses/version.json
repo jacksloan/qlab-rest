@@ -1,6 +1,0 @@
-{
-  "type": "object",
-  "properties": {},
-  "nullable": true,
-  "description": "response body for /version"
-}
