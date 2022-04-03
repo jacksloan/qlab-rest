@@ -10946,3630 +10946,1359 @@
   "components": {
     "schemas": {
       "AuditionWindowRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/AuditionWindowRequest.json"
       },
       "AuditionWindowResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /auditionWindow"
+        "$ref": "components/AuditionWindowResponse.json"
       },
       "ToggleAuditionWindowResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /toggleAuditionWindow"
+        "$ref": "components/ToggleAuditionWindowResponse.json"
       },
-      "FontNamesResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /fontNames"
-      },
+      "FontNamesResponse": { "$ref": "components/FontNamesResponse.json" },
       "FontFamiliesAndStylesResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /fontFamiliesAndStyles"
+        "$ref": "components/FontFamiliesAndStylesResponse.json"
       },
       "LiveFadePreviewRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/LiveFadePreviewRequest.json"
       },
       "LiveFadePreviewResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /liveFadePreview"
+        "$ref": "components/LiveFadePreviewResponse.json"
       },
       "ToggleLiveFadePreviewResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /toggleLiveFadePreview"
+        "$ref": "components/ToggleLiveFadePreviewResponse.json"
       },
       "OverridesArtNetEnabledRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/OverridesArtNetEnabledRequest.json"
       },
       "OverridesArtNetEnabledResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /overrides/artNetEnabled"
+        "$ref": "components/OverridesArtNetEnabledResponse.json"
       },
       "OverridesToggleArtNetResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /overrides/toggleArtNet"
+        "$ref": "components/OverridesToggleArtNetResponse.json"
       },
       "OverridesMidiInputEnabledRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/OverridesMidiInputEnabledRequest.json"
       },
       "OverridesMidiInputEnabledResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /overrides/midiInputEnabled"
+        "$ref": "components/OverridesMidiInputEnabledResponse.json"
       },
       "OverridesToggleMidiInputResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /overrides/toggleMidiInput"
+        "$ref": "components/OverridesToggleMidiInputResponse.json"
       },
       "OverridesMidiOutputEnabledRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/OverridesMidiOutputEnabledRequest.json"
       },
       "OverridesMidiOutputEnabledResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /overrides/midiOutputEnabled"
+        "$ref": "components/OverridesMidiOutputEnabledResponse.json"
       },
       "OverridesToggleMidiOutputResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /overrides/toggleMidiOutput"
+        "$ref": "components/OverridesToggleMidiOutputResponse.json"
       },
       "OverridesMscInputEnabledRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/OverridesMscInputEnabledRequest.json"
       },
       "OverridesMscInputEnabledResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /overrides/mscInputEnabled"
+        "$ref": "components/OverridesMscInputEnabledResponse.json"
       },
       "OverridesToggleMscInputResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /overrides/toggleMscInput"
+        "$ref": "components/OverridesToggleMscInputResponse.json"
       },
       "OverridesMscOutputEnabledRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/OverridesMscOutputEnabledRequest.json"
       },
       "OverridesMscOutputEnabledResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /overrides/mscOutputEnabled"
+        "$ref": "components/OverridesMscOutputEnabledResponse.json"
       },
       "OverridesToggleMscOutputResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /overrides/toggleMscOutput"
+        "$ref": "components/OverridesToggleMscOutputResponse.json"
       },
       "OverridesSysexInputEnabledRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/OverridesSysexInputEnabledRequest.json"
       },
       "OverridesSysexInputEnabledResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /overrides/sysexInputEnabled"
+        "$ref": "components/OverridesSysexInputEnabledResponse.json"
       },
       "OverridesToggleSysexInputResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /overrides/toggleSysexInput"
+        "$ref": "components/OverridesToggleSysexInputResponse.json"
       },
       "OverridesSysexOutputEnabledRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/OverridesSysexOutputEnabledRequest.json"
       },
       "OverridesSysexOutputEnabledResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /overrides/sysexOutputEnabled"
+        "$ref": "components/OverridesSysexOutputEnabledResponse.json"
       },
       "OverridesToggleSysexOutputResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /overrides/toggleSysexOutput"
+        "$ref": "components/OverridesToggleSysexOutputResponse.json"
       },
       "OverridesOscInputEnabledRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/OverridesOscInputEnabledRequest.json"
       },
       "OverridesOscInputEnabledResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /overrides/oscInputEnabled"
+        "$ref": "components/OverridesOscInputEnabledResponse.json"
       },
       "OverridesToggleOscInputResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /overrides/toggleOscInput"
+        "$ref": "components/OverridesToggleOscInputResponse.json"
       },
       "OverridesOscOutputEnabledRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/OverridesOscOutputEnabledRequest.json"
       },
       "OverridesOscOutputEnabledResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /overrides/oscOutputEnabled"
+        "$ref": "components/OverridesOscOutputEnabledResponse.json"
       },
       "OverridesToggleOscOutputResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /overrides/toggleOscOutput"
+        "$ref": "components/OverridesToggleOscOutputResponse.json"
       },
       "OverridesTimecodeInputEnabledRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/OverridesTimecodeInputEnabledRequest.json"
       },
       "OverridesTimecodeInputEnabledResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /overrides/timecodeInputEnabled"
+        "$ref": "components/OverridesTimecodeInputEnabledResponse.json"
       },
       "OverridesToggleTimecodeInputResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /overrides/toggleTimecodeInput"
+        "$ref": "components/OverridesToggleTimecodeInputResponse.json"
       },
       "OverridesTimecodeOutputEnabledRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/OverridesTimecodeOutputEnabledRequest.json"
       },
       "OverridesTimecodeOutputEnabledResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /overrides/timecodeOutputEnabled"
+        "$ref": "components/OverridesTimecodeOutputEnabledResponse.json"
       },
       "OverridesToggleTimecodeOutputResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /overrides/toggleTimecodeOutput"
+        "$ref": "components/OverridesToggleTimecodeOutputResponse.json"
       },
       "OverrideWindowRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/OverrideWindowRequest.json"
       },
       "OverrideWindowResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /overrideWindow"
+        "$ref": "components/OverrideWindowResponse.json"
       },
       "ToggleOverrideWindowResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /toggleOverrideWindow"
+        "$ref": "components/ToggleOverrideWindowResponse.json"
       },
-      "ReplyFormatRequest": {
-        "type": "object",
-        "properties": { "format_string": { "type": "string" } }
-      },
-      "ReplyFormatResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /replyFormat"
-      },
+      "ReplyFormatRequest": { "$ref": "components/ReplyFormatRequest.json" },
+      "ReplyFormatResponse": { "$ref": "components/ReplyFormatResponse.json" },
       "TimecodeWindowRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/TimecodeWindowRequest.json"
       },
       "TimecodeWindowResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /timecodeWindow"
+        "$ref": "components/TimecodeWindowResponse.json"
       },
       "ToggleTimecodeWindowResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /toggleTimecodeWindow"
+        "$ref": "components/ToggleTimecodeWindowResponse.json"
       },
-      "VersionResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /version"
-      },
+      "VersionResponse": { "$ref": "components/VersionResponse.json" },
       "WorkingDirectoryRequest": {
-        "type": "object",
-        "properties": { "path": { "type": "string" } }
+        "$ref": "components/WorkingDirectoryRequest.json"
       },
       "WorkingDirectoryResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workingDirectory"
+        "$ref": "components/WorkingDirectoryResponse.json"
       },
-      "WorkspacesResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspaces"
-      },
+      "WorkspacesResponse": { "$ref": "components/WorkspacesResponse.json" },
       "WorkspaceIdBasePathResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/basePath"
+        "$ref": "components/WorkspaceIdBasePathResponse.json"
       },
       "WorkspaceIdConnectRequest": {
-        "type": "object",
-        "properties": { "passcode_string": { "type": "string" } }
+        "$ref": "components/WorkspaceIdConnectRequest.json"
       },
       "WorkspaceIdConnectResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/connect"
+        "$ref": "components/WorkspaceIdConnectResponse.json"
       },
       "WorkspaceIdDisconnectResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/disconnect"
+        "$ref": "components/WorkspaceIdDisconnectResponse.json"
       },
       "WorkspaceIdDoubleGoWindowRemainingResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/doubleGoWindowRemaining"
+        "$ref": "components/WorkspaceIdDoubleGoWindowRemainingResponse.json"
       },
       "WorkspaceIdCueListsResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/cueLists"
+        "$ref": "components/WorkspaceIdCueListsResponse.json"
       },
       "WorkspaceIdDashboardClearResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/dashboard/clear"
+        "$ref": "components/WorkspaceIdDashboardClearResponse.json"
       },
       "WorkspaceIdDashboardRedoResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/dashboard/redo"
+        "$ref": "components/WorkspaceIdDashboardRedoResponse.json"
       },
       "WorkspaceIdDashboardModeRequest": {
-        "type": "object",
-        "properties": { "string": { "type": "string" } }
+        "$ref": "components/WorkspaceIdDashboardModeRequest.json"
       },
       "WorkspaceIdDashboardModeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/dashboard/mode"
+        "$ref": "components/WorkspaceIdDashboardModeResponse.json"
       },
       "WorkspaceIdDashboardNextModeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/dashboard/nextMode"
+        "$ref": "components/WorkspaceIdDashboardNextModeResponse.json"
       },
       "WorkspaceIdDashboardSetLightRequest": {
-        "type": "object",
-        "properties": {
-          "string": { "type": "string" },
-          "setting": { "type": "string" },
-          "time": { "type": "string" }
-        }
+        "$ref": "components/WorkspaceIdDashboardSetLightRequest.json"
       },
       "WorkspaceIdDashboardSetLightResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/dashboard/setLight"
+        "$ref": "components/WorkspaceIdDashboardSetLightResponse.json"
       },
       "WorkspaceIdDashboardUndoResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/dashboard/undo"
+        "$ref": "components/WorkspaceIdDashboardUndoResponse.json"
       },
       "WorkspaceIdDeleteCueNumberResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/delete/{cue_number}"
+        "$ref": "components/WorkspaceIdDeleteCueNumberResponse.json"
       },
       "WorkspaceIdFullScreenRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/WorkspaceIdFullScreenRequest.json"
       },
       "WorkspaceIdFullScreenResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/fullScreen"
+        "$ref": "components/WorkspaceIdFullScreenResponse.json"
       },
       "WorkspaceIdToggleFullScreenResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/toggleFullScreen"
+        "$ref": "components/WorkspaceIdToggleFullScreenResponse.json"
       },
       "WorkspaceIdGoRequest": {
-        "type": "object",
-        "properties": { "cue_number": { "type": "string" } }
+        "$ref": "components/WorkspaceIdGoRequest.json"
       },
       "WorkspaceIdGoResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/go"
+        "$ref": "components/WorkspaceIdGoResponse.json"
       },
       "WorkspaceIdGoCueNumberResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/go/{cue_number}"
+        "$ref": "components/WorkspaceIdGoCueNumberResponse.json"
       },
       "WorkspaceIdLightDashboardRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/WorkspaceIdLightDashboardRequest.json"
       },
       "WorkspaceIdLightDashboardResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/lightDashboard"
+        "$ref": "components/WorkspaceIdLightDashboardResponse.json"
       },
       "WorkspaceIdToggleLightDashboardResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/toggleLightDashboard"
+        "$ref": "components/WorkspaceIdToggleLightDashboardResponse.json"
       },
       "WorkspaceIdMoveCueIdRequest": {
-        "type": "object",
-        "properties": {
-          "new_index": { "type": "string" },
-          "new_parent_cue_id": { "type": "string" }
-        }
+        "$ref": "components/WorkspaceIdMoveCueIdRequest.json"
       },
       "WorkspaceIdMoveCueIdResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/move/{cue_id}"
+        "$ref": "components/WorkspaceIdMoveCueIdResponse.json"
       },
       "WorkspaceIdNewRequest": {
-        "type": "object",
-        "properties": { "cue_type": { "type": "string" } }
+        "$ref": "components/WorkspaceIdNewRequest.json"
       },
       "WorkspaceIdNewResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/new"
+        "$ref": "components/WorkspaceIdNewResponse.json"
       },
       "WorkspaceIdPanicResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/panic"
+        "$ref": "components/WorkspaceIdPanicResponse.json"
       },
       "WorkspaceIdPanicInTimeRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/WorkspaceIdPanicInTimeRequest.json"
       },
       "WorkspaceIdPanicInTimeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/panicInTime"
+        "$ref": "components/WorkspaceIdPanicInTimeResponse.json"
       },
       "WorkspaceIdPauseResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/pause"
+        "$ref": "components/WorkspaceIdPauseResponse.json"
       },
       "WorkspaceIdPlayheadCueNumberResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/playhead/{cue_number}"
+        "$ref": "components/WorkspaceIdPlayheadCueNumberResponse.json"
       },
       "WorkspaceIdPlayheadNextResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/playhead/next"
+        "$ref": "components/WorkspaceIdPlayheadNextResponse.json"
       },
       "WorkspaceIdPlayheadPreviousResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/playhead/previous"
+        "$ref": "components/WorkspaceIdPlayheadPreviousResponse.json"
       },
       "WorkspaceIdPlayheadNextSequenceResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/playhead/nextSequence"
+        "$ref": "components/WorkspaceIdPlayheadNextSequenceResponse.json"
       },
       "WorkspaceIdPlayheadPreviousSequenceResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/playhead/previousSequence"
+        "$ref": "components/WorkspaceIdPlayheadPreviousSequenceResponse.json"
       },
       "WorkspaceIdRenumberRequest": {
-        "type": "object",
-        "properties": {
-          "startNumber": { "type": "string" },
-          "incrementNumber": { "type": "string" }
-        }
+        "$ref": "components/WorkspaceIdRenumberRequest.json"
       },
       "WorkspaceIdRenumberResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/renumber"
+        "$ref": "components/WorkspaceIdRenumberResponse.json"
       },
       "WorkspaceIdResetResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/reset"
+        "$ref": "components/WorkspaceIdResetResponse.json"
       },
       "WorkspaceIdResumeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/resume"
+        "$ref": "components/WorkspaceIdResumeResponse.json"
       },
       "WorkspaceIdSaveResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/save"
+        "$ref": "components/WorkspaceIdSaveResponse.json"
       },
       "WorkspaceIdSelectCueNumberResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/select/{cue_number}"
+        "$ref": "components/WorkspaceIdSelectCueNumberResponse.json"
       },
       "WorkspaceIdSelectNextResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/select/next"
+        "$ref": "components/WorkspaceIdSelectNextResponse.json"
       },
       "WorkspaceIdSelectPreviousResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/select/previous"
+        "$ref": "components/WorkspaceIdSelectPreviousResponse.json"
       },
       "WorkspaceIdSelectionIsPlayheadRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/WorkspaceIdSelectionIsPlayheadRequest.json"
       },
       "WorkspaceIdSelectionIsPlayheadResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/selectionIsPlayhead"
+        "$ref": "components/WorkspaceIdSelectionIsPlayheadResponse.json"
       },
       "WorkspaceIdToggleSelectionIsPlayheadResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/toggleSelectionIsPlayhead"
+        "$ref": "components/WorkspaceIdToggleSelectionIsPlayheadResponse.json"
       },
       "WorkspaceIdShowModeRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/WorkspaceIdShowModeRequest.json"
       },
       "WorkspaceIdShowModeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/showMode"
+        "$ref": "components/WorkspaceIdShowModeResponse.json"
       },
       "WorkspaceIdToggleEditShowModeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/toggleEditShowMode"
+        "$ref": "components/WorkspaceIdToggleEditShowModeResponse.json"
       },
       "WorkspaceIdStopResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/stop"
+        "$ref": "components/WorkspaceIdStopResponse.json"
       },
       "WorkspaceIdHardStopResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/hardStop"
+        "$ref": "components/WorkspaceIdHardStopResponse.json"
       },
       "WorkspaceIdThumpResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/thump"
+        "$ref": "components/WorkspaceIdThumpResponse.json"
       },
       "WorkspaceIdUndoResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/undo"
+        "$ref": "components/WorkspaceIdUndoResponse.json"
       },
       "WorkspaceIdUpdatesRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/WorkspaceIdUpdatesRequest.json"
       },
       "WorkspaceIdUpdatesResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /workspace/{id}/updates"
+        "$ref": "components/WorkspaceIdUpdatesResponse.json"
       },
       "SettingsAudioMaxVolumeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /settings/audio/maxVolume"
+        "$ref": "components/SettingsAudioMaxVolumeResponse.json"
       },
       "SettingsAudioOutputChannelNamesResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /settings/audio/outputChannelNames"
+        "$ref": "components/SettingsAudioOutputChannelNamesResponse.json"
       },
       "SettingsGeneralMinGoTimeRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/SettingsGeneralMinGoTimeRequest.json"
       },
       "SettingsGeneralMinGoTimeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /settings/general/minGoTime"
+        "$ref": "components/SettingsGeneralMinGoTimeResponse.json"
       },
       "SettingsVideoSurfacesResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /settings/video/surfaces"
+        "$ref": "components/SettingsVideoSurfacesResponse.json"
       },
       "SettingsVideoSurfacesSurfaceIDResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /settings/video/surfaces/{surfaceID}"
+        "$ref": "components/SettingsVideoSurfacesSurfaceIDResponse.json"
       },
       "SettingsVideoSurfacesSurfaceIDScreenIndexEnableGridRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/SettingsVideoSurfacesSurfaceIDScreenIndexEnableGridRequest.json"
       },
       "SettingsVideoSurfacesSurfaceIDScreenIndexEnableGridResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /settings/video/surfaces/{surfaceID}/{screenIndex}/enableGrid"
+        "$ref": "components/SettingsVideoSurfacesSurfaceIDScreenIndexEnableGridResponse.json"
       },
       "SettingsVideoSurfacesSurfaceIDScreenIndexEnableGuidesRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/SettingsVideoSurfacesSurfaceIDScreenIndexEnableGuidesRequest.json"
       },
       "SettingsVideoSurfacesSurfaceIDScreenIndexEnableGuidesResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /settings/video/surfaces/{surfaceID}/{screenIndex}/enableGuides"
+        "$ref": "components/SettingsVideoSurfacesSurfaceIDScreenIndexEnableGuidesResponse.json"
       },
       "SettingsVideoSurfacesSurfaceIDScreenIndexOriginRequest": {
-        "type": "object",
-        "properties": { "location": { "type": "string" } }
+        "$ref": "components/SettingsVideoSurfacesSurfaceIDScreenIndexOriginRequest.json"
       },
       "SettingsVideoSurfacesSurfaceIDScreenIndexOriginResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /settings/video/surfaces/{surfaceID}/{screenIndex}/origin"
+        "$ref": "components/SettingsVideoSurfacesSurfaceIDScreenIndexOriginResponse.json"
       },
       "SettingsVideoSurfacesSurfaceIDScreenIndexControlPointRequest": {
-        "type": "object",
-        "properties": {
-          "row_index": { "type": "string" },
-          "column_index": { "type": "string" },
-          "location": { "type": "string" }
-        }
+        "$ref": "components/SettingsVideoSurfacesSurfaceIDScreenIndexControlPointRequest.json"
       },
       "SettingsVideoSurfacesSurfaceIDScreenIndexControlPointResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /settings/video/surfaces/{surfaceID}/{screenIndex}/controlPoint"
+        "$ref": "components/SettingsVideoSurfacesSurfaceIDScreenIndexControlPointResponse.json"
       },
       "SettingsVideoSurfacesSurfaceIDScreenIndexResetControlPointsResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /settings/video/surfaces/{surfaceID}/{screenIndex}/resetControlPoints"
+        "$ref": "components/SettingsVideoSurfacesSurfaceIDScreenIndexResetControlPointsResponse.json"
       },
       "CueCueNumberActionElapsedResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/actionElapsed"
+        "$ref": "components/CueCueNumberActionElapsedResponse.json"
       },
       "CueCueNumberPercentActionElapsedResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/percentActionElapsed"
+        "$ref": "components/CueCueNumberPercentActionElapsedResponse.json"
       },
       "CueCueNumberAllowsEditingDurationResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/allowsEditingDuration"
+        "$ref": "components/CueCueNumberAllowsEditingDurationResponse.json"
       },
       "CueCueNumberArmedRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberArmedRequest.json"
       },
       "CueCueNumberArmedResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/armed"
+        "$ref": "components/CueCueNumberArmedResponse.json"
       },
       "CueCueNumberAutoLoadRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberAutoLoadRequest.json"
       },
       "CueCueNumberAutoLoadResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/autoLoad"
+        "$ref": "components/CueCueNumberAutoLoadResponse.json"
       },
       "CueCueNumberCartPositionResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/cartPosition"
+        "$ref": "components/CueCueNumberCartPositionResponse.json"
       },
       "CueNumberChildrenShallowResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{number}/children/shallow"
+        "$ref": "components/CueNumberChildrenShallowResponse.json"
       },
       "CueNumberChildrenUniqueIDsResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{number}/children/uniqueIDs"
+        "$ref": "components/CueNumberChildrenUniqueIDsResponse.json"
       },
       "CueNumberChildrenUniqueIDsShallowResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{number}/children/uniqueIDs/shallow"
+        "$ref": "components/CueNumberChildrenUniqueIDsShallowResponse.json"
       },
       "CueCueNumberColorNameRequest": {
-        "type": "object",
-        "properties": { "string": { "type": "string" } }
+        "$ref": "components/CueCueNumberColorNameRequest.json"
       },
       "CueCueNumberColorNameResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/colorName"
+        "$ref": "components/CueCueNumberColorNameResponse.json"
       },
       "CueCueNumberContinueModeRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberContinueModeRequest.json"
       },
       "CueCueNumberContinueModeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/continueMode"
+        "$ref": "components/CueCueNumberContinueModeResponse.json"
       },
       "CueCueNumberCueTargetIdRequest": {
-        "type": "object",
-        "properties": { "string": { "type": "string" } }
+        "$ref": "components/CueCueNumberCueTargetIdRequest.json"
       },
       "CueCueNumberCueTargetIdResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/cueTargetId"
+        "$ref": "components/CueCueNumberCueTargetIdResponse.json"
       },
       "CueCueNumberCueTargetNumberRequest": {
-        "type": "object",
-        "properties": { "string": { "type": "string" } }
+        "$ref": "components/CueCueNumberCueTargetNumberRequest.json"
       },
       "CueCueNumberCueTargetNumberResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/cueTargetNumber"
+        "$ref": "components/CueCueNumberCueTargetNumberResponse.json"
       },
       "CueCueNumberCurrentCueTargetResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/currentCueTarget"
+        "$ref": "components/CueCueNumberCurrentCueTargetResponse.json"
       },
       "CueCueNumberGoResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/go"
+        "$ref": "components/CueCueNumberGoResponse.json"
       },
       "CueCueNumberTempCueTargetNumberRequest": {
-        "type": "object",
-        "properties": { "string": { "type": "string" } }
+        "$ref": "components/CueCueNumberTempCueTargetNumberRequest.json"
       },
       "CueCueNumberTempCueTargetNumberResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/tempCueTargetNumber"
+        "$ref": "components/CueCueNumberTempCueTargetNumberResponse.json"
       },
       "CueCueNumberTempCueTargetIdResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/tempCueTargetId"
+        "$ref": "components/CueCueNumberTempCueTargetIdResponse.json"
       },
       "CueCueNumberCurrentDurationResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/currentDuration"
+        "$ref": "components/CueCueNumberCurrentDurationResponse.json"
       },
       "CueCueNumberTempDurationRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberTempDurationRequest.json"
       },
       "CueCueNumberTempDurationResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/tempDuration"
+        "$ref": "components/CueCueNumberTempDurationResponse.json"
       },
       "CueCueNumberCurrentFileTimeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/currentFileTime"
+        "$ref": "components/CueCueNumberCurrentFileTimeResponse.json"
       },
       "CueCueNumberDefaultNameResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/defaultName"
+        "$ref": "components/CueCueNumberDefaultNameResponse.json"
       },
       "CueCueNumberDisplayNameResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/displayName"
+        "$ref": "components/CueCueNumberDisplayNameResponse.json"
       },
       "CueCueNumberListNameResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/listName"
+        "$ref": "components/CueCueNumberListNameResponse.json"
       },
       "CueCueNumberDuckLevelRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberDuckLevelRequest.json"
       },
       "CueCueNumberDuckLevelResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/duckLevel"
+        "$ref": "components/CueCueNumberDuckLevelResponse.json"
       },
       "CueCueNumberDuckOthersRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberDuckOthersRequest.json"
       },
       "CueCueNumberDuckOthersResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/duckOthers"
+        "$ref": "components/CueCueNumberDuckOthersResponse.json"
       },
       "CueCueNumberDuckTimeRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberDuckTimeRequest.json"
       },
       "CueCueNumberDuckTimeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/duckTime"
+        "$ref": "components/CueCueNumberDuckTimeResponse.json"
       },
       "CueCueNumberDurationRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberDurationRequest.json"
       },
       "CueCueNumberDurationResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/duration"
+        "$ref": "components/CueCueNumberDurationResponse.json"
       },
       "CueCueNumberFadeAndStopOthersRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberFadeAndStopOthersRequest.json"
       },
       "CueCueNumberFadeAndStopOthersResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/fadeAndStopOthers"
+        "$ref": "components/CueCueNumberFadeAndStopOthersResponse.json"
       },
       "CueCueNumberFadeAndStopOthersTimeRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberFadeAndStopOthersTimeRequest.json"
       },
       "CueCueNumberFadeAndStopOthersTimeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/fadeAndStopOthersTime"
+        "$ref": "components/CueCueNumberFadeAndStopOthersTimeResponse.json"
       },
       "CueCueNumberFileTargetRequest": {
-        "type": "object",
-        "properties": { "string": { "type": "string" } }
+        "$ref": "components/CueCueNumberFileTargetRequest.json"
       },
       "CueCueNumberFileTargetResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/fileTarget"
+        "$ref": "components/CueCueNumberFileTargetResponse.json"
       },
       "CueCueNumberFlaggedRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberFlaggedRequest.json"
       },
       "CueCueNumberFlaggedResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/flagged"
+        "$ref": "components/CueCueNumberFlaggedResponse.json"
       },
       "CueCueNumberHasCueTargetsResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/hasCueTargets"
+        "$ref": "components/CueCueNumberHasCueTargetsResponse.json"
       },
       "CueCueNumberHasFileTargetsResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/hasFileTargets"
+        "$ref": "components/CueCueNumberHasFileTargetsResponse.json"
       },
       "CueCueNumberIsActionRunningResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/isActionRunning"
+        "$ref": "components/CueCueNumberIsActionRunningResponse.json"
       },
       "CueCueNumberIsBrokenResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/isBroken"
+        "$ref": "components/CueCueNumberIsBrokenResponse.json"
       },
       "CueCueNumberIsLoadedResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/isLoaded"
+        "$ref": "components/CueCueNumberIsLoadedResponse.json"
       },
       "CueCueNumberIsOverriddenResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/isOverridden"
+        "$ref": "components/CueCueNumberIsOverriddenResponse.json"
       },
       "CueCueNumberIsPanickingResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/isPanicking"
+        "$ref": "components/CueCueNumberIsPanickingResponse.json"
       },
       "CueCueNumberIsPausedResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/isPaused"
+        "$ref": "components/CueCueNumberIsPausedResponse.json"
       },
       "CueCueNumberIsRunningResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/isRunning"
+        "$ref": "components/CueCueNumberIsRunningResponse.json"
       },
       "CueCueNumberIsTailingOutResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/isTailingOut"
+        "$ref": "components/CueCueNumberIsTailingOutResponse.json"
       },
       "CueCueNumberLoadResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/load"
+        "$ref": "components/CueCueNumberLoadResponse.json"
       },
       "CueCueNumberLoadAtRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberLoadAtRequest.json"
       },
       "CueCueNumberLoadAtResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/loadAt"
+        "$ref": "components/CueCueNumberLoadAtResponse.json"
       },
       "CueCueNumberLoadActionAtRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberLoadActionAtRequest.json"
       },
       "CueCueNumberLoadActionAtResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/loadActionAt"
+        "$ref": "components/CueCueNumberLoadActionAtResponse.json"
       },
       "CueCueNumberLoadAndSetPlayheadResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/loadAndSetPlayhead"
+        "$ref": "components/CueCueNumberLoadAndSetPlayheadResponse.json"
       },
       "CueCueNumberMaxTimeInCueSequenceResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/maxTimeInCueSequence"
+        "$ref": "components/CueCueNumberMaxTimeInCueSequenceResponse.json"
       },
       "CueCueNumberNameRequest": {
-        "type": "object",
-        "properties": { "string": { "type": "string" } }
+        "$ref": "components/CueCueNumberNameRequest.json"
       },
       "CueCueNumberNameResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/name"
+        "$ref": "components/CueCueNumberNameResponse.json"
       },
       "CueCueNumberNotesRequest": {
-        "type": "object",
-        "properties": { "string": { "type": "string" } }
+        "$ref": "components/CueCueNumberNotesRequest.json"
       },
       "CueCueNumberNotesResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/notes"
+        "$ref": "components/CueCueNumberNotesResponse.json"
       },
       "CueCueNumberNumberRequest": {
-        "type": "object",
-        "properties": { "string": { "type": "string" } }
+        "$ref": "components/CueCueNumberNumberRequest.json"
       },
       "CueCueNumberNumberResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/number"
+        "$ref": "components/CueCueNumberNumberResponse.json"
       },
       "CueCueNumberPanicResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/panic"
+        "$ref": "components/CueCueNumberPanicResponse.json"
       },
       "CueCueNumberPanicInTimeRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberPanicInTimeRequest.json"
       },
       "CueCueNumberPanicInTimeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/panicInTime"
+        "$ref": "components/CueCueNumberPanicInTimeResponse.json"
       },
       "CueCueNumberPauseResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/pause"
+        "$ref": "components/CueCueNumberPauseResponse.json"
       },
       "CueCueNumberHardPauseResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/hardPause"
+        "$ref": "components/CueCueNumberHardPauseResponse.json"
       },
       "CueCueNumberTogglePauseResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/togglePause"
+        "$ref": "components/CueCueNumberTogglePauseResponse.json"
       },
       "CueCueNumberParentResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/parent"
+        "$ref": "components/CueCueNumberParentResponse.json"
       },
       "CueCueNumberPreviewResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/preview"
+        "$ref": "components/CueCueNumberPreviewResponse.json"
       },
       "CueCueNumberPreWaitRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberPreWaitRequest.json"
       },
       "CueCueNumberPreWaitResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/preWait"
+        "$ref": "components/CueCueNumberPreWaitResponse.json"
       },
       "CueCueNumberPreWaitElapsedResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/preWaitElapsed"
+        "$ref": "components/CueCueNumberPreWaitElapsedResponse.json"
       },
       "CueCueNumberPercentPreWaitElapsedResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/percentPreWaitElapsed"
+        "$ref": "components/CueCueNumberPercentPreWaitElapsedResponse.json"
       },
       "CueCueNumberPostWaitRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberPostWaitRequest.json"
       },
       "CueCueNumberPostWaitResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/postWait"
+        "$ref": "components/CueCueNumberPostWaitResponse.json"
       },
       "CueCueNumberPostWaitElapsedResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/postWaitElapsed"
+        "$ref": "components/CueCueNumberPostWaitElapsedResponse.json"
       },
       "CueCueNumberPercentPostWaitElapsedResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/percentPostWaitElapsed"
+        "$ref": "components/CueCueNumberPercentPostWaitElapsedResponse.json"
       },
       "CueCueNumberResumeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/resume"
+        "$ref": "components/CueCueNumberResumeResponse.json"
       },
       "CueCueNumberResetResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/reset"
+        "$ref": "components/CueCueNumberResetResponse.json"
       },
       "CueCueNumberSecondTriggerActionRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberSecondTriggerActionRequest.json"
       },
       "CueCueNumberSecondTriggerActionResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/secondTriggerAction"
+        "$ref": "components/CueCueNumberSecondTriggerActionResponse.json"
       },
       "CueCueNumberSecondTriggerOnReleaseRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberSecondTriggerOnReleaseRequest.json"
       },
       "CueCueNumberSecondTriggerOnReleaseResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/secondTriggerOnRelease"
+        "$ref": "components/CueCueNumberSecondTriggerOnReleaseResponse.json"
       },
       "CueCueNumberSoloCueInTimeRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberSoloCueInTimeRequest.json"
       },
       "CueCueNumberSoloCueInTimeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/soloCueInTime"
+        "$ref": "components/CueCueNumberSoloCueInTimeResponse.json"
       },
       "CueCueNumberStartResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/start"
+        "$ref": "components/CueCueNumberStartResponse.json"
       },
       "CueCueNumberStartAndAutoloadNextResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/startAndAutoloadNext"
+        "$ref": "components/CueCueNumberStartAndAutoloadNextResponse.json"
       },
       "CueCueNumberStopResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/stop"
+        "$ref": "components/CueCueNumberStopResponse.json"
       },
       "CueCueNumberHardStopResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/hardStop"
+        "$ref": "components/CueCueNumberHardStopResponse.json"
       },
       "CueCueNumberTypeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/type"
+        "$ref": "components/CueCueNumberTypeResponse.json"
       },
       "CueCueNumberUniqueIDResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/uniqueID"
+        "$ref": "components/CueCueNumberUniqueIDResponse.json"
       },
       "CueCueNumberValuesForKeysRequest": {
-        "type": "object",
-        "properties": { "json_string": { "type": "string" } }
+        "$ref": "components/CueCueNumberValuesForKeysRequest.json"
       },
       "CueCueNumberValuesForKeysResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/valuesForKeys"
+        "$ref": "components/CueCueNumberValuesForKeysResponse.json"
       },
       "CueCueNumberValuesForKeysWithArgumentsRequest": {
-        "type": "object",
-        "properties": { "json_string": { "type": "string" } }
+        "$ref": "components/CueCueNumberValuesForKeysWithArgumentsRequest.json"
       },
       "CueCueNumberValuesForKeysWithArgumentsResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/valuesForKeysWithArguments"
+        "$ref": "components/CueCueNumberValuesForKeysWithArgumentsResponse.json"
       },
       "CueCueNumberCartColumnsResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/cartColumns"
+        "$ref": "components/CueCueNumberCartColumnsResponse.json"
       },
       "CueCueNumberChildrenResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/children"
+        "$ref": "components/CueCueNumberChildrenResponse.json"
       },
       "CueCueNumberModeRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberModeRequest.json"
       },
       "CueCueNumberModeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/mode"
+        "$ref": "components/CueCueNumberModeResponse.json"
       },
       "CueCueNumberMoveCartCueChildRequest": {
-        "type": "object",
-        "properties": {
-          "row": { "type": "string" },
-          "column": { "type": "string" }
-        }
+        "$ref": "components/CueCueNumberMoveCartCueChildRequest.json"
       },
       "CueCueNumberMoveCartCueChildResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/moveCartCue/{child}"
+        "$ref": "components/CueCueNumberMoveCartCueChildResponse.json"
       },
       "CueCueNumberPlayheadRequest": {
-        "type": "object",
-        "properties": { "string": { "type": "string" } }
+        "$ref": "components/CueCueNumberPlayheadRequest.json"
       },
       "CueCueNumberPlayheadResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/playhead"
+        "$ref": "components/CueCueNumberPlayheadResponse.json"
       },
       "CueCueNumberPlayheadIdRequest": {
-        "type": "object",
-        "properties": { "string": { "type": "string" } }
+        "$ref": "components/CueCueNumberPlayheadIdRequest.json"
       },
       "CueCueNumberPlayheadIdResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/playheadId"
+        "$ref": "components/CueCueNumberPlayheadIdResponse.json"
       },
       "CueCueNumberPlayheadNextResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/playhead/next"
+        "$ref": "components/CueCueNumberPlayheadNextResponse.json"
       },
       "CueCueNumberPlayheadPreviousResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/playhead/previous"
+        "$ref": "components/CueCueNumberPlayheadPreviousResponse.json"
       },
       "CueCueNumberDoFadeRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberDoFadeRequest.json"
       },
       "CueCueNumberDoFadeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/doFade"
+        "$ref": "components/CueCueNumberDoFadeResponse.json"
       },
       "CueCueNumberDoPitchShiftRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberDoPitchShiftRequest.json"
       },
       "CueCueNumberDoPitchShiftResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/doPitchShift"
+        "$ref": "components/CueCueNumberDoPitchShiftResponse.json"
       },
       "CueCueNumberEndTimeRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberEndTimeRequest.json"
       },
       "CueCueNumberEndTimeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/endTime"
+        "$ref": "components/CueCueNumberEndTimeResponse.json"
       },
       "CueCueNumberGangRequest": {
-        "type": "object",
-        "properties": { "gang": { "type": "string" } }
+        "$ref": "components/CueCueNumberGangRequest.json"
       },
       "CueCueNumberGangResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/gang"
+        "$ref": "components/CueCueNumberGangResponse.json"
       },
       "CueCueNumberInfiniteLoopRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberInfiniteLoopRequest.json"
       },
       "CueCueNumberInfiniteLoopResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/infiniteLoop"
+        "$ref": "components/CueCueNumberInfiniteLoopResponse.json"
       },
       "CueCueNumberLevelRequest": {
-        "type": "object",
-        "properties": { "decibel": { "type": "string" } }
+        "$ref": "components/CueCueNumberLevelRequest.json"
       },
       "CueCueNumberLevelResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/level"
+        "$ref": "components/CueCueNumberLevelResponse.json"
       },
       "CueCueNumberLevelsResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/levels"
+        "$ref": "components/CueCueNumberLevelsResponse.json"
       },
       "CueCueNumberLiveAverageLevelOutputChannelRequest": {
-        "type": "object",
-        "properties": {
-          "low": { "type": "string" },
-          "high": { "type": "string" }
-        }
+        "$ref": "components/CueCueNumberLiveAverageLevelOutputChannelRequest.json"
       },
       "CueCueNumberLiveAverageLevelOutputChannelResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/liveAverageLevel/{outputChannel}"
+        "$ref": "components/CueCueNumberLiveAverageLevelOutputChannelResponse.json"
       },
       "CueCueNumberLockFadeToCueRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberLockFadeToCueRequest.json"
       },
       "CueCueNumberLockFadeToCueResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/lockFadeToCue"
+        "$ref": "components/CueCueNumberLockFadeToCueResponse.json"
       },
       "CueCueNumberNumChannelsInResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/numChannelsIn"
+        "$ref": "components/CueCueNumberNumChannelsInResponse.json"
       },
       "CueCueNumberPatchRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberPatchRequest.json"
       },
       "CueCueNumberPatchResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/patch"
+        "$ref": "components/CueCueNumberPatchResponse.json"
       },
       "CueCueNumberPatchListResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/patchList"
+        "$ref": "components/CueCueNumberPatchListResponse.json"
       },
       "CueCueNumberPlayCountRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberPlayCountRequest.json"
       },
       "CueCueNumberPlayCountResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/playCount"
+        "$ref": "components/CueCueNumberPlayCountResponse.json"
       },
       "CueCueNumberRateRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberRateRequest.json"
       },
       "CueCueNumberRateResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/rate"
+        "$ref": "components/CueCueNumberRateResponse.json"
       },
       "CueCueNumberSetDefaultLevelsResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/setDefaultLevels"
+        "$ref": "components/CueCueNumberSetDefaultLevelsResponse.json"
       },
       "CueCueNumberSetSilentLevelsResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/setSilentLevels"
+        "$ref": "components/CueCueNumberSetSilentLevelsResponse.json"
       },
       "CueCueNumberSliceMarkersResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/sliceMarkers"
+        "$ref": "components/CueCueNumberSliceMarkersResponse.json"
       },
       "CueCueNumberSliceMarkerRequest": {
-        "type": "object",
-        "properties": {
-          "index": { "type": "string" },
-          "time": { "type": "string" },
-          "play_count": { "type": "string" }
-        }
+        "$ref": "components/CueCueNumberSliceMarkerRequest.json"
       },
       "CueCueNumberSliceMarkerResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/sliceMarker"
+        "$ref": "components/CueCueNumberSliceMarkerResponse.json"
       },
       "CueCueNumberSliceMarkerIndexTimeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/sliceMarker/{index}/time"
+        "$ref": "components/CueCueNumberSliceMarkerIndexTimeResponse.json"
       },
       "CueCueNumberSliceMarkerIndexPlayCountResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/sliceMarker/{index}/playCount"
+        "$ref": "components/CueCueNumberSliceMarkerIndexPlayCountResponse.json"
       },
       "CueCueNumberAddSliceMarkerRequest": {
-        "type": "object",
-        "properties": {
-          "time": { "type": "string" },
-          "play_count": { "type": "string" }
-        }
+        "$ref": "components/CueCueNumberAddSliceMarkerRequest.json"
       },
       "CueCueNumberAddSliceMarkerResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/addSliceMarker"
+        "$ref": "components/CueCueNumberAddSliceMarkerResponse.json"
       },
       "CueCueNumberDeleteSliceMarkerRequest": {
-        "type": "object",
-        "properties": { "index": { "type": "string" } }
+        "$ref": "components/CueCueNumberDeleteSliceMarkerRequest.json"
       },
       "CueCueNumberDeleteSliceMarkerResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/deleteSliceMarker"
+        "$ref": "components/CueCueNumberDeleteSliceMarkerResponse.json"
       },
       "CueCueNumberDeleteSliceMarkersResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/deleteSliceMarkers"
+        "$ref": "components/CueCueNumberDeleteSliceMarkersResponse.json"
       },
       "CueCueNumberSliceMarkerIndexTimeRequest": {
-        "type": "object",
-        "properties": { "time": { "type": "string" } }
+        "$ref": "components/CueCueNumberSliceMarkerIndexTimeRequest.json"
       },
       "CueCueNumberSliceMarkerIndexTimePlusRequest": {
-        "type": "object",
-        "properties": { "delta": { "type": "string" } }
+        "$ref": "components/CueCueNumberSliceMarkerIndexTimePlusRequest.json"
       },
       "CueCueNumberSliceMarkerIndexTimePlusResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/sliceMarker/{index}/time/+"
+        "$ref": "components/CueCueNumberSliceMarkerIndexTimePlusResponse.json"
       },
       "CueCueNumberSliceMarkersTimePlusRequest": {
-        "type": "object",
-        "properties": { "delta": { "type": "string" } }
+        "$ref": "components/CueCueNumberSliceMarkersTimePlusRequest.json"
       },
       "CueCueNumberSliceMarkersTimePlusResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/sliceMarkers/time/+"
+        "$ref": "components/CueCueNumberSliceMarkersTimePlusResponse.json"
       },
       "CueCueNumberSliceMarkerIndexPlayCountRequest": {
-        "type": "object",
-        "properties": { "play_count": { "type": "string" } }
+        "$ref": "components/CueCueNumberSliceMarkerIndexPlayCountRequest.json"
       },
       "CueCueNumberSliceMarkerIndexPlayCountPlusRequest": {
-        "type": "object",
-        "properties": { "delta": { "type": "string" } }
+        "$ref": "components/CueCueNumberSliceMarkerIndexPlayCountPlusRequest.json"
       },
       "CueCueNumberSliceMarkerIndexPlayCountPlusResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/sliceMarker/{index}/playCount/+"
+        "$ref": "components/CueCueNumberSliceMarkerIndexPlayCountPlusResponse.json"
       },
       "CueCueNumberLastSlicePlayCountRequest": {
-        "type": "object",
-        "properties": { "play_count": { "type": "string" } }
+        "$ref": "components/CueCueNumberLastSlicePlayCountRequest.json"
       },
       "CueCueNumberLastSlicePlayCountResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/lastSlicePlayCount"
+        "$ref": "components/CueCueNumberLastSlicePlayCountResponse.json"
       },
       "CueCueNumberLastSliceInfiniteLoopRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberLastSliceInfiniteLoopRequest.json"
       },
       "CueCueNumberLastSliceInfiniteLoopResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/lastSliceInfiniteLoop"
+        "$ref": "components/CueCueNumberLastSliceInfiniteLoopResponse.json"
       },
       "CueCueNumberSliderLevelRequest": {
-        "type": "object",
-        "properties": {
-          "channel": { "type": "string" },
-          "decibel": { "type": "string" }
-        }
+        "$ref": "components/CueCueNumberSliderLevelRequest.json"
       },
       "CueCueNumberSliderLevelResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/sliderLevel"
+        "$ref": "components/CueCueNumberSliderLevelResponse.json"
       },
       "CueCueNumberSliderLevelsResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/sliderLevels"
+        "$ref": "components/CueCueNumberSliderLevelsResponse.json"
       },
       "CueCueNumberStartTimeRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberStartTimeRequest.json"
       },
       "CueCueNumberStartTimeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/startTime"
+        "$ref": "components/CueCueNumberStartTimeResponse.json"
       },
       "CueCueNumberChannelOffsetResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/channelOffset"
+        "$ref": "components/CueCueNumberChannelOffsetResponse.json"
       },
       "CueCueNumberChannelsRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberChannelsRequest.json"
       },
       "CueCueNumberChannelsResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/channels"
+        "$ref": "components/CueCueNumberChannelsResponse.json"
       },
       "CueCueNumberCueSizeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/cueSize"
+        "$ref": "components/CueCueNumberCueSizeResponse.json"
       },
       "CueCueNumberDoEffectRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberDoEffectRequest.json"
       },
       "CueCueNumberDoEffectResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/doEffect"
+        "$ref": "components/CueCueNumberDoEffectResponse.json"
       },
       "CueCueNumberEffectIndexRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberEffectIndexRequest.json"
       },
       "CueCueNumberEffectIndexResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/effectIndex"
+        "$ref": "components/CueCueNumberEffectIndexResponse.json"
       },
       "CueCueNumberEffectSetRequest": {
-        "type": "object",
-        "properties": {
-          "parameter": { "type": "string" },
-          "value": { "type": "string" }
-        }
+        "$ref": "components/CueCueNumberEffectSetRequest.json"
       },
       "CueCueNumberEffectSetResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/effectSet"
+        "$ref": "components/CueCueNumberEffectSetResponse.json"
       },
       "CueCueNumberFullScreenRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberFullScreenRequest.json"
       },
       "CueCueNumberFullScreenResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/fullScreen"
+        "$ref": "components/CueCueNumberFullScreenResponse.json"
       },
       "CueCueNumberHoldLastFrameRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberHoldLastFrameRequest.json"
       },
       "CueCueNumberHoldLastFrameResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/holdLastFrame"
+        "$ref": "components/CueCueNumberHoldLastFrameResponse.json"
       },
       "CueCueNumberLayerRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberLayerRequest.json"
       },
       "CueCueNumberLayerResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/layer"
+        "$ref": "components/CueCueNumberLayerResponse.json"
       },
       "CueCueNumberOpacityRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberOpacityRequest.json"
       },
       "CueCueNumberOpacityResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/opacity"
+        "$ref": "components/CueCueNumberOpacityResponse.json"
       },
       "CueCueNumberOriginXRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberOriginXRequest.json"
       },
       "CueCueNumberOriginXResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/originX"
+        "$ref": "components/CueCueNumberOriginXResponse.json"
       },
       "CueCueNumberOriginYRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberOriginYRequest.json"
       },
       "CueCueNumberOriginYResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/originY"
+        "$ref": "components/CueCueNumberOriginYResponse.json"
       },
       "CueCueNumberOriginRequest": {
-        "type": "object",
-        "properties": { "x": { "type": "string" }, "y": { "type": "string" } }
+        "$ref": "components/CueCueNumberOriginRequest.json"
       },
       "CueCueNumberOriginResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/origin"
+        "$ref": "components/CueCueNumberOriginResponse.json"
       },
       "CueCueNumberPreserveAspectRatioRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberPreserveAspectRatioRequest.json"
       },
       "CueCueNumberPreserveAspectRatioResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/preserveAspectRatio"
+        "$ref": "components/CueCueNumberPreserveAspectRatioResponse.json"
       },
       "CueCueNumberQuaternionRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberQuaternionRequest.json"
       },
       "CueCueNumberQuaternionResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/quaternion"
+        "$ref": "components/CueCueNumberQuaternionResponse.json"
       },
       "CueCueNumberLiveRateRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberLiveRateRequest.json"
       },
       "CueCueNumberLiveRateResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/liveRate"
+        "$ref": "components/CueCueNumberLiveRateResponse.json"
       },
       "CueCueNumberResetRotationResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/resetRotation"
+        "$ref": "components/CueCueNumberResetRotationResponse.json"
       },
       "CueCueNumberRotateXRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberRotateXRequest.json"
       },
       "CueCueNumberRotateXResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/rotateX"
+        "$ref": "components/CueCueNumberRotateXResponse.json"
       },
       "CueCueNumberLiveRotationXaxisRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberLiveRotationXaxisRequest.json"
       },
       "CueCueNumberLiveRotationXaxisResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/liveRotation/Xaxis"
+        "$ref": "components/CueCueNumberLiveRotationXaxisResponse.json"
       },
       "CueCueNumberScaleXRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberScaleXRequest.json"
       },
       "CueCueNumberScaleXResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/scaleX"
+        "$ref": "components/CueCueNumberScaleXResponse.json"
       },
       "CueCueNumberScaleYRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberScaleYRequest.json"
       },
       "CueCueNumberScaleYResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/scaleY"
+        "$ref": "components/CueCueNumberScaleYResponse.json"
       },
       "CueCueNumberScaleRequest": {
-        "type": "object",
-        "properties": { "x": { "type": "string" }, "y": { "type": "string" } }
+        "$ref": "components/CueCueNumberScaleRequest.json"
       },
       "CueCueNumberScaleResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/scale"
+        "$ref": "components/CueCueNumberScaleResponse.json"
       },
       "CueCueNumberSurfaceIDRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberSurfaceIDRequest.json"
       },
       "CueCueNumberSurfaceIDResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/surfaceID"
+        "$ref": "components/CueCueNumberSurfaceIDResponse.json"
       },
       "CueCueNumberSurfaceListResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/surfaceList"
+        "$ref": "components/CueCueNumberSurfaceListResponse.json"
       },
       "CueCueNumberSurfaceNameRequest": {
-        "type": "object",
-        "properties": { "string": { "type": "string" } }
+        "$ref": "components/CueCueNumberSurfaceNameRequest.json"
       },
       "CueCueNumberSurfaceNameResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/surfaceName"
+        "$ref": "components/CueCueNumberSurfaceNameResponse.json"
       },
       "CueCueNumberSurfaceSizeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/surfaceSize"
+        "$ref": "components/CueCueNumberSurfaceSizeResponse.json"
       },
       "CueCueNumberTranslationXRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberTranslationXRequest.json"
       },
       "CueCueNumberTranslationXResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/translationX"
+        "$ref": "components/CueCueNumberTranslationXResponse.json"
       },
       "CueCueNumberTranslationYRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberTranslationYRequest.json"
       },
       "CueCueNumberTranslationYResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/translationY"
+        "$ref": "components/CueCueNumberTranslationYResponse.json"
       },
       "CueCueNumberTranslationRequest": {
-        "type": "object",
-        "properties": { "x": { "type": "string" }, "y": { "type": "string" } }
+        "$ref": "components/CueCueNumberTranslationRequest.json"
       },
       "CueCueNumberTranslationResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/translation"
+        "$ref": "components/CueCueNumberTranslationResponse.json"
       },
       "CueCueNumberCameraPatchResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/cameraPatch"
+        "$ref": "components/CueCueNumberCameraPatchResponse.json"
       },
       "CueCueNumberFixedWidthRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberFixedWidthRequest.json"
       },
       "CueCueNumberFixedWidthResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/fixedWidth"
+        "$ref": "components/CueCueNumberFixedWidthResponse.json"
       },
       "CueCueNumberTextRequest": {
-        "type": "object",
-        "properties": { "string": { "type": "string" } }
+        "$ref": "components/CueCueNumberTextRequest.json"
       },
       "CueCueNumberTextResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/text"
+        "$ref": "components/CueCueNumberTextResponse.json"
       },
       "CueCueNumberTextFormatRequest": {
-        "type": "object",
-        "properties": { "json_string": { "type": "string" } }
+        "$ref": "components/CueCueNumberTextFormatRequest.json"
       },
       "CueCueNumberTextFormatResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/text/format"
+        "$ref": "components/CueCueNumberTextFormatResponse.json"
       },
       "CueCueNumberTextFormatAlignmentRequest": {
-        "type": "object",
-        "properties": { "alignment": { "type": "string" } }
+        "$ref": "components/CueCueNumberTextFormatAlignmentRequest.json"
       },
       "CueCueNumberTextFormatAlignmentResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/text/format/alignment"
+        "$ref": "components/CueCueNumberTextFormatAlignmentResponse.json"
       },
       "CueCueNumberTextFormatFontFamilyResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/text/format/fontFamily"
+        "$ref": "components/CueCueNumberTextFormatFontFamilyResponse.json"
       },
       "CueCueNumberTextFormatFontStyleResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/text/format/fontStyle"
+        "$ref": "components/CueCueNumberTextFormatFontStyleResponse.json"
       },
       "CueCueNumberTextFormatFontFamilyAndStyleRequest": {
-        "type": "object",
-        "properties": {
-          "family": { "type": "string" },
-          "style": { "type": "string" }
-        }
+        "$ref": "components/CueCueNumberTextFormatFontFamilyAndStyleRequest.json"
       },
       "CueCueNumberTextFormatFontFamilyAndStyleResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/text/format/fontFamilyAndStyle"
+        "$ref": "components/CueCueNumberTextFormatFontFamilyAndStyleResponse.json"
       },
       "CueCueNumberTextFormatFontNameRequest": {
-        "type": "object",
-        "properties": { "name": { "type": "string" } }
+        "$ref": "components/CueCueNumberTextFormatFontNameRequest.json"
       },
       "CueCueNumberTextFormatFontNameResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/text/format/fontName"
+        "$ref": "components/CueCueNumberTextFormatFontNameResponse.json"
       },
       "CueCueNumberTextFormatFontSizeRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberTextFormatFontSizeRequest.json"
       },
       "CueCueNumberTextFormatFontSizeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/text/format/fontSize"
+        "$ref": "components/CueCueNumberTextFormatFontSizeResponse.json"
       },
       "CueCueNumberTextFormatLineSpacingRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberTextFormatLineSpacingRequest.json"
       },
       "CueCueNumberTextFormatLineSpacingResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/text/format/lineSpacing"
+        "$ref": "components/CueCueNumberTextFormatLineSpacingResponse.json"
       },
       "CueCueNumberTextFormatColorRequest": {
-        "type": "object",
-        "properties": {
-          "red": { "type": "string" },
-          "green": { "type": "string" },
-          "blue": { "type": "string" },
-          "alpha": { "type": "string" }
-        }
+        "$ref": "components/CueCueNumberTextFormatColorRequest.json"
       },
       "CueCueNumberTextFormatColorResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/text/format/color"
+        "$ref": "components/CueCueNumberTextFormatColorResponse.json"
       },
       "CueCueNumberTextFormatStrikethroughStyleRequest": {
-        "type": "object",
-        "properties": { "style": { "type": "string" } }
+        "$ref": "components/CueCueNumberTextFormatStrikethroughStyleRequest.json"
       },
       "CueCueNumberTextFormatStrikethroughStyleResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/text/format/strikethroughStyle"
+        "$ref": "components/CueCueNumberTextFormatStrikethroughStyleResponse.json"
       },
       "CueCueNumberTextOutputSizeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/text/outputSize"
+        "$ref": "components/CueCueNumberTextOutputSizeResponse.json"
       },
       "CueCueNumberAlwaysCollateRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberAlwaysCollateRequest.json"
       },
       "CueCueNumberAlwaysCollateResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/alwaysCollate"
+        "$ref": "components/CueCueNumberAlwaysCollateResponse.json"
       },
       "CueCueNumberCollateAndStartResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/collateAndStart"
+        "$ref": "components/CueCueNumberCollateAndStartResponse.json"
       },
       "CueCueNumberLightCommandTextRequest": {
-        "type": "object",
-        "properties": { "string": { "type": "string" } }
+        "$ref": "components/CueCueNumberLightCommandTextRequest.json"
       },
       "CueCueNumberLightCommandTextResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/lightCommandText"
+        "$ref": "components/CueCueNumberLightCommandTextResponse.json"
       },
       "CueCueNumberPruneResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/prune"
+        "$ref": "components/CueCueNumberPruneResponse.json"
       },
       "CueCueNumberRemoveLightCommandsMatchingRequest": {
-        "type": "object",
-        "properties": { "string": { "type": "string" } }
+        "$ref": "components/CueCueNumberRemoveLightCommandsMatchingRequest.json"
       },
       "CueCueNumberRemoveLightCommandsMatchingResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/removeLightCommandsMatching"
+        "$ref": "components/CueCueNumberRemoveLightCommandsMatchingResponse.json"
       },
       "CueCueNumberReplaceLightCommandRequest": {
-        "type": "object",
-        "properties": {
-          "old_command": { "type": "string" },
-          "new_command": { "type": "string" }
-        }
+        "$ref": "components/CueCueNumberReplaceLightCommandRequest.json"
       },
       "CueCueNumberReplaceLightCommandResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/replaceLightCommand"
+        "$ref": "components/CueCueNumberReplaceLightCommandResponse.json"
       },
       "CueCueNumberSafeSortResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/safeSort"
+        "$ref": "components/CueCueNumberSafeSortResponse.json"
       },
       "CueCueNumberSetLightRequest": {
-        "type": "object",
-        "properties": {
-          "string": { "type": "string" },
-          "setting": { "type": "string" }
-        }
+        "$ref": "components/CueCueNumberSetLightRequest.json"
       },
       "CueCueNumberSetLightResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/setLight"
+        "$ref": "components/CueCueNumberSetLightResponse.json"
       },
       "CueCueNumberUpdateLightCommandRequest": {
-        "type": "object",
-        "properties": {
-          "string": { "type": "string" },
-          "number": { "type": "string" }
-        }
+        "$ref": "components/CueCueNumberUpdateLightCommandRequest.json"
       },
       "CueCueNumberUpdateLightCommandResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/updateLightCommand"
+        "$ref": "components/CueCueNumberUpdateLightCommandResponse.json"
       },
       "CueCueNumberDoOpacityRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberDoOpacityRequest.json"
       },
       "CueCueNumberDoOpacityResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/doOpacity"
+        "$ref": "components/CueCueNumberDoOpacityResponse.json"
       },
       "CueCueNumberGeoModeRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberGeoModeRequest.json"
       },
       "CueCueNumberGeoModeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/geoMode"
+        "$ref": "components/CueCueNumberGeoModeResponse.json"
       },
       "CueCueNumberRotationRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberRotationRequest.json"
       },
       "CueCueNumberRotationResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/rotation"
+        "$ref": "components/CueCueNumberRotationResponse.json"
       },
       "CueCueNumberRotationTypeRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberRotationTypeRequest.json"
       },
       "CueCueNumberRotationTypeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/rotationType"
+        "$ref": "components/CueCueNumberRotationTypeResponse.json"
       },
       "CueCueNumberSetLevelsFromTargetResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/setLevelsFromTarget"
+        "$ref": "components/CueCueNumberSetLevelsFromTargetResponse.json"
       },
       "CueCueNumberSetGeometryFromTargetResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/setGeometryFromTarget"
+        "$ref": "components/CueCueNumberSetGeometryFromTargetResponse.json"
       },
       "CueCueNumberStopTargetWhenDoneRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberStopTargetWhenDoneRequest.json"
       },
       "CueCueNumberStopTargetWhenDoneResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/stopTargetWhenDone"
+        "$ref": "components/CueCueNumberStopTargetWhenDoneResponse.json"
       },
       "CueCueNumberWillFadeRequest": {
-        "type": "object",
-        "properties": {
-          "row": { "type": "string" },
-          "column": { "type": "string" },
-          "number": { "type": "string" }
-        }
+        "$ref": "components/CueCueNumberWillFadeRequest.json"
       },
       "CueCueNumberWillFadeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/willFade"
+        "$ref": "components/CueCueNumberWillFadeResponse.json"
       },
       "CueCueNumberCustomStringRequest": {
-        "type": "object",
-        "properties": { "string": { "type": "string" } }
+        "$ref": "components/CueCueNumberCustomStringRequest.json"
       },
       "CueCueNumberCustomStringResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/customString"
+        "$ref": "components/CueCueNumberCustomStringResponse.json"
       },
       "CueCueNumberMessageTypeRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberMessageTypeRequest.json"
       },
       "CueCueNumberMessageTypeResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/messageType"
+        "$ref": "components/CueCueNumberMessageTypeResponse.json"
       },
       "CueCueNumberQlabCommandRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberQlabCommandRequest.json"
       },
       "CueCueNumberQlabCommandResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/qlabCommand"
+        "$ref": "components/CueCueNumberQlabCommandResponse.json"
       },
       "CueCueNumberQlabCueNumberRequest": {
-        "type": "object",
-        "properties": { "string": { "type": "string" } }
+        "$ref": "components/CueCueNumberQlabCueNumberRequest.json"
       },
       "CueCueNumberQlabCueNumberResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/qlabCueNumber"
+        "$ref": "components/CueCueNumberQlabCueNumberResponse.json"
       },
       "CueCueNumberQlabCueParametersRequest": {
-        "type": "object",
-        "properties": { "string": { "type": "string" } }
+        "$ref": "components/CueCueNumberQlabCueParametersRequest.json"
       },
       "CueCueNumberQlabCueParametersResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/qlabCueParameters"
+        "$ref": "components/CueCueNumberQlabCueParametersResponse.json"
       },
       "CueCueNumberRawStringRequest": {
-        "type": "object",
-        "properties": { "string": { "type": "string" } }
+        "$ref": "components/CueCueNumberRawStringRequest.json"
       },
       "CueCueNumberRawStringResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/rawString"
+        "$ref": "components/CueCueNumberRawStringResponse.json"
       },
       "CueCueNumberByte1Request": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberByte1Request.json"
       },
       "CueCueNumberByte1Response": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/byte1"
+        "$ref": "components/CueCueNumberByte1Response.json"
       },
       "CueCueNumberByte2Request": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberByte2Request.json"
       },
       "CueCueNumberByte2Response": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/byte2"
+        "$ref": "components/CueCueNumberByte2Response.json"
       },
       "CueCueNumberByteComboRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberByteComboRequest.json"
       },
       "CueCueNumberByteComboResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/byteCombo"
+        "$ref": "components/CueCueNumberByteComboResponse.json"
       },
       "CueCueNumberChannelRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberChannelRequest.json"
       },
       "CueCueNumberChannelResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/channel"
+        "$ref": "components/CueCueNumberChannelResponse.json"
       },
       "CueCueNumberCommandRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberCommandRequest.json"
       },
       "CueCueNumberCommandResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/command"
+        "$ref": "components/CueCueNumberCommandResponse.json"
       },
       "CueCueNumberCommandFormatRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberCommandFormatRequest.json"
       },
       "CueCueNumberCommandFormatResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/commandFormat"
+        "$ref": "components/CueCueNumberCommandFormatResponse.json"
       },
       "CueCueNumberControlNumberRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberControlNumberRequest.json"
       },
       "CueCueNumberControlNumberResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/controlNumber"
+        "$ref": "components/CueCueNumberControlNumberResponse.json"
       },
       "CueCueNumberControlValueRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberControlValueRequest.json"
       },
       "CueCueNumberControlValueResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/controlValue"
+        "$ref": "components/CueCueNumberControlValueResponse.json"
       },
       "CueCueNumberDeviceIDRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberDeviceIDRequest.json"
       },
       "CueCueNumberDeviceIDResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/deviceID"
+        "$ref": "components/CueCueNumberDeviceIDResponse.json"
       },
       "CueCueNumberEndValueRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberEndValueRequest.json"
       },
       "CueCueNumberEndValueResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/endValue"
+        "$ref": "components/CueCueNumberEndValueResponse.json"
       },
       "CueCueNumberHoursRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberHoursRequest.json"
       },
       "CueCueNumberHoursResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/hours"
+        "$ref": "components/CueCueNumberHoursResponse.json"
       },
       "CueCueNumberMacroRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberMacroRequest.json"
       },
       "CueCueNumberMacroResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/macro"
+        "$ref": "components/CueCueNumberMacroResponse.json"
       },
       "CueCueNumberQListRequest": {
-        "type": "object",
-        "properties": { "string": { "type": "string" } }
+        "$ref": "components/CueCueNumberQListRequest.json"
       },
       "CueCueNumberQListResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/qList"
+        "$ref": "components/CueCueNumberQListResponse.json"
       },
       "CueCueNumberQNumberRequest": {
-        "type": "object",
-        "properties": { "string": { "type": "string" } }
+        "$ref": "components/CueCueNumberQNumberRequest.json"
       },
       "CueCueNumberQNumberResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/qNumber"
+        "$ref": "components/CueCueNumberQNumberResponse.json"
       },
       "CueCueNumberQPathRequest": {
-        "type": "object",
-        "properties": { "string": { "type": "string" } }
+        "$ref": "components/CueCueNumberQPathRequest.json"
       },
       "CueCueNumberQPathResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/qPath"
+        "$ref": "components/CueCueNumberQPathResponse.json"
       },
       "CueCueNumberStatusRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberStatusRequest.json"
       },
       "CueCueNumberStatusResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/status"
+        "$ref": "components/CueCueNumberStatusResponse.json"
       },
       "CueCueNumberTimecodeFormatRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberTimecodeFormatRequest.json"
       },
       "CueCueNumberTimecodeFormatResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/timecodeFormat"
+        "$ref": "components/CueCueNumberTimecodeFormatResponse.json"
       },
       "CueCueNumberTimecodeStringRequest": {
-        "type": "object",
-        "properties": { "string": { "type": "string" } }
+        "$ref": "components/CueCueNumberTimecodeStringRequest.json"
       },
       "CueCueNumberTimecodeStringResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/timecodeString"
+        "$ref": "components/CueCueNumberTimecodeStringResponse.json"
       },
       "CueCueNumberStartNextCueWhenSliceEndsRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberStartNextCueWhenSliceEndsRequest.json"
       },
       "CueCueNumberStartNextCueWhenSliceEndsResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/startNextCueWhenSliceEnds"
+        "$ref": "components/CueCueNumberStartNextCueWhenSliceEndsResponse.json"
       },
       "CueCueNumberStopTargetWhenSliceEndsRequest": {
-        "type": "object",
-        "properties": { "number": { "type": "string" } }
+        "$ref": "components/CueCueNumberStopTargetWhenSliceEndsRequest.json"
       },
       "CueCueNumberStopTargetWhenSliceEndsResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/stopTargetWhenSliceEnds"
+        "$ref": "components/CueCueNumberStopTargetWhenSliceEndsResponse.json"
       },
       "CueCueNumberCompileSourceResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/compileSource"
+        "$ref": "components/CueCueNumberCompileSourceResponse.json"
       },
       "CueCueNumberScriptSourceResponse": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "string" },
-          "address": { "type": "string" },
-          "data": { "type": "object" }
-        },
-        "nullable": true,
-        "description": "response object for /cue/{cue_number}/scriptSource"
+        "$ref": "components/CueCueNumberScriptSourceResponse.json"
       }
     }
   }

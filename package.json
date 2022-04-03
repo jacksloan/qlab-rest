@@ -14,7 +14,7 @@
     "build:go-server": "nx build go-server",
     "build:swagger": "nx build-swagger go-server",
     "package": "pkg .",
-    "scraper": "npx nx workspace-generator scraper --dir=swagger --flatDir=apps/go-server/cmd/qlab-swagger-proxy/public --no-interactive",
+    "scraper": "npx nx workspace-generator scraper --dir=apps/go-server/cmd/qlab-swagger-proxy/public --no-interactive",
     "codegen": "openapi-generator-cli generate --generator-key openapitools.json",
     "copy-spec": "shx cp openapi.json dist/apps/openapi.json",
     "copy-swagger-css": "shx mkdir -p dist/apps/api-docs/ && cp node_modules/swagger-ui-dist/swagger-ui.css dist/apps/api-docs/",

@@ -7,7 +7,7 @@
       "openapitools.json": {
         "generatorName": "typescript-fetch",
         "output": "codegen",
-        "glob": "swagger/openapi.json",
+        "glob": "apps/go-server/cmd/qlab-swagger-proxy/public",
         "additionalProperties": {
           "npmName": "@jbs/codegen",
           "npmVersion": "1.0.0"
