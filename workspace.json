@@ -46,8 +46,23 @@
         "build-app": {
           "executor": "@nx-go/nx-go:build",
           "options": {
-            "outputPath": "dist/apps/go-server",
+            "outputPath": "dist/apps/sir-goodwin",
             "main": "dist/apps/app/main.go"
+          }
+        },
+        "build-swagger": {
+          "executor": "@nx-go/nx-go:build",
+          "options": {
+            "outputPath": "dist/apps/qlab-swagger-proxy",
+            "main": "apps/go-server/cmd/qlab-swagger-proxy/main.go"
+          }
+        },
+        "serve-swagger": {
+          "executor": "@nx-go/nx-go:serve",
+          "options": {
+            "cmd": "gow",
+            "cwd": ".",
+            "main": "apps/go-server/cmd/qlab-swagger-proxy/main.go"
           }
         },
         "serve": {
@@ -55,7 +70,7 @@
           "options": {
             "cmd": "gow",
             "cwd": ".",
-            "main": "apps/go-server/main.go"
+            "main": "apps/go-server/cmd/sir-goodwin/main.go"
           }
         },
         "test": {

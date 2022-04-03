@@ -2,10 +2,13 @@ package main
 
 import (
 	"embed"
-	"goodwin/apps/go-server/pkg"
+	"flag"
+	"fmt"
 	"log"
 	"net/http"
 	"time"
+
+	"github.com/jacksloan/sir-goodwin/apps/go-server/pkg"
 
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
@@ -15,6 +18,9 @@ import (
 var files embed.FS
 
 func main() {
+	port := flag.Int("port", 5000, "port number")
+	flag.Parse()
+
 	router := mux.NewRouter()
 
 	tcpClient := pkg.NewTcpClient()
@@ -32,17 +38,16 @@ func main() {
 		Methods(http.MethodGet).
 		HandlerFunc(pkg.HandleStatic(files, "public"))
 
-	port := "5000"
 	headersOk := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"})
 	originsOk := handlers.AllowedOrigins([]string{"*"})
 	methodsOk := handlers.AllowedMethods([]string{"GET", "HEAD", "POST", "PUT", "OPTIONS"})
 
 	srv := &http.Server{
 		Handler:      handlers.CORS(headersOk, originsOk, methodsOk)(router),
-		Addr:         "0.0.0.0:" + port,
+		Addr:         fmt.Sprintf("0.0.0.0:%d", *port),
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
 	}
-	log.Printf("listing at http://%s:%s", pkg.GetOutboundIP(), port)
+	log.Printf("listing at http://%s:%d", pkg.GetOutboundIP(), *port)
 	log.Fatal(srv.ListenAndServe())
 }

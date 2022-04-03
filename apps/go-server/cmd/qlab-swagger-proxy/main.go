@@ -2,18 +2,24 @@ package main
 
 import (
 	"embed"
-	"goodwin/apps/go-server/pkg"
+	"flag"
+	"fmt"
 	"log"
 	"net/http"
 	"time"
 
+	"github.com/jacksloan/sir-goodwin/apps/go-server/pkg"
+
 	"github.com/gorilla/mux"
 )
 
-//go:embed all:public/*
+//go:embed all:swagger/*
 var files embed.FS
 
 func main() {
+	port := flag.Int("port", 5001, "port number")
+	flag.Parse()
+
 	router := mux.NewRouter()
 
 	tcpClient := pkg.NewTcpClient()
@@ -22,17 +28,14 @@ func main() {
 	<-ready
 
 	router.Path(pkg.OscApiPath("/api")).HandlerFunc(pkg.HandleOsc(tcpClient))
-
-	router.PathPrefix("/").HandlerFunc(pkg.HandleStatic(files, "public"))
-
-	port := "5000"
+	router.PathPrefix("/").HandlerFunc(pkg.HandleStatic(files, "swagger"))
 
 	srv := &http.Server{
 		Handler:      router,
-		Addr:         "127.0.0.1:" + port,
+		Addr:         fmt.Sprintf("127.0.0.1:%d", *port),
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
 	}
-	log.Printf("listing at http://%s:%s", pkg.GetOutboundIP(), port)
+	log.Printf("listing at http://localhost:%d", *port)
 	log.Fatal(srv.ListenAndServe())
 }
