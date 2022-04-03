@@ -3,7 +3,15 @@
   "properties": {
     "status": { "type": "string" },
     "address": { "type": "string" },
-    "data": { "type": "object" }
+    "data": {
+      "type": "object",
+      "properties": {
+        "version": { "type": "string" },
+        "displayName": { "type": "string" },
+        "uniqueID": { "type": "string" },
+        "hasPasscode": { "type": "boolean" }
+      }
+    }
   },
   "nullable": true,
   "description": "response object for /workspaces"
