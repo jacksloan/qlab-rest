@@ -1,7 +1,0 @@
-{
-  "type": "object",
-  "properties": {
-    "channel": { "type": "string" },
-    "decibel": { "type": "string" }
-  }
-}

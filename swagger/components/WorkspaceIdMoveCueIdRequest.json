@@ -1,7 +1,0 @@
-{
-  "type": "object",
-  "properties": {
-    "new_index": { "type": "string" },
-    "new_parent_cue_id": { "type": "string" }
-  }
-}

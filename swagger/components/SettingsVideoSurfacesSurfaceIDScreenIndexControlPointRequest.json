@@ -1,8 +1,0 @@
-{
-  "type": "object",
-  "properties": {
-    "row_index": { "type": "string" },
-    "column_index": { "type": "string" },
-    "location": { "type": "string" }
-  }
-}

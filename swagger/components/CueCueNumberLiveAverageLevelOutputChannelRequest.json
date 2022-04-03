@@ -1,4 +1,0 @@
-{
-  "type": "object",
-  "properties": { "low": { "type": "string" }, "high": { "type": "string" } }
-}

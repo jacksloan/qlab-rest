@@ -1,4 +1,0 @@
-{
-  "type": "object",
-  "properties": { "row": { "type": "string" }, "column": { "type": "string" } }
-}

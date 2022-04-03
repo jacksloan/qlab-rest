@@ -1,1 +1,0 @@
-{ "type": "object", "properties": { "passcode_string": { "type": "string" } } }
