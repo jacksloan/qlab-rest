@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { Configuration, CueListsCues, DefaultApi } from '@jbs/codegen/src';
+  import { Configuration, DefaultApi } from '@jbs/codegen/src';
   import { onMount } from 'svelte';
 
   let qlab: DefaultApi;
 
-  async function getCueList(): Promise<CueListsCues[]> {
-    const list = await qlab.workspaceIdCueListsPost({
+  async function getCueList(): Promise<any> {
+    const list = await qlab.workspaceIdCueLists({
       id: workspaceId,
       expectResponse: true,
     });
@@ -13,22 +13,22 @@
   }
 
   async function getWorkspaceId(): Promise<string> {
-    const w = await qlab.workspacesPost({
+    const w = await qlab.workspaces({
       expectResponse: true,
     });
     return w?.data?.[0]?.uniqueID;
   }
 
   async function go(cueNumber: string) {
-    await qlab.cueCueNumberGoPost({
+    await qlab.cueCueNumberGo({
       cueNumber: `${cueNumber}`,
     });
   }
 
   async function createCue() {
-    await qlab.workspaceIdNewPost({
+    await qlab.workspaceIdNew({
       id: workspaceId,
-      inlineObject23: {
+      workspaceIdNewRequest: {
         cueType: 'text',
       },
     });
@@ -36,7 +36,7 @@
   }
 
   async function stop(cueNumber: string) {
-    await qlab.cueCueNumberStopPost({
+    await qlab.cueCueNumberStop({
       cueNumber: `${cueNumber}`,
     });
   }
@@ -51,7 +51,7 @@
     cueList = await getCueList();
   });
 
-  let cueList: CueListsCues[] = [];
+  let cueList: any[] = [];
   let workspaceId = 'loading...';
 </script>
 
