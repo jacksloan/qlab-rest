@@ -13,6 +13,10 @@ import (
 	"github.com/hypebeast/go-osc/osc"
 )
 
+const (
+	statusOk = `{"status":"ok"}`
+)
+
 type QlabTcpClient struct {
 	writer   *slip.Writer
 	channels *Channels
@@ -50,7 +54,7 @@ func (q *QlabTcpClient) Send(oscAddress string, oscArguments []string, expectRes
 		if err := q.WritePacket(oscAddress, oscArguments); err != nil {
 			return "", err
 		}
-		return "{}", nil
+		return statusOk, nil
 	}
 
 	if err := q.WritePacket(oscAddress, oscArguments); err != nil {
@@ -67,7 +71,7 @@ func (q *QlabTcpClient) Send(oscAddress string, oscArguments []string, expectRes
 		return res, nil
 	case <-time.After(3 * time.Second):
 		q.channels.Remove(replyAddress, replyKey)
-		return "{}", nil
+		return statusOk, nil
 	}
 }
 
