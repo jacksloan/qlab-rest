@@ -1,0 +1,7 @@
+{
+  "type": "object",
+  "properties": {
+    "startNumber": { "type": "string" },
+    "incrementNumber": { "type": "string" }
+  }
+}

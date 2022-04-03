@@ -55,8 +55,8 @@ export async function scrapeCommands(
             return false;
           }
         })
-        .filter(Boolean)
-        .toArray() as any as OscCommand[];
+        .toArray()
+        .filter(Boolean) as any as OscCommand[];
 
       return commands;
     }

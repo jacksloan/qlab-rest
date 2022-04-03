@@ -1,0 +1,7 @@
+{
+  "type": "object",
+  "properties": {
+    "family": { "type": "string" },
+    "style": { "type": "string" }
+  }
+}
