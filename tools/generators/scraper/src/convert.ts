@@ -1,4 +1,3 @@
-import { logger } from '@nrwl/devkit';
 import * as _ from 'lodash';
 import { camelCase } from 'lodash';
 import { OpenAPIV3 as OpenAPI } from 'openapi-types';
@@ -6,11 +5,6 @@ import { OscCommand } from './model';
 
 export function convert(qlab: OscCommand[]): OpenAPI.Document {
   const paths = qlab.reduce((acc, curr) => {
-    // skip duplicate path or codegen will break
-    if (curr.path === '/cue/{cue_number}sliceMarkers') {
-      logger.info('skipping duplicate path /cue/{cue_number}sliceMarkers');
-      return acc;
-    }
     const { path, description, commandArguments, pathVariables } = curr;
     return {
       ...acc,

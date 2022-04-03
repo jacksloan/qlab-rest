@@ -1,4 +1,5 @@
 import { Path } from 'path-parser';
+import { logger } from '@nrwl/devkit';
 import { OscCommand } from './model';
 import cheerio from 'cheerio';
 import axios from 'axios';
@@ -29,6 +30,12 @@ export async function scrapeCommands(
             const h4 = getElements('h4')[0] as any as string;
             const pathElements = h4.trim().split(' ');
             const [path, ...rest] = pathElements;
+
+            // skip bad dictionary entries
+            if (path ==='/cue/{cue_number}sliceMarkers') {
+              logger.info('skipping duplicate path /cue/{cue_number}sliceMarkers')
+              return false
+            }
             const pathVariables = new Path(fixStringForPath(path)).params;
 
             const commandArguments =
@@ -43,6 +50,9 @@ export async function scrapeCommands(
               commandArguments,
               description,
             };
+          } else {
+            // not a dictionary entry... skip
+            return false;
           }
         })
         .filter(Boolean)
