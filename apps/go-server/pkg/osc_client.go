@@ -1,4 +1,4 @@
-package qlab
+package pkg
 
 import (
 	"errors"
@@ -7,6 +7,8 @@ import (
 	"net"
 	"strings"
 	"time"
+
+	"goodwin/apps/go-server/pkg/internal"
 
 	"github.com/Lobaro/slip"
 	"github.com/google/uuid"
@@ -19,13 +21,25 @@ const (
 
 type QlabTcpClient struct {
 	writer   *slip.Writer
-	channels *Channels
+	channels *internal.Channels
 }
 
 func NewTcpClient() *QlabTcpClient {
 	return &QlabTcpClient{
-		channels: NewChannelsMap(),
+		channels: internal.NewChannelsMap(),
 	}
+}
+
+func GetOutboundIP() net.IP {
+	conn, err := net.Dial("udp", "8.8.8.8:80")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer conn.Close()
+
+	localAddr := conn.LocalAddr().(*net.UDPAddr)
+
+	return localAddr.IP
 }
 
 func (q *QlabTcpClient) Listen(initialized chan<- bool) {

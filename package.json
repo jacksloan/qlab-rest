@@ -16,7 +16,7 @@
     "codegen": "openapi-generator-cli generate --generator-key openapitools.json",
     "copy-spec": "shx cp openapi.json dist/apps/openapi.json",
     "copy-swagger-css": "shx mkdir -p dist/apps/api-docs/ && cp node_modules/swagger-ui-dist/swagger-ui.css dist/apps/api-docs/",
-    "copy-go-server": "shx cp apps/go-server/main.go dist/apps/app/",
+    "copy-go-server": "shx cp apps/go-server/cmd/sir-goodwin/main.go dist/apps/app/",
     "run": "./sir-goodwin",
     "bpr": "run-s build package run",
     "test": "nx test",

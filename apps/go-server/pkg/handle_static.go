@@ -1,4 +1,4 @@
-package qlab
+package pkg
 
 import (
 	"embed"
@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 )
 
-func HandleStatic(files embed.FS) func(w http.ResponseWriter, r *http.Request) {
+func HandleStatic(files embed.FS, dir string) func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
 		// get the absolute path to prevent directory traversal
 		path, err := filepath.Abs(r.URL.Path)
@@ -18,12 +18,12 @@ func HandleStatic(files embed.FS) func(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		// prepend the path with the path to the static directory
-		path = filepath.Join("build", path)
+		path = filepath.Join(dir, path)
 
 		_, err = files.Open(path)
 		if os.IsNotExist(err) {
 			// file does not exist, serve index.html
-			index, err := files.ReadFile(filepath.Join("build", "index.html"))
+			index, err := files.ReadFile(filepath.Join(dir, "index.html"))
 			if err != nil {
 				http.Error(w, err.Error(), http.StatusInternalServerError)
 				return
@@ -40,7 +40,7 @@ func HandleStatic(files embed.FS) func(w http.ResponseWriter, r *http.Request) {
 		}
 
 		// get the subdirectory of the static dir
-		statics, err := fs.Sub(files, "build")
+		statics, err := fs.Sub(files, dir)
 		// otherwise, use http.FileServer to serve the static dir
 		http.FileServer(http.FS(statics)).ServeHTTP(w, r)
 	}

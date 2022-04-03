@@ -1,12 +1,17 @@
-package qlab
+package pkg
 
 import (
 	"encoding/json"
 	"io"
 	"net/http"
+	"strings"
 
 	"github.com/gorilla/mux"
 )
+
+func OscApiPath(prefix string) string {
+	return strings.Join([]string{prefix, `{rest:[a-zA-Z0-9=\-\/]+}`}, "/")
+}
 
 func HandleOsc(q *QlabTcpClient) func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
