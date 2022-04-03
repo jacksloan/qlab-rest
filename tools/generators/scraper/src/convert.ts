@@ -1,72 +1,23 @@
-import { joinPathFragments } from '@nrwl/devkit';
+import * as _ from 'lodash';
+import { camelCase } from 'lodash';
 import { OpenAPIV3 as OpenAPI } from 'openapi-types';
 import { OscCommand } from './model';
 
 export function convert(qlab: OscCommand[]): OpenAPI.Document {
   const paths = qlab.reduce((acc, curr) => {
     const { path, description, commandArguments, pathVariables } = curr;
-
-    const maybeRequestBody =
-      (commandArguments || []).length < 1
-        ? {}
-        : {
-            requestBody: <OpenAPI.RequestBodyObject>{
-              content: {
-                'application/json': {
-                  schema: {
-                    type: 'object',
-                    properties: commandArguments.reduce(
-                      (props, prop) => ({
-                        ...props,
-                        [prop]: <OpenAPI.SchemaObject>{
-                          type: 'string',
-                        },
-                      }),
-                      {}
-                    ),
-                  },
-                },
-              },
-            },
-          };
-
     return {
       ...acc,
       [path]: <OpenAPI.PathItemObject>{
         post: <OpenAPI.OperationObject>{
+          operationId: camelCase(createSchemaName(path)),
           description,
           parameters: [
-            {
-              in: 'query',
-              name: 'expect-response',
-              description:
-                'If a response is expected from QLab for this command. Defaults to false.',
-              required: false,
-              schema: { type: 'boolean', default: false },
-            },
-            ...pathVariables.map(
-              (name) =>
-                <OpenAPI.ParameterObject>{
-                  in: 'path',
-                  name,
-                  required: true,
-                  schema: { type: 'string' },
-                }
-            ),
+            expectResponseQueryParam,
+            ...pathVariableObjects(pathVariables),
           ],
-          ...maybeRequestBody,
-          responses: {
-            200: {
-              description: 'ok',
-              content: {
-                'application/json': {
-                  schema: {
-                    $ref: joinPathFragments('responses', `${path.replace(/\+/g, 'plus').replace(/\-/g, 'minus')}.json`),
-                  },
-                },
-              },
-            },
-          },
+          responses: response$RefObject(path),
+          ...maybeRequestBody$RefObject(path, commandArguments),
         },
       },
     };
@@ -75,7 +26,7 @@ export function convert(qlab: OscCommand[]): OpenAPI.Document {
   // delete duplicate path
   delete paths['/cue/{cue_number}sliceMarkers'];
 
-  return {
+  return <OpenAPI.Document>{
     openapi: '3.0.2',
     servers: [{ url: '/api' }],
     info: {
@@ -83,5 +34,129 @@ export function convert(qlab: OscCommand[]): OpenAPI.Document {
       version: '1.0',
     },
     paths,
+    components: {
+      schemas: createComponentSchemaRefs(qlab),
+    },
   };
+}
+
+function maybeRequestBody$RefObject(
+  path: string,
+  commandArguments: string[]
+):
+  | object
+  | {
+      requestBody: OpenAPI.RequestBodyObject;
+    } {
+  const hasArgs = (commandArguments || []).length > 0;
+  return hasArgs
+    ? {
+        requestBody: {
+          content: {
+            'application/json': {
+              schema: {
+                $ref: `#/components/schemas/${createSchemaName(
+                  path,
+                  'Request'
+                )}`,
+              },
+            },
+          },
+        },
+      }
+    : {};
+}
+
+function pathVariableObjects(variables: string[]) {
+  return variables.map(
+    (name) =>
+      <OpenAPI.ParameterObject>{
+        in: 'path',
+        name,
+        required: true,
+        schema: { type: 'string' },
+      }
+  );
+}
+
+function response$RefObject(path: string): {
+  200: OpenAPI.ResponseObject;
+} {
+  return {
+    200: {
+      description: 'ok',
+      content: {
+        'application/json': {
+          schema: {
+            $ref: `#/components/schemas/${createSchemaName(path, 'Response')}`,
+          },
+        },
+      },
+    },
+  };
+}
+
+const expectResponseQueryParam: OpenAPI.ParameterObject = {
+  in: 'query',
+  name: 'expect-response',
+  description:
+    'If a response is expected from QLab for this command. Defaults to false.',
+  required: false,
+  schema: { type: 'boolean', default: false },
+};
+
+function createSchemaName(
+  path: string,
+  suffix?: 'Response' | 'Request'
+): string {
+  const name = cleanSpecialChars(path)
+    .replace(/\{/g, '')
+    .replace(/\}/g, '')
+    .split('/')
+    .map((v, idx) => (idx > 0 ? _.startCase(v).split(' ').join('') : v))
+    .join('');
+  return name + (suffix || '');
+}
+
+function cleanSpecialChars(path: string): string {
+  return path.replace(/\+/g, 'plus').replace(/\-/g, 'minus');
+}
+function createComponentSchemaRefs(qlab: OscCommand[]): {
+  [key: string]: OpenAPI.ReferenceObject | OpenAPI.SchemaObject;
+} {
+  return qlab.reduce((acc, curr) => {
+    const hasArgs = (curr.commandArguments || []).length > 0;
+
+    const requestSchema = hasArgs
+      ? {
+          [createSchemaName(curr.path, 'Request')]: <OpenAPI.SchemaObject>{
+            type: 'object',
+            properties: curr.commandArguments.reduce(
+              (props, prop) => ({
+                ...props,
+                [prop]: <OpenAPI.SchemaObject>{
+                  type: 'string',
+                },
+              }),
+              {}
+            ),
+          },
+        }
+      : {};
+
+    const responseSchema = {
+      [createSchemaName(curr.path, 'Response')]: <OpenAPI.SchemaObject>{
+        type: 'object',
+        properties: {},
+        nullable: true,
+        description: 'response object for ' + curr.path,
+      },
+    };
+
+    return <{ [key: string]: OpenAPI.ReferenceObject | OpenAPI.SchemaObject }>{
+      ...acc,
+      ...requestSchema,
+      ...responseSchema,
+    };
+  }, <{ [key: string]: OpenAPI.ReferenceObject | OpenAPI.SchemaObject }>{});
 }
