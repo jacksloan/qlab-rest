@@ -4,12 +4,15 @@
     "status": { "type": "string" },
     "address": { "type": "string" },
     "data": {
-      "type": "object",
-      "properties": {
-        "version": { "type": "string" },
-        "displayName": { "type": "string" },
-        "uniqueID": { "type": "string" },
-        "hasPasscode": { "type": "boolean" }
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "version": { "type": "string" },
+          "displayName": { "type": "string" },
+          "uniqueID": { "type": "string" },
+          "hasPasscode": { "type": "boolean" }
+        }
       }
     }
   },
