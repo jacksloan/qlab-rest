@@ -7,6 +7,13 @@ export function writeSwaggerJson(
   doc: OpenAPI.Document,
   schema: ScraperSchema
 ) {
+  if (schema.flatDir) {
+    tree.write(
+      joinPathFragments(schema.flatDir, 'openapi.json'),
+      JSON.stringify(doc)
+    );
+  }
+
   // write each component schema to individual files
   Object.entries(doc.components.schemas).forEach(([modelName, modelValue]) => {
     tree.write(

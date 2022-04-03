@@ -12,6 +12,10 @@
         "$source": "argv",
         "index": 0
       }
+    },
+    "flatDir": {
+      "type": "string",
+      "description": "(Optional) Also output a flattened version (no external $refs) of the swagger spec to this location"
     }
   }
 }
