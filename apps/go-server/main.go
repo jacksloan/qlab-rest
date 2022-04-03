@@ -44,7 +44,7 @@ func main() {
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
 	}
-	log.Printf("listing at %s:%s", getOutboundIP(), port)
+	log.Printf("listing at http://%s:%s", getOutboundIP(), port)
 	log.Fatal(srv.ListenAndServe())
 }
 
