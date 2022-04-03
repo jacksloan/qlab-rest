@@ -1,0 +1,7 @@
+{
+  "type": "object",
+  "properties": {
+    "old_command": { "type": "string" },
+    "new_command": { "type": "string" }
+  }
+}

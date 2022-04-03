@@ -1,0 +1,8 @@
+{
+  "type": "object",
+  "properties": {
+    "string": { "type": "string" },
+    "setting": { "type": "string" },
+    "time": { "type": "string" }
+  }
+}

@@ -1,0 +1,1 @@
+{ "type": "object", "properties": { "format_string": { "type": "string" } } }

@@ -1,0 +1,1 @@
+{ "type": "object", "properties": { "delta": { "type": "string" } } }

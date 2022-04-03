@@ -1,0 +1,8 @@
+{
+  "type": "object",
+  "properties": {
+    "index": { "type": "string" },
+    "time": { "type": "string" },
+    "play_count": { "type": "string" }
+  }
+}

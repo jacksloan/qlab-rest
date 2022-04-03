@@ -147,7 +147,11 @@ function createComponentSchemaRefs(qlab: OscCommand[]): {
     const responseSchema = {
       [createSchemaName(curr.path, 'Response')]: <OpenAPI.SchemaObject>{
         type: 'object',
-        properties: {},
+        properties: {
+          status: { type: 'string' },
+          address: { type: 'string' },
+          data: { type: 'object' },
+        },
         nullable: true,
         description: 'response object for ' + curr.path,
       },
