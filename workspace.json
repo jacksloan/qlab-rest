@@ -157,6 +157,33 @@
         }
       },
       "tags": []
+    },
+    "swagger-proxy": {
+      "root": "apps/swagger-proxy",
+      "projectType": "application",
+      "sourceRoot": "apps/swagger-proxy",
+      "targets": {
+        "build": {
+          "executor": "@nx-go/nx-go:build",
+          "options": {
+            "outputPath": "dist/apps/swagger-proxy",
+            "main": "apps/swagger-proxy/main.go"
+          }
+        },
+        "serve": {
+          "executor": "@nx-go/nx-go:serve",
+          "options": {
+            "main": "apps/swagger-proxy/main.go"
+          }
+        },
+        "test": {
+          "executor": "@nx-go/nx-go:test"
+        },
+        "lint": {
+          "executor": "@nx-go/nx-go:lint"
+        }
+      },
+      "tags": []
     }
   }
 }

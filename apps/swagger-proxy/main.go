@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"time"
 
 	pkg "github.com/jacksloan/sir-goodwin/libs/proxy"
 
@@ -23,19 +22,11 @@ func main() {
 	router := mux.NewRouter()
 
 	tcpClient := pkg.NewTcpClient()
-	ready := make(chan bool)
-	go tcpClient.Listen(ready)
-	<-ready
+	go tcpClient.Listen(make(chan<- bool))
 
 	router.Path(pkg.OscApiPath("/api")).HandlerFunc(pkg.HandleOsc(tcpClient))
 	router.PathPrefix("/").HandlerFunc(pkg.HandleStatic(files, "swagger"))
 
-	srv := &http.Server{
-		Handler:      router,
-		Addr:         fmt.Sprintf("127.0.0.1:%d", *port),
-		WriteTimeout: 15 * time.Second,
-		ReadTimeout:  15 * time.Second,
-	}
 	log.Printf("listing at http://localhost:%d", *port)
-	log.Fatal(srv.ListenAndServe())
+	log.Fatal(http.ListenAndServe(fmt.Sprintf("127.0.0.1:%d", *port), router))
 }
