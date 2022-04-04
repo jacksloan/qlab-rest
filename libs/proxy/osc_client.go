@@ -54,7 +54,7 @@ func GetOutboundIP() net.IP {
 func (q *QlabTcpClient) Listen(ready chan struct{}) {
 	conn, err := net.Dial("tcp", q.address)
 	if err != nil {
-		log.Fatal("Failed to dial tcp network 127.0.0.1:53000", err)
+		log.Fatal("Failed to dial tcp network", err)
 	}
 	defer conn.Close()
 	q.writer = slip.NewWriter(conn)

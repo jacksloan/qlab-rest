@@ -24,8 +24,7 @@ func main() {
 	log.Printf("QLab instance selected %s", qlabAddress)
 
 	tcpClient := proxy.NewTcpClient(qlabAddress)
-	ready := make(chan struct{})
-	go tcpClient.Listen(ready)
+	go tcpClient.Listen(make(chan struct{}, 1))
 
 	router := mux.NewRouter()
 	path := "/api"

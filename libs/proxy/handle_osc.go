@@ -16,7 +16,8 @@ func HandleOsc(q *QlabTcpClient, pathPrefix string) http.Handler {
 			return
 		}
 
-		reply, err := q.Send(r.URL.Path, oscArguments, expectResponse)
+		oscCommand := r.URL.Path
+		reply, err := q.Send(oscCommand, oscArguments, expectResponse)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
