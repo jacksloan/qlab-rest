@@ -1,4 +1,7 @@
-package pkg
+/*
+Package proxy provides utilities for interacting with QLab over TCP
+*/
+package proxy
 
 import (
 	"errors"
@@ -20,16 +23,20 @@ const (
 )
 
 type QlabTcpClient struct {
+	address  string
 	writer   *slip.Writer
 	channels *internal.Channels
 }
 
-func NewTcpClient() *QlabTcpClient {
+// NewTcpClient creates a new client
+func NewTcpClient(qlabAddress string) *QlabTcpClient {
 	return &QlabTcpClient{
 		channels: internal.NewChannelsMap(),
+		address:  qlabAddress,
 	}
 }
 
+// GetOutboundIP returns the host IP this API responds to
 func GetOutboundIP() net.IP {
 	conn, err := net.Dial("udp", "8.8.8.8:80")
 	if err != nil {
@@ -42,15 +49,16 @@ func GetOutboundIP() net.IP {
 	return localAddr.IP
 }
 
-func (q *QlabTcpClient) Listen(initialized chan<- bool) {
-	conn, err := net.Dial("tcp", "127.0.0.1:53000")
+// Listen dials the QlabTcpClient address and
+// sends a ready signal when able to send OSC messages
+func (q *QlabTcpClient) Listen(ready chan struct{}) {
+	conn, err := net.Dial("tcp", q.address)
 	if err != nil {
 		log.Fatal("Failed to dial tcp network 127.0.0.1:53000", err)
 	}
 	defer conn.Close()
-
 	q.writer = slip.NewWriter(conn)
-	initialized <- true
+	ready <- struct{}{}
 
 	for {
 		r := slip.NewReader(conn)
@@ -63,6 +71,8 @@ func (q *QlabTcpClient) Listen(initialized chan<- bool) {
 	}
 }
 
+// Send sends an osc message over tcp
+// if expectResponse is true it will wait up to 3 seconds to return a corresponding reply message
 func (q *QlabTcpClient) Send(oscAddress string, oscArguments []string, expectResponse bool) (string, error) {
 	if !expectResponse {
 		if err := q.WritePacket(oscAddress, oscArguments); err != nil {
@@ -89,6 +99,7 @@ func (q *QlabTcpClient) Send(oscAddress string, oscArguments []string, expectRes
 	}
 }
 
+// WritePacket encodes an OSC message and writes it to the connection using the SLIP protocol
 func (q *QlabTcpClient) WritePacket(oscAddress string, oscArguments []string) error {
 	if err := q.canWrite(); err != nil {
 		return err
@@ -110,6 +121,7 @@ func (q *QlabTcpClient) WritePacket(oscAddress string, oscArguments []string) er
 	return nil
 }
 
+// handle packet takes an OSC replies and sends the reply body on the corresponding channel
 func (q *QlabTcpClient) handlePacket(b []byte) {
 	res := strings.Split(string(b), ",s")
 	address := strings.Trim((res[0]), "\x00") // remove null characters

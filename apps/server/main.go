@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"time"
 
-	pkg "github.com/jacksloan/qlab-rest/libs/proxy"
+	"github.com/jacksloan/qlab-rest/libs/proxy"
 
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
@@ -23,15 +23,19 @@ func main() {
 
 	router := mux.NewRouter()
 
-	tcpClient := pkg.NewTcpClient()
-	ready := make(chan bool)
+	log.Println("searching QLab instances")
+	qlabAddress := proxy.PromptServiceSelection()
+	log.Printf("QLab instance selected %s", qlabAddress)
+
+	tcpClient := proxy.NewTcpClient("127.0.0.1:53000")
+	ready := make(chan struct{})
 	go tcpClient.Listen(ready)
 	<-ready
 
 	path := "/api"
 
-	router.PathPrefix(path).Methods(http.MethodPost).Handler(pkg.HandleOsc(tcpClient, path))
-	router.PathPrefix("/").HandlerFunc(pkg.HandleStatic(files, "public"))
+	router.PathPrefix(path).Methods(http.MethodPost).Handler(proxy.HandleOsc(tcpClient, path))
+	router.PathPrefix("/").HandlerFunc(proxy.HandleStatic(files, "public"))
 
 	headersOk := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"})
 	originsOk := handlers.AllowedOrigins([]string{"*"})
@@ -44,6 +48,6 @@ func main() {
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
 	}
-	log.Printf("listing at http://%s:%d", pkg.GetOutboundIP(), *port)
+	log.Printf("listening at http://%s:%d", proxy.GetOutboundIP(), *port)
 	log.Fatal(srv.ListenAndServe())
 }
