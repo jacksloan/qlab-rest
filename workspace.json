@@ -31,48 +31,11 @@
       },
       "tags": []
     },
-    "go-server": {
-      "root": "apps/go-server",
-      "projectType": "application",
-      "sourceRoot": "apps/go-server",
-      "implicitDependencies": ["app"],
+    "proxy": {
+      "root": "libs/proxy",
+      "projectType": "library",
+      "sourceRoot": "libs/proxy",
       "targets": {
-        "build": {
-          "executor": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": ["npm run copy-go-server", "npx nx build-app go-server"]
-          }
-        },
-        "build-app": {
-          "executor": "@nx-go/nx-go:build",
-          "options": {
-            "outputPath": "dist/apps/sir-goodwin",
-            "main": "dist/apps/app/main.go"
-          }
-        },
-        "build-swagger": {
-          "executor": "@nx-go/nx-go:build",
-          "options": {
-            "outputPath": "dist/apps/qlab-swagger-proxy",
-            "main": "apps/go-server/cmd/qlab-swagger-proxy/main.go"
-          }
-        },
-        "serve-swagger": {
-          "executor": "@nx-go/nx-go:serve",
-          "options": {
-            "cmd": "gow",
-            "cwd": ".",
-            "main": "apps/go-server/cmd/qlab-swagger-proxy/main.go"
-          }
-        },
-        "serve": {
-          "executor": "@nx-go/nx-go:serve",
-          "options": {
-            "cmd": "gow",
-            "cwd": ".",
-            "main": "apps/go-server/cmd/sir-goodwin/main.go"
-          }
-        },
         "test": {
           "executor": "@nx-go/nx-go:test"
         },
@@ -82,11 +45,33 @@
       },
       "tags": []
     },
-    "proxy": {
-      "root": "libs/proxy",
-      "projectType": "library",
-      "sourceRoot": "libs/proxy",
+    "server": {
+      "root": "apps/server",
+      "projectType": "application",
+      "sourceRoot": "apps/server",
+      "implicitDependencies": ["app"],
       "targets": {
+        "build": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": ["npm run copy-go-server", "npx nx build-app server"]
+          }
+        },
+        "build-app": {
+          "executor": "@nx-go/nx-go:build",
+          "options": {
+            "outputPath": "dist/apps/server",
+            "main": "dist/apps/app/main.go"
+          }
+        },
+        "serve": {
+          "executor": "@nx-go/nx-go:serve",
+          "options": {
+            "cmd": "gow",
+            "cwd": ".",
+            "main": "apps/server/cmd/sir-goodwin/main.go"
+          }
+        },
         "test": {
           "executor": "@nx-go/nx-go:test"
         },
