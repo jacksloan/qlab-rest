@@ -1,5 +1,5 @@
 import { joinPathFragments, Tree } from '@nrwl/devkit';
-import _ from 'lodash';
+import * as _ from 'lodash';
 import { OpenAPIV3 as OpenAPI } from 'openapi-types';
 import { ScraperSchema } from './schema.type';
 
@@ -17,7 +17,7 @@ export function writeSwaggerJson(
 
   // write each component schema to individual files
   Object.entries(doc.components.schemas)
-    .filter(not(startsWith('_')))
+    .filter(entryKey(not(startsWith('_'))))
     .forEach(([modelName, modelValue]) => {
       tree.write(
         joinPathFragments(schema.dir, getModelPath(modelName)),
@@ -32,6 +32,10 @@ export function writeSwaggerJson(
     joinPathFragments(schema.dir, 'openapi.json'),
     JSON.stringify(replaceComponentsWith$RefPaths(doc))
   );
+}
+
+function entryKey(fn: (key: string) => any): (o: [k: string, v: any]) => any {
+  return ([k, _]) => fn(k);
 }
 
 function startsWith(s: string): (s: string) => boolean {
