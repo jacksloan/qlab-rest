@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/jacksloan/sir-goodwin/apps/go-server/pkg/internal"
+	"github.com/jacksloan/qlab-rest/libs/handlers/internal"
 
 	"github.com/Lobaro/slip"
 	"github.com/google/uuid"
