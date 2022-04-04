@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/jacksloan/sir-goodwin/apps/go-server/pkg"
+	pkg "github.com/jacksloan/qlab-rest/libs/handlers"
 
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
