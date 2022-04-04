@@ -1,6 +1,7 @@
 import * as _ from 'lodash';
 import { camelCase } from 'lodash';
 import { OpenAPIV3 as OpenAPI } from 'openapi-types';
+import { customComponents } from './custom-components';
 import { OscCommand } from './model';
 
 export function convert(qlab: OscCommand[]): OpenAPI.Document {
@@ -34,37 +35,7 @@ export function convert(qlab: OscCommand[]): OpenAPI.Document {
     components: {
       schemas: {
         ...createComponentSchemaRefs(qlab),
-        _WorkspacesCue: {
-          type: 'object',
-          properties: {
-            number: { type: 'string' },
-            uniqueID: { type: 'string' },
-            cues: {
-              type: 'array',
-              items: { $ref: '#/components/schemas/_WorkspacesCue' },
-            },
-            flagged: { type: 'boolean' },
-            listName: { type: 'string' },
-            type: {
-              type: 'string',
-              enum: [
-                'Group',
-                'Audio',
-                'Video',
-                'Text',
-                'Camera',
-                'Mic',
-                'Light',
-                'Fade',
-                'Network',
-                'Midi',
-              ],
-            },
-            colorName: { type: 'boolean' },
-            name: { type: 'boolean' },
-            armed: { type: 'boolean' },
-          },
-        },
+        ...customComponents
       },
     },
   };
