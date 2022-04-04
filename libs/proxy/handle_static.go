@@ -5,25 +5,18 @@ import (
 	"io/fs"
 	"net/http"
 	"os"
-	"path/filepath"
+	"path"
 )
 
 func HandleStatic(files embed.FS, dir string) func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
-		// get the absolute path to prevent directory traversal
-		path, err := filepath.Abs(r.URL.Path)
-		if err != nil {
-			// if we failed to get the absolute path respond with a 400 bad request and stop
-			http.Error(w, err.Error(), http.StatusBadRequest)
-			return
-		}
 		// prepend the path with the path to the static directory
-		path = filepath.Join(dir, path)
+		fp := path.Join(dir, r.URL.Path)
 
-		_, err = files.Open(path)
+		_, err := files.Open(fp)
 		if os.IsNotExist(err) {
 			// file does not exist, serve index.html
-			index, err := files.ReadFile(filepath.Join(dir, "index.html"))
+			index, err := files.ReadFile(path.Join(dir, "index.html"))
 			if err != nil {
 				http.Error(w, err.Error(), http.StatusInternalServerError)
 				return
