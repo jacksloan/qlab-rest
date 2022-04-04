@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/jacksloan/sir-goodwin/apps/go-server/pkg"
+	pkg "github.com/jacksloan/sir-goodwin/libs/proxy"
 
 	"github.com/gorilla/mux"
 )

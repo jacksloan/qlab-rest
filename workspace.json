@@ -82,6 +82,20 @@
       },
       "tags": []
     },
+    "proxy": {
+      "root": "libs/proxy",
+      "projectType": "library",
+      "sourceRoot": "libs/proxy",
+      "targets": {
+        "test": {
+          "executor": "@nx-go/nx-go:test"
+        },
+        "lint": {
+          "executor": "@nx-go/nx-go:lint"
+        }
+      },
+      "tags": []
+    },
     "server": {
       "root": "apps/server",
       "sourceRoot": "apps/server/src",
