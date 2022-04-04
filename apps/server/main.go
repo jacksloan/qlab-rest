@@ -27,7 +27,7 @@ func main() {
 	qlabAddress := proxy.PromptServiceSelection()
 	log.Printf("QLab instance selected %s", qlabAddress)
 
-	tcpClient := proxy.NewTcpClient("127.0.0.1:53000")
+	tcpClient := proxy.NewTcpClient(qlabAddress)
 	ready := make(chan struct{})
 	go tcpClient.Listen(ready)
 	<-ready
