@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Configuration, DefaultApi } from '@jbs/codegen/src';
   import { onMount } from 'svelte';
+  let VITE_MODE = import.meta.env.MODE;
 
   let qlab: DefaultApi;
 
@@ -42,9 +43,11 @@
   }
 
   onMount(async () => {
+    const port =
+      (VITE_MODE || '') === 'development' ? 5000 : window.location.port;
     qlab = new DefaultApi(
       new Configuration({
-        basePath: `http://${window.location.hostname}:5000/api`,
+        basePath: `http://${window.location.hostname}:${port}/api`,
       })
     );
     workspaceId = await getWorkspaceId();

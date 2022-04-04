@@ -69,7 +69,7 @@
           "options": {
             "cmd": "gow",
             "cwd": ".",
-            "main": "apps/server/cmd/sir-goodwin/main.go"
+            "main": "apps/server/main.go"
           }
         },
         "test": {

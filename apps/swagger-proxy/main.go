@@ -24,7 +24,8 @@ func main() {
 	tcpClient := pkg.NewTcpClient()
 	go tcpClient.Listen(make(chan<- bool))
 
-	router.Path(pkg.OscApiPath("/api")).HandlerFunc(pkg.HandleOsc(tcpClient))
+	path := "/api"
+	router.PathPrefix(path).Handler(pkg.HandleOsc(tcpClient, path))
 	router.PathPrefix("/").HandlerFunc(pkg.HandleStatic(files, "swagger"))
 
 	log.Printf("listing at http://localhost:%d", *port)
