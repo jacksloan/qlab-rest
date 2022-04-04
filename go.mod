@@ -1,4 +1,4 @@
-module github.com/jacksloan/sir-goodwin
+module github.com/jacksloan/qlab-rest
 
 go 1.18
 

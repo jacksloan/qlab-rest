@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/jacksloan/sir-goodwin/libs/proxy/internal"
+	"github.com/jacksloan/qlab-rest/libs/proxy/internal"
 
 	"github.com/Lobaro/slip"
 	"github.com/google/uuid"

@@ -7,7 +7,7 @@ import (
 	"log"
 	"net/http"
 
-	pkg "github.com/jacksloan/sir-goodwin/libs/proxy"
+	pkg "github.com/jacksloan/qlab-rest/libs/proxy"
 
 	"github.com/gorilla/mux"
 )

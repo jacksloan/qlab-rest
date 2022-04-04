@@ -28,18 +28,22 @@ func main() {
 	go tcpClient.Listen(ready)
 	<-ready
 
-	path := "/api"
+	router.
+		Path(pkg.OscApiPath("/api")).
+		Methods(http.MethodPost, http.MethodPut, http.MethodGet).
+		HandlerFunc(pkg.HandleOsc(tcpClient))
 
-	router.PathPrefix(path).Methods(http.MethodPost).Handler(pkg.HandleOsc(tcpClient, path))
-	router.PathPrefix("/").HandlerFunc(pkg.HandleStatic(files, "public"))
+	router.
+		PathPrefix("/").
+		Methods(http.MethodGet).
+		HandlerFunc(pkg.HandleStatic(files, "public"))
 
 	headersOk := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"})
 	originsOk := handlers.AllowedOrigins([]string{"*"})
 	methodsOk := handlers.AllowedMethods([]string{"GET", "HEAD", "POST", "PUT", "OPTIONS"})
-	cors := handlers.CORS(headersOk, originsOk, methodsOk)
 
 	srv := &http.Server{
-		Handler:      cors(router),
+		Handler:      handlers.CORS(headersOk, originsOk, methodsOk)(router),
 		Addr:         fmt.Sprintf("0.0.0.0:%d", *port),
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
