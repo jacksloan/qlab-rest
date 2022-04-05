@@ -107,6 +107,36 @@
         }
       },
       "tags": []
+    },
+    "voice-cmd": {
+      "root": "apps/voice-cmd",
+      "projectType": "application",
+      "sourceRoot": "apps/voice-cmd/src",
+      "targets": {
+        "build": {
+          "executor": "@nxext/sveltekit:sveltekit",
+          "options": {
+            "command": "build"
+          }
+        },
+        "serve": {
+          "executor": "@nxext/sveltekit:sveltekit",
+          "options": {
+            "command": "dev"
+          }
+        },
+        "add": {
+          "executor": "@nxext/sveltekit:add"
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/voice-cmd/**/*.{ts,svelte,spec.ts}"]
+          }
+        }
+      },
+      "tags": []
     }
   }
 }
