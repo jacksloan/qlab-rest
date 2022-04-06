@@ -1,24 +1,30 @@
 # About
 
-Sir Goodwin uses the (experimental) [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API) to translate voice commands into QLab OSC commands.
+The QLab rest monorepo contains several demo apps and a Golang utility library for creating applications that interact with QLab
 
-# (App) App
+# (App) Goodwin
 
-App is a web app that uses the web speech API to send QLab OSC commands
+Goodwin is a SvelteKit application for configuring voice commands that trigger QLab cues
 
-[See Project README for more info](./apps/app/README.md)
+[See Project README for more info](./apps/goodwin/README.md)
 
-# (App) Server
+# (App) Qlab Proxy
 
-Server hosts App and proxies OSC commands over http
+QLab proxy is a general purpose OSC proxy server that hosts an embedded file server
 
-[See Project README for more info](./apps/server/README.md)
+[See Project README for more info](./apps/qlab-proxy/README.md)
 
 # (App) Swagger Proxy
 
 Swagger proxy is serves a swagger-ui instance and proxies http requests to QLab
 
 [See Project README for more info](./apps/swagger-proxy/README.md)
+
+# (App) voice-cmd
+
+Voice cmd is an example application that demonstrates speech-to-text commands that trigger QLab cues
+
+[See Project README for more info](./apps/voice-cmd/README.md)
 
 # (Lib) Proxy
 
