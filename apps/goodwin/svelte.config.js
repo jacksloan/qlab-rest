@@ -14,8 +14,8 @@ const config = {
       default: true,
     },
     adapter: adapter({
-      assets: '../../dist/apps/app/public',
-      pages: '../../dist/apps/app/public',
+      assets: '../../dist/apps/goodwin/public',
+      pages: '../../dist/apps/goodwin/public',
     }),
   },
 };
