@@ -59,13 +59,12 @@
       "root": "apps/qlab-proxy",
       "projectType": "application",
       "sourceRoot": "apps/qlab-proxy",
-      "implicitDependencies": ["goodwin"],
       "targets": {
         "build": {
           "executor": "@nx-go/nx-go:build",
           "options": {
             "outputPath": "dist/apps/qlab-proxy",
-            "main": "dist/apps/goodwin/main.go"
+            "main": "apps/qlab-proxy/main.go"
           }
         },
         "serve": {
