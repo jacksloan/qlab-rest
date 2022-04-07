@@ -2,11 +2,23 @@
 
 The QLab rest monorepo contains several demo apps and a Golang utility library for creating applications that interact with QLab
 
+# Development Setup
+
+To run this project make sure you have the following installed:
+
+- [Golang](https://go.dev/dl/)
+- [Gow](https://github.com/mitranim/gow)
+- [NodeJS](https://nodejs.org/en/)
+
+Run `npm install`
+
+Build and run commands can be found in the script section of this projects `package.json`
+
 # (App) Goodwin
 
 Goodwin is a SvelteKit application for configuring voice commands that trigger QLab cues
 
-To run locally, make sure a QLab project is open and run: `npm start`
+To run locally, make sure a QLab project is open and run: `npm run start:goodwin`
 
 [See Project README for more info](./apps/goodwin/README.md)
 
