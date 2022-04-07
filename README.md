@@ -6,11 +6,15 @@ The QLab rest monorepo contains several demo apps and a Golang utility library f
 
 Goodwin is a SvelteKit application for configuring voice commands that trigger QLab cues
 
+To run locally, make sure a QLab project is open and run: `npm start`
+
 [See Project README for more info](./apps/goodwin/README.md)
 
 # (App) Qlab Proxy
 
 QLab proxy is a general purpose OSC proxy server that hosts an embedded file server
+
+To run locally, make sure a QLab project is open and run: `npm run start:qlab-proxy`
 
 [See Project README for more info](./apps/qlab-proxy/README.md)
 
@@ -18,11 +22,15 @@ QLab proxy is a general purpose OSC proxy server that hosts an embedded file ser
 
 Swagger proxy is serves a swagger-ui instance and proxies http requests to QLab
 
+To run locally, make sure a QLab project is open and run: `npm run start:swagger-proxy`
+
 [See Project README for more info](./apps/swagger-proxy/README.md)
 
 # (App) voice-cmd
 
 Voice cmd is an example application that demonstrates speech-to-text commands that trigger QLab cues
+
+To run locally, make sure a QLab project is open and run: `npm run start:voice-cmd`
 
 [See Project README for more info](./apps/voice-cmd/README.md)
 
@@ -31,6 +39,12 @@ Voice cmd is an example application that demonstrates speech-to-text commands th
 Proxy is a go library for interacting with QLab via TCP
 
 [Documentation](https://pkg.go.dev/github.com/jacksloan/qlab-rest/libs/proxy)
+
+# (Generator) Scraper
+
+Scraper reads the QLab OSC dictionary page from https://qlab.app/docs/v4/scripting/osc-dictionary-v4/ and creates a OpenAPI V3 specification file
+
+Usage: `npm run scraper` or `npx nx workspace-generator scraper --dir=some/directory`
 
 # TODO
 
