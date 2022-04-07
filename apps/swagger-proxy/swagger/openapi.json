@@ -3390,9 +3390,9 @@
         }
       }
     },
-    "/workspace/{id}/select_id/{id}": {
+    "/workspace/{id}/select_id/{selectId}": {
       "post": {
-        "operationId": "workspaceIdSelectIdId",
+        "operationId": "workspaceIdSelectIdSelectId",
         "description": "/workspace/{id}/select/{cue_number}\n/workspace/{id}/select_id/{id}\nSelect the specified cue(s).",
         "parameters": [
           {
@@ -3410,7 +3410,7 @@
           },
           {
             "in": "path",
-            "name": "id",
+            "name": "selectId",
             "required": true,
             "schema": { "type": "string" }
           }
@@ -3421,7 +3421,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/WorkspaceIdSelectIdIdResponse"
+                  "$ref": "#/components/schemas/WorkspaceIdSelectIdSelectIdResponse"
                 }
               }
             }
@@ -7575,7 +7575,7 @@
     "/cue/{cue_number}/gang": {
       "post": {
         "operationId": "cueCueNumberGang",
-        "description": "/cue/{cue_number}/gang inChannel outChannel {gang}\n/cue/{cue_number}/gang/inChannel/outChannel {gang}\nIf gang is given, set the gang of crosspoint (inChannel, outChannel) of the specified cue to gang. If not, return the gang of crosspoint (inChannel, outChannel) of the specified cue.\ninChannel must be a whole number between 0 and 24; outChannel must be a whole number between 0 and 64. 0 is the master column or row.\ndecibel, if given, must be a whole number, decimal number, or a string. If decibel is sent as a string (e.g. “-inf”) QLab will use the minimum decibel value set in workspace settings.",
+        "description": "/cue/{cue_number}/gang {inChannel} {outChannel} {gang}\n/cue/{cue_number}/gang/{inChannel}/{outChannel} {gang}\nGet or set a single crosspoint gang.\ninChannel is an integer from 0 to 24.\noutChannel is either an integer from 0 to 64, or a string (the cue output name).\ngang is an optional text string. When present it is the gang to set.\nIf no gang is given, return the gang of the specified crosspoint.",
         "parameters": [
           {
             "in": "query",
@@ -7713,7 +7713,7 @@
     "/cue/{cue_number}/level": {
       "post": {
         "operationId": "cueCueNumberLevel",
-        "description": "/cue/{cue_number}/level inChannel outChannel {decibel}\n/cue/{cue_number}/level/inChannel/outChannel {decibel}\nIf decibel is given, set the level of crosspoint (inChannel, outChannel) of the specified cue to decibel. If not, return the level of crosspoint (inChannel, outChannel) of the specified cue.\ninChannel must be a whole number between 0 and 24; outChannel must be a whole number between 0 and 64. 0 is the master column or row.\ndecibel, if given, must be a whole number, decimal number, or a string. If decibel is sent as a string (e.g. “-inf”) QLab will use the minimum decibel value set in workspace settings.",
+        "description": "/cue/{cue_number}/level {inChannel} {outChannel} {decibel}\n/cue/{cue_number}/level/{inChannel}/{outChannel} {decibel}\nGet or set a single crosspoint volume level.\ninChannel is an integer from 0 to 24. 0 is the master column.\noutChannel is either an integer from 0 to 64, or a string (the cue output name). 0 is the master row.\ndecibel is an optional whole or decimal number. When present it is the decibel value to set.\nIf decibel is sent as a string (e.g. “-inf”) QLab will use the minimum decibel value set in workspace settings.\nIf no decibel is given, return the volume level of the specified crosspoint.",
         "parameters": [
           {
             "in": "query",
@@ -12312,48 +12312,6 @@
         }
       }
     },
-    "/cue/{cue_number}/gang/inChannel/outChannel": {
-      "post": {
-        "operationId": "cueCueNumberGangInChannelOutChannel",
-        "description": "/cue/{cue_number}/gang inChannel outChannel {gang}\n/cue/{cue_number}/gang/inChannel/outChannel {gang}\nIf gang is given, set the gang of crosspoint (inChannel, outChannel) of the specified cue to gang. If not, return the gang of crosspoint (inChannel, outChannel) of the specified cue.\ninChannel must be a whole number between 0 and 24; outChannel must be a whole number between 0 and 64. 0 is the master column or row.\ndecibel, if given, must be a whole number, decimal number, or a string. If decibel is sent as a string (e.g. “-inf”) QLab will use the minimum decibel value set in workspace settings.",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "expect-response",
-            "description": "If a response is expected from QLab for this command. Defaults to false.",
-            "required": false,
-            "schema": { "type": "boolean", "default": false }
-          },
-          {
-            "in": "path",
-            "name": "cue_number",
-            "required": true,
-            "schema": { "type": "string" }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "ok",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CueCueNumberGangInChannelOutChannelResponse"
-                }
-              }
-            }
-          }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CueCueNumberGangInChannelOutChannelRequest"
-              }
-            }
-          }
-        }
-      }
-    },
     "/cue/{cue_number}/geoMode": {
       "post": {
         "operationId": "cueCueNumberGeoMode",
@@ -12390,48 +12348,6 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CueCueNumberGeoModeRequest"
-              }
-            }
-          }
-        }
-      }
-    },
-    "/cue/{cue_number}/level/inChannel/outChannel": {
-      "post": {
-        "operationId": "cueCueNumberLevelInChannelOutChannel",
-        "description": "/cue/{cue_number}/level inChannel outChannel {decibel}\n/cue/{cue_number}/level/inChannel/outChannel {decibel}\nIf decibel is given, set the level of crosspoint (inChannel, outChannel) of the specified cue to decibel. If not, return the level of crosspoint (inChannel, outChannel) of the specified cue.\ninChannel must be a whole number between 0 and 24; outChannel must be a whole number between 0 and 64. 0 is the master column or row.\ndecibel, if given, must be a whole number, decimal number, or a string. If decibel is sent as a string (e.g. “-inf”) QLab will use the minimum decibel value set in workspace settings.",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "expect-response",
-            "description": "If a response is expected from QLab for this command. Defaults to false.",
-            "required": false,
-            "schema": { "type": "boolean", "default": false }
-          },
-          {
-            "in": "path",
-            "name": "cue_number",
-            "required": true,
-            "schema": { "type": "string" }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "ok",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CueCueNumberLevelInChannelOutChannelResponse"
-                }
-              }
-            }
-          }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CueCueNumberLevelInChannelOutChannelRequest"
               }
             }
           }
@@ -14453,8 +14369,8 @@
       "WorkspaceIdSelectCueNumberResponse": {
         "$ref": "components/WorkspaceIdSelectCueNumberResponse.json"
       },
-      "WorkspaceIdSelectIdIdResponse": {
-        "$ref": "components/WorkspaceIdSelectIdIdResponse.json"
+      "WorkspaceIdSelectIdSelectIdResponse": {
+        "$ref": "components/WorkspaceIdSelectIdSelectIdResponse.json"
       },
       "WorkspaceIdSelectNextResponse": {
         "$ref": "components/WorkspaceIdSelectNextResponse.json"

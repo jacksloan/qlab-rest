@@ -1,1 +1,8 @@
-{ "type": "object", "properties": { "gang": { "type": "string" } } }
+{
+  "type": "object",
+  "properties": {
+    "inChannel": { "type": "string" },
+    "outChannel": { "type": "string" },
+    "gang": { "type": "string" }
+  }
+}

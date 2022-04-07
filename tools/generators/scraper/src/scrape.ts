@@ -46,7 +46,7 @@ export async function scrapeCommands(
                 '/cue/{cue_number}/level inChannel outChannel',
               ].filter((it) => h4s[0].includes(it)).length > 0
             ) {
-              console.log('skipping');
+              console.log(`skipping section ${h4s[0]}`);
               return [];
             }
 
