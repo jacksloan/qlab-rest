@@ -3,7 +3,10 @@
   "properties": {
     "status": { "type": "string" },
     "address": { "type": "string" },
-    "data": { "type": "object" }
+    "data": {
+      "type": "array",
+      "items": { "$ref": "../#/components/schemas/_WorkspacesCue" }
+    }
   },
   "nullable": true,
   "description": "response object for /workspace/{id}/cueLists"
