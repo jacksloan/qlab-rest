@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "properties": {
+    "red": { "type": "string" },
+    "green": { "type": "string" },
+    "blue": { "type": "string" },
+    "alpha": { "type": "string" }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "object",
+  "properties": {
+    "time": { "type": "string" },
+    "play_count": { "type": "string" }
+  }
+}
