@@ -37,16 +37,27 @@ export async function scrapeCommands(
                 })
                 .toArray();
             const h4s = getElements('h4') as any as string[];
-            // skip bad dictionary entries
-            if (h4s[0].includes('/cue/{cue_number}sliceMarkers')) {
-              logger.info(
-                'skipping duplicate path /cue/{cue_number}sliceMarkers'
-              );
+
+            // skip duplicate dictionary entries
+            if (
+              [
+                '/cue/{cue_number}sliceMarkers',
+                '/cue/{cue_number}/gang inChannel outChannel',
+                '/cue/{cue_number}/level inChannel outChannel',
+              ].filter((it) => h4s[0].includes(it)).length > 0
+            ) {
+              console.log('skipping');
               return [];
             }
+
             return h4s.map((h4) => {
               const pathElements = h4.trim().split(' ');
-              const [path, ...rest] = pathElements;
+              let [path, ...rest] = pathElements;
+
+              // cannot have duplicate path variables
+              if (path === '/workspace/{id}/select_id/{id}') {
+                path = '/workspace/{id}/select_id/{selectId}';
+              }
 
               const pathVariables = new Path(fixStringForPath(path)).params;
 
