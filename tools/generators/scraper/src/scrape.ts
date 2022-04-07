@@ -18,6 +18,12 @@ export async function scrapeCommands(
       const commands = $('hr')
         .map(function (i) {
           const section = $(this).nextUntil('hr');
+          const description = section
+            .map(function () {
+              return $(this).text();
+            })
+            .toArray()
+            .join('\n');
           const isDictionaryEntry =
             (section[0] as any).name === 'h4' ||
             section.filter('#application-methods').length > 0;
@@ -30,40 +36,41 @@ export async function scrapeCommands(
                   return $(this).text();
                 })
                 .toArray();
-            const h4 = getElements('h4')[0] as any as string;
-            const pathElements = h4.trim().split(' ');
-            const [path, ...rest] = pathElements;
-
+            const h4s = getElements('h4') as any as string[];
             // skip bad dictionary entries
-            if (path === '/cue/{cue_number}sliceMarkers') {
+            if (h4s[0].includes('/cue/{cue_number}sliceMarkers')) {
               logger.info(
                 'skipping duplicate path /cue/{cue_number}sliceMarkers'
               );
-              return false;
+              return [];
             }
-            const pathVariables = new Path(fixStringForPath(path)).params;
+            return h4s.map((h4) => {
+              const pathElements = h4.trim().split(' ');
+              const [path, ...rest] = pathElements;
 
-            const commandArguments =
-              rest.length < 1
-                ? []
-                : new Path(`/${fixStringForPath(rest.join('/'))}`).params;
+              const pathVariables = new Path(fixStringForPath(path)).params;
 
-            const description = getElements(':not(h4)').join(' ');
-            return <OscCommand>{
-              path,
-              pathVariables,
-              commandArguments,
-              description,
-            };
+              const commandArguments =
+                rest.length < 1
+                  ? []
+                  : new Path(`/${fixStringForPath(rest.join('/'))}`).params;
+
+              return <OscCommand>{
+                path,
+                pathVariables,
+                commandArguments,
+                description,
+              };
+            });
           } else {
             // not a dictionary entry... skip
-            return false;
+            return [];
           }
         })
         .toArray()
-        .filter(Boolean) as any as OscCommand[];
+        .filter(Boolean) as any as OscCommand[][];
 
-      return commands;
+      return commands.flat();
     }
   } catch (error) {
     console.log(error);
