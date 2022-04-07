@@ -10,8 +10,9 @@
           "executor": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
+              "shx mkdir dist/apps/goodwin",
               "npx nx build-app goodwin",
-              "npm run copy-proxy -- dist/apps/goodwin"
+              "npm run copy-proxy -- dist/apps/goodwin/main.go"
             ]
           }
         },
@@ -120,8 +121,9 @@
           "executor": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              "npx nx build-app goodwin",
-              "npm run copy-proxy -- dist/apps/voice-cmd"
+              "shx mkdir dist/apps/voice-cmd",
+              "npx nx build-app voice-cmd",
+              "npm run copy-proxy -- dist/apps/voice-cmd/main.go"
             ]
           }
         },

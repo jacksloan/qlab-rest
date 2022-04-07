@@ -7,7 +7,7 @@
     "start:qlab-proxy": "nx serve qlab-proxy",
     "start:swagger": "nx serve swagger-proxy",
     "start:voice-cmd": "nx run-many --target serve --projects voice-cmd,server --parallel",
-    "build": "nx run-many --target build --all --skip-nx-cache",
+    "build": "shx rm -rf dist && nx run-many --target build --all --skip-nx-cache",
     "build:godwin": "nx build goodwin",
     "build:qlab-proxy": "nx build qlab-proxy",
     "build:swagger": "nx build swagger-proxy",

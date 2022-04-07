@@ -2,21 +2,33 @@
 # Make sure to check the documentation at https://goreleaser.com
 before:
   hooks:
-    - rm -rf _dist dist
-    - npm run build
     - mv dist _dist
     - go mod tidy
 builds:
   - main: ./_dist/apps/goodwin/main.go
-    id: 'goodwin'
+    id: goodwin
     binary: goodwin
     goos:
       - darwin
       - linux
       - windows
+  - main: ./_dist/apps/voice-cmd/main.go
+    id: voice-cmd
+    binary: voice-cmd
+    goos:
+      - darwin
+      - linux
+      - windows
   - main: ./apps/swagger-proxy/main.go
-    id: 'swagger-proxy'
+    id: swagger-proxy
     binary: swagger-proxy
+    goos:
+      - darwin
+      - linux
+      - windows
+  - main: ./apps/qlab-proxy/main.go
+    id: qlab-proxy
+    binary: qlab-proxy
     goos:
       - darwin
       - linux

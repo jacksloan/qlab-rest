@@ -5,14 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Placeholder</title>
+    <style>
+      html,
+      body {
+        font-family: sans-serif;
+        padding: 0 0.25rem;
+      }
+      pre {
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        max-width: 24rem;
+        background-color: black;
+        color: white;
+        font-size: medium;
+        font-family: Consolas, Monaco, Lucida Console, Liberation Mono,
+          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+        width: 100%;
+        display: inline-block;
+      }
+    </style>
   </head>
   <body>
-    <h1>Just a placeholder</h1>
-    <p>
-      This directory needs to exist in order for `go:embed` to work during
-      development.<br />
-      In production, the web app will be served at http://localhost:5000 <br />
-      For development, run `npm start` and navigate to http://localhost:3000
-    </p>
+    <h1>QLab Proxy</h1>
+    <p id="listening"></p>
+
+    <h3 style="margin-top: 2rem">GO cue example</h3>
+    <pre><code>curl -X 'POST' \
+  '<span id="go"></span>' \
+  -H 'accept: application/json' \
+  -d ''</code></pre>
+
+    <h3>STOP cue example</h3>
+    <pre><code>curl -X 'POST' \
+  '<span id="stop"></span>' \
+  -H 'accept: application/json' \
+  -d ''</code></pre>
+
+    <script>
+      function set(selector, text) {
+        document.querySelector(selector).innerHTML = text;
+      }
+      var host = window.location.host;
+      var go = host + '/api/cue/1/go';
+      var stop = host + '/api/cue/1/stop';
+
+      set('#listening', 'API is listening at ' + host);
+      set('#go', go);
+      set('#stop', stop);
+    </script>
   </body>
 </html>
