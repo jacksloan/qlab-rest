@@ -3,6 +3,38 @@
   "servers": [{ "url": "/api" }],
   "info": { "title": "QLab OSC Rest Proxy", "version": "1.0" },
   "paths": {
+    "/alwaysReply": {
+      "post": {
+        "operationId": "alwaysReply",
+        "description": "Application methods QLab will respond to the following general commands: By default, QLab will only send a reply if the method generates a reply to send. However, if number is set to any non-zero number, QLab will send a reply for every OSC message it receives. Messages that would not normally generate a reply will generate one with a JSON string argument that contains: {\n    \"workspace_id\" : string,\n    \"address\": \"/invoked/osc/method\",\n    \"status\": string\n} The status string will be either “ok” or “error”. Note that the data field does not exist in this reply.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "expect-response",
+            "description": "If a response is expected from QLab for this command. Defaults to false.",
+            "required": false,
+            "schema": { "type": "boolean", "default": false }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/AlwaysReplyResponse" }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/AlwaysReplyRequest" }
+            }
+          }
+        }
+      }
+    },
     "/auditionWindow": {
       "post": {
         "operationId": "auditionWindow",
@@ -10976,6 +11008,8 @@
           "armed": { "type": "boolean" }
         }
       },
+      "AlwaysReplyRequest": { "$ref": "components/AlwaysReplyRequest.json" },
+      "AlwaysReplyResponse": { "$ref": "components/AlwaysReplyResponse.json" },
       "AuditionWindowRequest": {
         "$ref": "components/AuditionWindowRequest.json"
       },

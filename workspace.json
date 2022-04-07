@@ -54,7 +54,10 @@
         "build": {
           "executor": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["npm run copy-go-server", "npx nx build-app qlab-proxy"]
+            "commands": [
+              "npm run copy-go-server",
+              "npx nx build-app qlab-proxy"
+            ]
           }
         },
         "build-app": {

@@ -18,7 +18,10 @@ export async function scrapeCommands(
       const commands = $('hr')
         .map(function (i) {
           const section = $(this).nextUntil('hr');
-          const isDictionaryEntry = (section[0] as any).name === 'h4';
+          const isDictionaryEntry =
+            (section[0] as any).name === 'h4' ||
+            section.filter('#application-methods').length > 0;
+
           if (isDictionaryEntry) {
             const getElements = (selector: string) =>
               section
@@ -32,9 +35,11 @@ export async function scrapeCommands(
             const [path, ...rest] = pathElements;
 
             // skip bad dictionary entries
-            if (path ==='/cue/{cue_number}sliceMarkers') {
-              logger.info('skipping duplicate path /cue/{cue_number}sliceMarkers')
-              return false
+            if (path === '/cue/{cue_number}sliceMarkers') {
+              logger.info(
+                'skipping duplicate path /cue/{cue_number}sliceMarkers'
+              );
+              return false;
             }
             const pathVariables = new Path(fixStringForPath(path)).params;
 

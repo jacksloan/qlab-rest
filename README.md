@@ -34,7 +34,7 @@ To run locally, make sure a QLab project is open and run: `npm run start:qlab-pr
 
 Swagger proxy is serves a swagger-ui instance and proxies http requests to QLab
 
-To run locally, make sure a QLab project is open and run: `npm run start:swagger-proxy`
+To run locally, make sure a QLab project is open and run: `npm run start:swagger`
 
 [See Project README for more info](./apps/swagger-proxy/README.md)
 
