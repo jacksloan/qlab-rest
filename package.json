@@ -4,32 +4,24 @@
   "license": "MIT",
   "scripts": {
     "start:goodwin": "nx run-many --target serve --projects goodwin,qlab-proxy --parallel",
-    "start:goodwin-app": "nx serve goodwin",
     "start:qlab-proxy": "nx serve qlab-proxy",
     "start:swagger": "nx serve swagger-proxy",
-    "start:voice-command": "nx run-many --target serve --projects voice-cmd,server --parallel",
+    "start:voice-cmd": "nx run-many --target serve --projects voice-cmd,server --parallel",
     "build": "nx run-many --target build --all --skip-nx-cache",
     "build:godwin": "nx build goodwin",
     "build:qlab-proxy": "nx build qlab-proxy",
     "build:swagger": "nx build swagger-proxy",
-    "package": "pkg .",
+    "test": "nx test",
     "scraper": "npx nx workspace-generator scraper --dir=apps/swagger-proxy/swagger --no-interactive",
     "codegen": "openapi-generator-cli generate --generator-key openapitools.json",
-    "copy-go-server": "shx cp apps/qlab-proxy/main.go dist/apps/goodwin/",
-    "run": "./sir-goodwin",
-    "bpr": "run-s build package run",
-    "test": "nx test"
+    "copy-proxy": "shx cp apps/qlab-proxy/main.go"
   },
   "private": true,
   "dependencies": {
     "@jbs/codegen": "file:./codegen",
     "annyang": "^2.6.1",
-    "cors": "^2.8.5",
     "double-metaphone": "^2.0.0",
-    "express": "4.17.2",
-    "morgan": "^1.10.0",
     "number-to-words": "^1.2.4",
-    "open": "^8.4.0",
     "osc": "^2.4.2",
     "rxjs": "^7.5.5",
     "swagger-ui-express": "^4.3.0",
@@ -69,7 +61,6 @@
     "eslint-plugin-svelte3": "^3.1.2",
     "jest": "27.2.3",
     "lodash": "^4.17.21",
-    "npm-run-all": "^4.1.5",
     "nx": "13.9.6",
     "openapi-types": "^10.0.0",
     "path-parser": "^6.1.0",
@@ -83,16 +74,5 @@
     "tailwindcss": "^3.0.12",
     "ts-jest": "27.0.5",
     "typescript": "^4.5.2"
-  },
-  "bin": "dist/apps/server/main.js",
-  "pkg": {
-    "targets": [
-      "node16-macos-arm64"
-    ],
-    "assets": [
-      "dist/apps/app/**/*",
-      "dist/apps/openapi.json",
-      "dist/apps/api-docs/**/*"
-    ]
   }
 }

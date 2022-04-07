@@ -7,6 +7,15 @@
       "sourceRoot": "apps/goodwin/src",
       "targets": {
         "build": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "npx nx build-app goodwin",
+              "npm run copy-proxy -- dist/apps/goodwin"
+            ]
+          }
+        },
+        "build-app": {
           "executor": "@nxext/sveltekit:sveltekit",
           "options": {
             "command": "build"
@@ -52,15 +61,6 @@
       "implicitDependencies": ["goodwin"],
       "targets": {
         "build": {
-          "executor": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": [
-              "npm run copy-go-server",
-              "npx nx build-app qlab-proxy"
-            ]
-          }
-        },
-        "build-app": {
           "executor": "@nx-go/nx-go:build",
           "options": {
             "outputPath": "dist/apps/qlab-proxy",
@@ -117,6 +117,15 @@
       "sourceRoot": "apps/voice-cmd/src",
       "targets": {
         "build": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "npx nx build-app goodwin",
+              "npm run copy-proxy -- dist/apps/voice-cmd"
+            ]
+          }
+        },
+        "build-app": {
           "executor": "@nxext/sveltekit:sveltekit",
           "options": {
             "command": "build"

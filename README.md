@@ -18,7 +18,7 @@ Build and run commands can be found in the script section of this projects `pack
 
 Goodwin is a SvelteKit application for configuring voice commands that trigger QLab cues
 
-To run locally, make sure a QLab project is open and run: `npm run start:goodwin`
+Develop locally with `npm run start:goodwin`
 
 [See Project README for more info](./apps/goodwin/README.md)
 
@@ -26,7 +26,7 @@ To run locally, make sure a QLab project is open and run: `npm run start:goodwin
 
 QLab proxy is a general purpose OSC proxy server that hosts an embedded file server
 
-To run locally, make sure a QLab project is open and run: `npm run start:qlab-proxy`
+Develop locally with `npm run start:qlab-proxy`
 
 [See Project README for more info](./apps/qlab-proxy/README.md)
 
@@ -34,7 +34,7 @@ To run locally, make sure a QLab project is open and run: `npm run start:qlab-pr
 
 Swagger proxy is serves a swagger-ui instance and proxies http requests to QLab
 
-To run locally, make sure a QLab project is open and run: `npm run start:swagger`
+Develop locally with `npm run start:swagger`
 
 [See Project README for more info](./apps/swagger-proxy/README.md)
 
@@ -42,7 +42,7 @@ To run locally, make sure a QLab project is open and run: `npm run start:swagger
 
 Voice cmd is an example application that demonstrates speech-to-text commands that trigger QLab cues
 
-To run locally, make sure a QLab project is open and run: `npm run start:voice-cmd`
+Develop locally with `npm run start:voice-cmd`
 
 [See Project README for more info](./apps/voice-cmd/README.md)
 
