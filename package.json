@@ -18,8 +18,7 @@
     "copy-go-server": "shx cp apps/qlab-proxy/main.go dist/apps/goodwin/",
     "run": "./sir-goodwin",
     "bpr": "run-s build package run",
-    "test": "nx test",
-    "preinstall": "npm run codegen"
+    "test": "nx test"
   },
   "private": true,
   "dependencies": {
