@@ -8,6 +8,7 @@ apps/voice-cmd/build
 
 # compiled output
 /dist
+/_dist
 /tmp
 /out-tsc
 
@@ -44,3 +45,5 @@ testem.log
 .DS_Store
 Thumbs.db
 
+
+dist/

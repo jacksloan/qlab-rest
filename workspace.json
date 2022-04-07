@@ -64,7 +64,7 @@
           "executor": "@nx-go/nx-go:build",
           "options": {
             "outputPath": "dist/apps/qlab-proxy",
-            "main": "dist/apps/app/main.go"
+            "main": "dist/apps/goodwin/main.go"
           }
         },
         "serve": {
