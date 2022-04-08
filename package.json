@@ -9,7 +9,7 @@
     "build:frontend": "nx run-many --target build --projects goodwin,voice-cmd --skip-nx-cache",
     "build:backend": "npx nx build qlab-rest",
     "test": "nx test",
-    "scraper": "npx nx workspace-generator scraper --dir=apps/swagger-proxy/swagger --no-interactive",
+    "scraper": "npx nx workspace-generator scraper --dir=apps/qlab-proxy/public/swagger --no-interactive",
     "codegen": "openapi-generator-cli generate --generator-key openapitools.json",
     "copy-proxy": "shx cp apps/qlab-proxy/main.go",
     "preinstall": "npm run codegen"

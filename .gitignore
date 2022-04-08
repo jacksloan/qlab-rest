@@ -5,6 +5,7 @@ apps/goodwin/build
 apps/voice-cmd/build
 apps/qlab-rest/public/**/*
 !apps/qlab-rest/public/swagger
+codegen
 
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
