@@ -12,6 +12,9 @@ builds:
       - linux
       - windows
 archives:
+  format_overrides:
+    - goos: windows
+      format: zip
   - replacements:
       darwin: MacOS
       linux: Linux
