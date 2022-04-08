@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { Configuration, DefaultApi } from '@jbs/codegen/src';
+  import { Configuration, DefaultApi, WorkspacesCue } from '@jbs/codegen/src';
   import { onMount } from 'svelte';
   let VITE_MODE = import.meta.env.MODE;
 
   let qlab: DefaultApi;
 
-  async function getCueList(): Promise<any> {
+  async function getCueList(): Promise<WorkspacesCue[]> {
     const list = await qlab.workspaceIdCueLists({
       id: workspaceId,
       expectResponse: true,
@@ -54,44 +54,86 @@
     cueList = await getCueList();
   });
 
-  let cueList: any[] = [];
+  let cueList: WorkspacesCue[] = [];
   let workspaceId = 'loading...';
 </script>
 
 <div class="p-4">
-  <h1 class="text-lg font-semibold">Workspace: {workspaceId}</h1>
-  <button
-    on:click={createCue}
-    class="bg-blue-500 p-2 shadow-md rounded-md text-white">Add Cue</button
-  >
-  <table>
-    <thead>
-      <tr>
-        <td class="px-2">Name</td>
-        <td class="px-2">Number</td>
-        <td class="px-2">Go</td>
-        <td class="px-2">Stop</td>
-      </tr>
-    </thead>
-    <tbody>
-      {#each cueList as cue}
-        <tr>
-          <td class="px-2">{cue.name}</td>
-          <td class="px-2">{cue.number}</td>
-          <td class="px-2"
-            ><button
-              class="bg-green-500 py-1 px-2 rounded-md text-white shadow-md"
-              on:click={() => go(cue.number)}>GO</button
-            ></td
-          >
-          <td class="px-2"
-            ><button
-              class="bg-red-500 py-1 px-2 rounded-md text-white shadow-md"
-              on:click={() => stop(cue.number)}>STOP</button
-            ></td
-          >
-        </tr>
-      {/each}
-    </tbody>
-  </table>
+  <div class="px-4 sm:px-6 lg:px-8">
+    <div class="sm:flex sm:items-center">
+      <div class="sm:flex-auto">
+        <h1 class="text-xl font-semibold text-gray-900">Workspace</h1>
+        <p class="mt-2 text-sm text-gray-700">
+          {workspaceId}
+        </p>
+      </div>
+      <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
+        <button
+          type="button"
+          on:click={createCue}
+          class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto"
+          >Add Cue</button
+        >
+      </div>
+    </div>
+    <div
+      class="-mx-4 mt-8 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:-mx-6 md:mx-0 md:rounded-lg"
+    >
+      <table class="min-w-full divide-y divide-gray-300">
+        <thead class="bg-gray-50">
+          <tr>
+            <th
+              scope="col"
+              class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+              >Name</th
+            >
+            <th
+              scope="col"
+              class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell"
+              >Number</th
+            >
+            <th
+              scope="col"
+              class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+              >Actions</th
+            >
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200 bg-white">
+          {#each cueList as c}
+            <tr>
+              <td
+                class="w-full max-w-0 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none sm:pl-6"
+              >
+                {c.name}
+                <dl class="font-normal lg:hidden">
+                  <dt class="sr-only">Number</dt>
+                  <dd class="mt-1 truncate text-gray-700">
+                    {c.number}
+                  </dd>
+                </dl>
+              </td>
+              <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell"
+                >{c.number}</td
+              >
+              <td class="px-3 py-4 text-md text-white">
+                <div class="flex flex-row gap-6">
+                  <button
+                    on:click={() => go(c.number)}
+                    class="bg-green-600 hover:bg-green-700 shadow-md hover:shadow-lg transition-all duration-100 flex flex-row justify-center items-center w-14 h-14 px-2 py-2 rounded-md"
+                    >GO</button
+                  >
+                  <button
+                    on:click={() => stop(c.number)}
+                    class="bg-red-600 hover:bg-red-700 shadow-md hover:shadow-lg transition-all duration-100 flex flex-row justify-center items-center w-14 h-14 px-2 py-2 rounded-md"
+                    >STOP</button
+                  >
+                </div>
+              </td>
+            </tr>
+          {/each}
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
