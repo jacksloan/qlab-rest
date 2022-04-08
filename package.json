@@ -11,8 +11,7 @@
     "test": "nx test",
     "scraper": "npx nx workspace-generator scraper --dir=apps/qlab-rest/public/swagger --no-interactive",
     "codegen": "openapi-generator-cli generate --generator-key openapitools.json",
-    "copy-proxy": "shx cp apps/qlab-proxy/main.go",
-    "preinstall": "npm run codegen"
+    "copy-proxy": "shx cp apps/qlab-proxy/main.go"
   },
   "private": true,
   "dependencies": {
