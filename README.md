@@ -9,6 +9,7 @@ To run this project make sure you have the following installed:
 - [Golang](https://go.dev/dl/)
 - [Gow](https://github.com/mitranim/gow)
 - [NodeJS](https://nodejs.org/en/)
+- (Optional) to run the codegen, you must also have a Java SDK on your path
 
 Run `npm install`
 
