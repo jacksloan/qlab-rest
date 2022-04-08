@@ -14,6 +14,9 @@ const config = {
     prerender: {
       default: true,
     },
+    paths: {
+      base: dev ? '' : '/voice-cmd',
+    },
     adapter: adapter({
       assets: '../qlab-rest/public/voice-cmd',
       pages: '../qlab-rest/public/voice-cmd',

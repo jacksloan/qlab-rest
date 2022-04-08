@@ -1,5 +1,6 @@
 import preprocess from 'svelte-preprocess';
 import adapter from '@sveltejs/adapter-static';
+const dev = process.env.NODE_ENV === 'development';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -12,6 +13,9 @@ const config = {
   kit: {
     prerender: {
       default: true,
+    },
+    paths: {
+      base: dev ? '' : '/goodwin',
     },
     adapter: adapter({
       assets: '../qlab-rest/public/goodwin',
