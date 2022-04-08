@@ -14,27 +14,27 @@ import (
 	"github.com/gorilla/mux"
 )
 
-//go:embed all:public/*
-var files embed.FS
+var (
+	//go:embed all:public/*
+	files embed.FS
+
+	host = flag.String("host", "127.0.0.1", "host name")
+	port = flag.Int("port", 5000, "port number")
+)
 
 func main() {
-	port := flag.Int("port", 5000, "port number")
 	flag.Parse()
-
-	router := mux.NewRouter()
 
 	log.Println("searching QLab instances")
 	qlabAddress := proxy.PromptServiceSelection()
 	log.Printf("QLab instance selected %s", qlabAddress)
 
 	tcpClient := proxy.NewTcpClient(qlabAddress)
-	ready := make(chan struct{})
-	go tcpClient.Listen(ready)
-	<-ready
+	go tcpClient.Listen(make(chan struct{}, 1))
 
+	router := mux.NewRouter()
 	path := "/api"
-
-	router.PathPrefix(path).Methods(http.MethodPost).Handler(proxy.HandleOsc(tcpClient, path))
+	router.PathPrefix(path).Handler(proxy.HandleOsc(tcpClient, path))
 	router.PathPrefix("/").HandlerFunc(proxy.HandleStatic(files, "public"))
 
 	headersOk := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"})
@@ -44,10 +44,11 @@ func main() {
 
 	srv := &http.Server{
 		Handler:      cors(router),
-		Addr:         fmt.Sprintf("0.0.0.0:%d", *port),
+		Addr:         fmt.Sprintf("%s:%d", *host, *port),
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
 	}
+
 	log.Printf("listening at http://%s:%d", proxy.GetOutboundIP(), *port)
 	log.Fatal(srv.ListenAndServe())
 }

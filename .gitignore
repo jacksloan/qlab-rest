@@ -1,8 +1,10 @@
 .DS_Store
 .svelte-kit
 node_modules
-apps/app/build
+apps/goodwin/build
 apps/voice-cmd/build
+apps/qlab-rest/public/**/*
+!apps/qlab-rest/public/swagger
 
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
