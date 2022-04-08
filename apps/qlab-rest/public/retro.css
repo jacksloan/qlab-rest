@@ -1,12 +1,10 @@
-
-
 pre,
 code {
-  font-family: Menlo, Monaco, "Courier New", monospace;
+  font-family: Menlo, Monaco, 'Courier New', monospace;
 }
 
 pre {
-  padding: .5rem;
+  padding: 0.5rem;
   line-height: 1.25;
   overflow-x: scroll;
 }
@@ -27,16 +25,16 @@ pre {
   }
 
   a[href]:after {
-    content: " (" attr(href) ")";
+    content: ' (' attr(href) ')';
   }
 
   abbr[title]:after {
-    content: " (" attr(title) ")";
+    content: ' (' attr(title) ')';
   }
 
-  a[href^="#"]:after,
-  a[href^="javascript:"]:after {
-    content: "";
+  a[href^='#']:after,
+  a[href^='javascript:']:after {
+    content: '';
   }
 
   pre,
@@ -120,7 +118,7 @@ h3,
 .retro-h3,
 h4,
 .retro-h4 {
-  margin: 1.414rem 0 .5rem;
+  margin: 1.414rem 0 0.5rem;
   font-weight: inherit;
   line-height: 1.42;
 }
@@ -153,12 +151,12 @@ h5,
 
 h6,
 .retro-h6 {
-  font-size: .88rem;
+  font-size: 0.88rem;
 }
 
 small,
 .retro-small {
-  font-size: .707em;
+  font-size: 0.707em;
 }
 
 /* https://github.com/mrmrs/fluidity */
@@ -185,11 +183,11 @@ html {
 
 body {
   color: #fafafa;
-  font-family: "Courier New";
+  font-family: 'Courier New';
   line-height: 1.45;
   margin: 6rem auto 1rem;
   max-width: 48rem;
-  padding: .25rem;
+  padding: 0.25rem;
 }
 
 pre {

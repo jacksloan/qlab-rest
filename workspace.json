@@ -55,22 +55,22 @@
       },
       "tags": []
     },
-    "swagger-proxy": {
-      "root": "apps/swagger-proxy",
+    "qlab-rest": {
+      "root": "apps/qlab-rest",
       "projectType": "application",
-      "sourceRoot": "apps/swagger-proxy",
+      "sourceRoot": "apps/qlab-rest",
       "targets": {
         "build": {
           "executor": "@nx-go/nx-go:build",
           "options": {
-            "outputPath": "dist/apps/swagger-proxy",
-            "main": "apps/swagger-proxy/main.go"
+            "outputPath": "dist/apps/qlab-rest",
+            "main": "apps/qlab-rest/main.go"
           }
         },
         "serve": {
           "executor": "@nx-go/nx-go:serve",
           "options": {
-            "main": "apps/swagger-proxy/main.go"
+            "main": "apps/qlab-rest/main.go"
           }
         },
         "test": {
