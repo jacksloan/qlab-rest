@@ -55,35 +55,6 @@
       },
       "tags": []
     },
-    "qlab-proxy": {
-      "root": "apps/qlab-proxy",
-      "projectType": "application",
-      "sourceRoot": "apps/qlab-proxy",
-      "targets": {
-        "build": {
-          "executor": "@nx-go/nx-go:build",
-          "options": {
-            "outputPath": "dist/apps/qlab-proxy",
-            "main": "apps/qlab-proxy/main.go"
-          }
-        },
-        "serve": {
-          "executor": "@nx-go/nx-go:serve",
-          "options": {
-            "cmd": "gow",
-            "cwd": ".",
-            "main": "apps/qlab-proxy/main.go"
-          }
-        },
-        "test": {
-          "executor": "@nx-go/nx-go:test"
-        },
-        "lint": {
-          "executor": "@nx-go/nx-go:lint"
-        }
-      },
-      "tags": []
-    },
     "swagger-proxy": {
       "root": "apps/swagger-proxy",
       "projectType": "application",
