@@ -2,7 +2,6 @@
 # Make sure to check the documentation at https://goreleaser.com
 before:
   hooks:
-    - mv dist _dist
     - go mod tidy
 builds:
   - main: ./apps/qlab-rest/main.go

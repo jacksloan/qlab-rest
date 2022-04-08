@@ -53,7 +53,7 @@
         "build": {
           "executor": "@nx-go/nx-go:build",
           "options": {
-            "outputPath": "dist/apps/qlab-rest",
+            "outputPath": "_dist/apps/qlab-rest",
             "main": "apps/qlab-rest/main.go"
           }
         },
