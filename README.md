@@ -22,21 +22,13 @@ Develop locally with `npm run start:goodwin`
 
 [See Project README for more info](./apps/goodwin/README.md)
 
-# (App) Qlab Proxy
+# (App) Qlab Rest
 
-QLab proxy is a general purpose OSC proxy server that hosts an embedded file server
+QLab Rest proxies http requests to QLab as OSC messages
 
-Develop locally with `npm run start:qlab-proxy`
+Develop locally with `npm run start:qlab-rest`
 
-[See Project README for more info](./apps/qlab-proxy/README.md)
-
-# (App) Swagger Proxy
-
-Swagger proxy is serves a swagger-ui instance and proxies http requests to QLab
-
-Develop locally with `npm run start:swagger`
-
-[See Project README for more info](./apps/swagger-proxy/README.md)
+[See Project README for more info](./apps/qlab-rest/README.md)
 
 # (App) voice-cmd
 
@@ -66,4 +58,5 @@ Usage: `npm run scraper` or `npx nx workspace-generator scraper --dir=some/direc
 - [x] Translate JSON to OSC messages
 - [x] Implement the QLab OSC API
 - [x] Convert server implementation to Rust or Go for smaller binaries
+- [x] Release binaries on Github 
 - [ ] Create a GUI for configuring/triggering QLab cues
