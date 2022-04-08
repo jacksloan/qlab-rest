@@ -14,8 +14,8 @@ const config = {
       default: true,
     },
     adapter: adapter({
-      assets: '../../dist/apps/goodwin/public',
-      pages: '../../dist/apps/goodwin/public',
+      assets: '../qlab-rest/public/goodwin',
+      pages: '../qlab-rest/public/goodwin',
     }),
   },
 };

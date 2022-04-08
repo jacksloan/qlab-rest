@@ -1,5 +1,6 @@
 import preprocess from 'svelte-preprocess';
 import adapter from '@sveltejs/adapter-static';
+const dev = process.env.NODE_ENV === 'development';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -14,8 +15,8 @@ const config = {
       default: true,
     },
     adapter: adapter({
-      assets: '../../dist/apps/voice-cmd/public',
-      pages: '../../dist/apps/voice-cmd/public',
+      assets: '../qlab-rest/public/voice-cmd',
+      pages: '../qlab-rest/public/voice-cmd',
     }),
   },
 };
