@@ -1,5 +1,6 @@
 <script>
   import '../app.css';
+  import { basePath } from '../lib/constants';
   let menuOpen = false;
   function toggleMenu() {
     menuOpen = !menuOpen;
@@ -52,6 +53,8 @@
       </svg>
     {/if}
   </button>
-  <h1 class="text-lg font-semibold text-indigo-600"><a href="/">Goodwin</a></h1>
+  <h1 class="text-lg font-semibold text-indigo-600">
+    <a href={basePath}>Goodwin</a>
+  </h1>
 </nav>
 <slot />
