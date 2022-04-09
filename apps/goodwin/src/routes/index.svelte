@@ -7,9 +7,9 @@
 
   let qlab: QLab;
   let columns: CellRendererList<WorkspacesCue> = [
-    { key: 'name', position: 0 },
-    { key: 'number', position: 1 },
-    { position: 2, component: CueGoStop },
+    { key: 'name', header: 'Name', position: 0 },
+    { key: 'number', header: 'Cue #', position: 1 },
+    { position: 2, header: 'Actions', component: CueGoStop },
   ];
 
   onMount(async () => {
