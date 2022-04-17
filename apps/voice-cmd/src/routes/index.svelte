@@ -27,16 +27,9 @@
       api.cueCueNumberStop({ cueNumber: `${n}` });
     commands = {
       // go
-      'cue one go': go(1),
-      'cue two go': go(2),
-      'cue three go': go(3),
-      'cue one-hundred-fifty go': go(150),
-
-      // stop
-      'cue one stop': stop(1),
-      'cue two stop': stop(2),
-      'cue three stop': stop(3),
-      'cue one-hundred-fifty stop': stop(150),
+      'show me some puppies': go(1),
+      'show me more cute puppies': go(2),
+      'okay just one more': go(3),
     };
 
     const phoneticCommands: { [k: string]: () => Promise<any> } =
@@ -47,9 +40,8 @@
           [cmd]: fn,
         };
       }, {});
-
-    console.debug({ phoneticCommands });
-
+      
+      // console.debug({ phoneticCommands });
     // recognition JSGF grammars are ignored
     // use metaphone to fuzzy match commands
     recognition.addCallback('result', async (results: string[]) => {
@@ -61,7 +53,7 @@
             .map(maybeConvertNumber)
             .map(metaphone)
             .join(' ');
-          console.debug({ fuzzyResult });
+          // console.debug({ fuzzyResult });
           return fuzzyResult;
         })
         .map((fuzzyResult) => phoneticCommands[fuzzyResult])
