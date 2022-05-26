@@ -1,6 +1,6 @@
 # About
 
-The QLab rest monorepo contains several demo apps and a Golang utility library for creating applications that interact with QLab
+Various apps and libs for interacting with QLab workspaces
 
 # Development Setup
 
